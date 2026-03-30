@@ -5,45 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fringes Hair Salon | Roseville, CA</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-900">
+
+  <!-- PREVIEW BANNER -->
   <div class="bg-yellow-400 text-yellow-900 text-xs font-semibold text-center py-3 px-4">
-    👋 This is a <strong>free preview</strong> built for you by <a href="https://sacvalleyweb.com" target="_blank" class="underline">Sac Valley Web</a> — like it? Claim your site for $350 · <a href="tel:+19169458009" class="underline">(916) 945-8009</a>
+    👋 <strong>Free preview</strong> built by <a href="https://sacvalleyweb.com" target="_blank" class="underline">Sac Valley Web</a> — want this as your real website? $350, live in 24 hrs · <a href="tel:+19169458009" class="underline">(916) 945-8009</a>
   </div>
-  <header class="bg-white border-b border-gray-100 px-6 py-4 sticky top-0 z-10 shadow-sm">
+
+  <!-- NAV -->
+  <header class="bg-white border-b border-gray-100 px-6 py-4 sticky top-0 z-40 shadow-sm">
     <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <p class="font-bold text-lg text-rose-600">Fringes Hair Salon</p>
-      <a href="tel:+19167724141" class="bg-rose-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-rose-700 transition">(916) 772-4141</a>
+      <div>
+        <p class="font-black text-rose-600 text-xl italic tracking-tight">Fringes</p>
+        <p class="text-xs text-gray-400 tracking-widest uppercase">Hair Salon · Roseville, CA</p>
+      </div>
+      <a href="tel:+19167724141" class="bg-rose-600 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-rose-700 transition">Book Now</a>
     </div>
   </header>
-  <section class="py-24 px-6 bg-gradient-to-br from-rose-50 via-white to-white text-center">
-    <div class="max-w-3xl mx-auto">
-      <p class="text-rose-500 text-xs font-semibold uppercase tracking-widest mb-4">Roseville, CA</p>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">Look Your Best.<br /><span class="text-rose-600">Feel Your Best.</span></h1>
-      <p class="text-lg text-gray-500 mb-8 max-w-xl mx-auto">Fringes Hair Salon — Roseville's neighborhood salon for cuts, color, and styling. Expert stylists who care about your hair and your time.</p>
-      <a href="tel:+19167724141" class="inline-block bg-rose-600 text-white font-semibold px-10 py-4 rounded-full text-base hover:bg-rose-700 transition">Book an Appointment</a>
-    </div>
-  </section>
-  <section class="py-16 px-6 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-gray-900 mb-10">What We Offer</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"><div class="text-3xl mb-3">✂️</div><h3 class="font-bold text-gray-900 mb-2">Cuts & Styling</h3><p class="text-gray-500 text-sm">Precision cuts, blowouts, and styles for every hair type — women's, men's, and kids.</p></div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"><div class="text-3xl mb-3">🎨</div><h3 class="font-bold text-gray-900 mb-2">Color & Highlights</h3><p class="text-gray-500 text-sm">Full color, highlights, balayage, and toning — vibrant, long-lasting color that works for your lifestyle.</p></div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"><div class="text-3xl mb-3">💆</div><h3 class="font-bold text-gray-900 mb-2">Treatments</h3><p class="text-gray-500 text-sm">Keratin treatments, deep conditioning, and glosses to restore health and shine to your hair.</p></div>
+
+  <!-- HERO -->
+  <section class="py-24 px-6 bg-gradient-to-br from-rose-50 to-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <p class="text-rose-400 text-xs font-bold uppercase tracking-widest mb-4">Roseville's Neighborhood Salon</p>
+      <h1 class="text-5xl md:text-6xl font-black text-gray-900 leading-tight mb-5">You Deserve a<br/><span class="text-rose-600">Salon That Gets It Right.</span></h1>
+      <p class="text-gray-500 text-xl mb-8 max-w-2xl mx-auto leading-relaxed">Cuts, color, highlights, and treatments — done by stylists who care about your hair as much as you do. Serving Roseville and surrounding areas.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:+19167724141" class="inline-block bg-rose-600 text-white font-bold px-8 py-4 rounded-full hover:bg-rose-700 transition">Call: (916) 772-4141</a>
+        <a href="#services" class="inline-block border border-gray-200 text-gray-700 font-semibold px-8 py-4 rounded-full hover:border-rose-400 hover:text-rose-600 transition">See Services</a>
+      </div>
+      <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+        <span class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Walk-ins welcome</span>
+        <span class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> All hair types</span>
+        <span class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Women, men & kids</span>
+        <span class="flex items-center gap-2"><span class="text-green-500 font-bold">✓</span> Free consultation</span>
       </div>
     </div>
   </section>
-  <section class="py-16 px-6 bg-rose-600 text-white text-center">
-    <h2 class="text-2xl font-bold mb-3">Ready for a Fresh Look?</h2>
-    <p class="text-rose-100 mb-6">Call us to book your appointment at Fringes in Roseville.</p>
-    <a href="tel:+19167724141" class="inline-block bg-white text-rose-600 font-bold px-10 py-4 rounded-full text-lg hover:bg-rose-50 transition">(916) 772-4141</a>
+
+  <!-- STATS -->
+  <section class="bg-rose-600 py-8 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 text-center text-white">
+      <div><p class="text-2xl font-black">Roseville</p><p class="text-rose-200 text-xs font-semibold uppercase tracking-wide mt-1">Local & Community Rooted</p></div>
+      <div><p class="text-2xl font-black">5-Star</p><p class="text-rose-200 text-xs font-semibold uppercase tracking-wide mt-1">Google Reviewed</p></div>
+      <div><p class="text-2xl font-black">Expert</p><p class="text-rose-200 text-xs font-semibold uppercase tracking-wide mt-1">Trained Stylists</p></div>
+    </div>
   </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-rose-500 text-xs font-bold uppercase tracking-widest text-center mb-3">What We Do</p>
+      <h2 class="text-3xl font-black text-gray-900 text-center mb-12">Salon Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-4">✂️</div>
+          <h3 class="font-bold text-gray-900 mb-2">Cuts & Styling</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-3">Precision haircuts, blowouts, updos, and everyday styling. We cut and style for your face shape, hair texture, and lifestyle.</p>
+          <p class="text-rose-600 font-semibold text-sm">From $45</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-4">🎨</div>
+          <h3 class="font-bold text-gray-900 mb-2">Color & Highlights</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-3">Full color, highlights, balayage, ombré, and toning. Whether subtle or bold — we customize every color treatment to you.</p>
+          <p class="text-rose-600 font-semibold text-sm">From $85</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-4">💆</div>
+          <h3 class="font-bold text-gray-900 mb-2">Treatments</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-3">Keratin smoothing, deep conditioning, and gloss treatments. Restore softness, shine, and manageability to any hair type.</p>
+          <p class="text-rose-600 font-semibold text-sm">From $65</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-4">👰</div>
+          <h3 class="font-bold text-gray-900 mb-2">Bridal & Special Occasion</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-3">Bridal updos, event styling, and special occasion looks. Book a trial run before the big day.</p>
+          <p class="text-rose-600 font-semibold text-sm">Consultation required</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-4">🧒</div>
+          <h3 class="font-bold text-gray-900 mb-2">Kids Cuts</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-3">Friendly, patient stylists who make the salon experience fun for kids. All ages welcome.</p>
+          <p class="text-rose-600 font-semibold text-sm">From $30</p>
+        </div>
+        <div class="border border-gray-100 rounded-2xl p-6 hover:shadow-md transition">
+          <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-2xl mb-4">✨</div>
+          <h3 class="font-bold text-gray-900 mb-2">Blowouts</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-3">Salon-quality blowouts for smooth, voluminous, frizz-free hair. Perfect before any event.</p>
+          <p class="text-rose-600 font-semibold text-sm">From $40</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 px-6 bg-rose-50">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-rose-500 text-xs font-bold uppercase tracking-widest text-center mb-3">Client Stories</p>
+      <h2 class="text-3xl font-black text-gray-900 text-center mb-12">Why Clients Keep Coming Back</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"I've been searching for a good colorist in Roseville for years. Found my person at Fringes. She nailed my balayage on the first try — I get compliments constantly."</p>
+          <p class="font-bold text-gray-900 text-sm">Rachel H.</p>
+          <p class="text-gray-400 text-xs">Roseville, CA</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"So refreshing to find a salon that actually listens. I showed a photo and she matched it perfectly. Friendly vibe, clean, and reasonable prices. I'm a regular now."</p>
+          <p class="font-bold text-gray-900 text-sm">Stephanie L.</p>
+          <p class="text-gray-400 text-xs">Rocklin, CA</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Brought three of my kids in and they handled it like champs. Quick, professional, and the kids actually liked their cuts. We'll be back."</p>
+          <p class="font-bold text-gray-900 text-sm">Amanda K.</p>
+          <p class="text-gray-400 text-xs">Lincoln, CA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 bg-rose-600 text-white text-center">
+    <h2 class="text-3xl font-black mb-3">Ready for Your Best Hair Day?</h2>
+    <p class="text-rose-100 mb-8">Call to book your appointment at Fringes in Roseville. Walk-ins welcome when available.</p>
+    <a href="tel:+19167724141" class="inline-block bg-white text-rose-600 font-black px-10 py-4 rounded-full text-lg hover:bg-rose-50 transition">(916) 772-4141</a>
+    <p class="text-rose-300 text-sm mt-4">fringessalon@yahoo.com</p>
+  </section>
+
   <footer class="py-5 px-6 bg-gray-900 text-center text-gray-500 text-xs">
     <p>&copy; 2026 Fringes Hair Salon · Roseville, CA</p>
-    <p class="mt-1">Free preview by <a href="https://sacvalleyweb.com" class="text-rose-400 hover:underline">Sac Valley Web</a></p>
+    <p class="mt-1">Free preview by <a href="https://sacvalleyweb.com" class="text-rose-400 hover:underline">Sac Valley Web</a> — sacvalleyweb.com · (916) 945-8009</p>
   </footer>
+
 </body>
 </html>

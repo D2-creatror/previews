@@ -5,45 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tisha's Braids | Sacramento, CA</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-900">
+
+  <!-- PREVIEW BANNER -->
   <div class="bg-yellow-400 text-yellow-900 text-xs font-semibold text-center py-3 px-4">
-    👋 This is a <strong>free preview</strong> built for you by <a href="https://sacvalleyweb.com" target="_blank" class="underline">Sac Valley Web</a> — like it? Claim your site for $350 · <a href="tel:+19169458009" class="underline">(916) 945-8009</a>
+    👋 <strong>Free preview</strong> built by <a href="https://sacvalleyweb.com" target="_blank" class="underline">Sac Valley Web</a> — want this as your real website? $350, live in 24 hrs · <a href="tel:+19169458009" class="underline">(916) 945-8009</a>
   </div>
-  <header class="bg-white border-b border-gray-100 px-6 py-4 sticky top-0 z-10 shadow-sm">
+
+  <!-- NAV -->
+  <header class="bg-white border-b border-gray-100 px-6 py-4 sticky top-0 z-40 shadow-sm">
     <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <p class="font-bold text-lg text-purple-700">Tisha's Braids</p>
-      <a href="tel:+19163818894" class="bg-purple-600 text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-purple-700 transition">(916) 381-8894</a>
+      <div>
+        <p class="font-black text-purple-700 text-xl tracking-tight">Tisha's Braids</p>
+        <p class="text-xs text-gray-400">Sacramento, CA · Professional Braiding</p>
+      </div>
+      <a href="tel:+19163818894" class="bg-purple-600 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-purple-700 transition">Book Appointment</a>
     </div>
   </header>
-  <section class="py-24 px-6 bg-gradient-to-br from-purple-50 via-white to-white text-center">
-    <div class="max-w-3xl mx-auto">
-      <p class="text-purple-600 text-xs font-semibold uppercase tracking-widest mb-4">Sacramento, CA</p>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">Beautiful Braids.<br /><span class="text-purple-600">By Tisha.</span></h1>
-      <p class="text-lg text-gray-500 mb-8 max-w-xl mx-auto">Professional braiding services in Sacramento — box braids, knotless braids, twists, cornrows, and more. Book your appointment today.</p>
-      <a href="tel:+19163818894" class="inline-block bg-purple-600 text-white font-semibold px-10 py-4 rounded-full text-base hover:bg-purple-700 transition">Book Now: (916) 381-8894</a>
-    </div>
-  </section>
-  <section class="py-16 px-6 bg-gray-50">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-gray-900 mb-10">Braid Styles</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"><div class="text-3xl mb-3">✨</div><h3 class="font-bold text-gray-900 mb-2">Knotless Braids</h3><p class="text-gray-500 text-sm">Lightweight, natural-looking knotless braids that protect your edges and last for weeks.</p></div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"><div class="text-3xl mb-3">💜</div><h3 class="font-bold text-gray-900 mb-2">Box Braids</h3><p class="text-gray-500 text-sm">Classic and bold box braids in any length, size, and color to match your style.</p></div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm"><div class="text-3xl mb-3">🌀</div><h3 class="font-bold text-gray-900 mb-2">Twists & Cornrows</h3><p class="text-gray-500 text-sm">Senegalese twists, passion twists, cornrows, and faux locs — every style done with care.</p></div>
+
+  <!-- HERO -->
+  <section class="py-20 px-6 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-purple-300 text-xs font-bold uppercase tracking-widest mb-4">Sacramento's Braiding Specialist</p>
+        <h1 class="text-5xl font-black leading-tight mb-5">Beautiful Braids<br/>That Last<br/><span class="text-purple-300">For Weeks.</span></h1>
+        <p class="text-purple-200 text-lg mb-8 leading-relaxed">Knotless braids, box braids, twists, cornrows, and more — done by a skilled professional who takes the time to get it right. Your hair, your style.</p>
+        <a href="tel:+19163818894" class="inline-block bg-white text-purple-700 font-bold px-8 py-4 rounded-full hover:bg-purple-50 transition">Call to Book: (916) 381-8894</a>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
+          <div class="flex items-center gap-3 mb-2"><span class="text-2xl">✨</span><p class="font-bold text-white">Knotless Braids</p></div>
+          <p class="text-purple-200 text-sm">Natural-looking, lightweight, and gentle on your edges. The most requested style.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
+          <div class="flex items-center gap-3 mb-2"><span class="text-2xl">💜</span><p class="font-bold text-white">Box Braids & Twists</p></div>
+          <p class="text-purple-200 text-sm">Classic box braids, Senegalese twists, passion twists, and faux locs in any size and length.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
+          <div class="flex items-center gap-3 mb-2"><span class="text-2xl">👧</span><p class="font-bold text-white">Kids Styles Welcome</p></div>
+          <p class="text-purple-200 text-sm">Patient, gentle technique for children. Cornrows, beads, and simple protective styles.</p>
+        </div>
       </div>
     </div>
   </section>
-  <section class="py-16 px-6 bg-purple-700 text-white text-center">
-    <h2 class="text-2xl font-bold mb-3">Ready to Book?</h2>
-    <p class="text-purple-100 mb-6">Located in Sacramento. Call or text to schedule your appointment.</p>
-    <a href="tel:+19163818894" class="inline-block bg-white text-purple-700 font-bold px-10 py-4 rounded-full text-lg hover:bg-purple-50 transition">(916) 381-8894</a>
+
+  <!-- STATS -->
+  <section class="bg-purple-600 py-8 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 text-center text-white">
+      <div><p class="text-2xl font-black">5★</p><p class="text-purple-200 text-xs font-semibold uppercase tracking-wide mt-1">Google Rating</p></div>
+      <div><p class="text-2xl font-black">All Hair</p><p class="text-purple-200 text-xs font-semibold uppercase tracking-wide mt-1">Types Welcome</p></div>
+      <div><p class="text-2xl font-black">Sacramento</p><p class="text-purple-200 text-xs font-semibold uppercase tracking-wide mt-1">Based & Local</p></div>
+    </div>
   </section>
+
+  <!-- SERVICES & PRICING -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-purple-600 text-xs font-bold uppercase tracking-widest text-center mb-3">Services & Pricing</p>
+      <h2 class="text-3xl font-black text-gray-900 text-center mb-3">What Tisha Offers</h2>
+      <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">Pricing varies by length, thickness, and style. All prices include hair unless noted. Contact for a custom quote.</p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-900">Knotless Box Braids</h3>
+            <span class="text-purple-600 font-bold">From $180</span>
+          </div>
+          <p class="text-gray-500 text-sm">Small, medium, or large. Hair included. Duration: 4–6 hrs.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-900">Traditional Box Braids</h3>
+            <span class="text-purple-600 font-bold">From $150</span>
+          </div>
+          <p class="text-gray-500 text-sm">Classic braids in your choice of size and length. Hair included.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-900">Senegalese Twists</h3>
+            <span class="text-purple-600 font-bold">From $170</span>
+          </div>
+          <p class="text-gray-500 text-sm">Smooth, rope-like twists. Hair included. Long-lasting style.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-900">Cornrows</h3>
+            <span class="text-purple-600 font-bold">From $80</span>
+          </div>
+          <p class="text-gray-500 text-sm">Straight back, designs, or parted styles. Kids pricing available.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-900">Faux Locs</h3>
+            <span class="text-purple-600 font-bold">From $200</span>
+          </div>
+          <p class="text-gray-500 text-sm">Soft or distressed faux locs. Hair included. Gorgeous and protective.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-bold text-gray-900">Kids Styles</h3>
+            <span class="text-purple-600 font-bold">From $60</span>
+          </div>
+          <p class="text-gray-500 text-sm">Cornrows, box braids, or simple protective styles for children.</p>
+        </div>
+      </div>
+      <p class="text-gray-400 text-xs text-center mt-6">Prices vary by length and thickness. Contact Tisha for an exact quote before booking.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-purple-600 text-xs font-bold uppercase tracking-widest text-center mb-3">Client Love</p>
+      <h2 class="text-3xl font-black text-gray-900 text-center mb-12">What They're Saying</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
+          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Tisha is incredibly skilled. My knotless braids looked amazing and lasted over 6 weeks. She takes her time and really cares about the result."</p>
+          <p class="font-bold text-gray-900 text-sm">Aaliyah J.</p>
+          <p class="text-gray-400 text-xs">Sacramento, CA</p>
+        </div>
+        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
+          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Brought my daughter in for her first braids. Tisha was so gentle and patient. My daughter said it didn't hurt at all — and they look beautiful."</p>
+          <p class="font-bold text-gray-900 text-sm">Monique B.</p>
+          <p class="text-gray-400 text-xs">Elk Grove, CA</p>
+        </div>
+        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
+          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"I've been to a lot of stylists and Tisha is on a different level. Fair prices, clean setup, and she actually listens to what you want."</p>
+          <p class="font-bold text-gray-900 text-sm">Tamika W.</p>
+          <p class="text-gray-400 text-xs">Sacramento, CA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 bg-purple-700 text-white text-center">
+    <h2 class="text-3xl font-black mb-3">Ready to Book?</h2>
+    <p class="text-purple-200 mb-8 max-w-md mx-auto">Call or text Tisha to schedule your appointment. Located in Sacramento — serving the greater Sacramento area.</p>
+    <a href="tel:+19163818894" class="inline-block bg-white text-purple-700 font-black px-10 py-4 rounded-full text-lg hover:bg-purple-50 transition">(916) 381-8894</a>
+    <p class="text-purple-300 text-sm mt-4">tishasbraids@yahoo.com</p>
+  </section>
+
   <footer class="py-5 px-6 bg-gray-900 text-center text-gray-500 text-xs">
     <p>&copy; 2026 Tisha's Braids · Sacramento, CA</p>
-    <p class="mt-1">Free preview by <a href="https://sacvalleyweb.com" class="text-purple-400 hover:underline">Sac Valley Web</a></p>
+    <p class="mt-1">Free preview by <a href="https://sacvalleyweb.com" class="text-purple-400 hover:underline">Sac Valley Web</a> — sacvalleyweb.com · (916) 945-8009</p>
   </footer>
+
 </body>
 </html>
