@@ -3,162 +3,205 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tisha's Braids | Sacramento, CA</title>
+  <title>Tisha's Braids | Professional Braiding · Sacramento, CA</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>body { font-family: 'Inter', sans-serif; }</style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Raleway:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: 'Raleway', sans-serif; color: #0F0C08; margin: 0; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+    .bi { font-family: 'Cormorant Garamond', serif; font-style: italic; line-height: 1.75; }
+    .label { font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #9E8B78; }
+    .divider { width: 48px; height: 1px; background: #7D5A3C; margin: 20px auto 0; }
+    .btn-dark { display: inline-block; background: #7D5A3C; color: #F2EDE4; font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; transition: background 0.3s; }
+    .btn-dark:hover { background: #1C1510; }
+    .btn-outline { display: inline-block; border: 1px solid #7D5A3C; color: #D4B99A; font-family: 'Raleway', sans-serif; font-weight: 500; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 36px; text-decoration: none; transition: all 0.3s; }
+    .btn-outline:hover { background: #7D5A3C; color: #F2EDE4; }
+  </style>
 </head>
-<body class="bg-white text-gray-900">
+<body>
 
   <!-- PREVIEW BANNER -->
-  <div class="bg-yellow-400 text-yellow-900 text-xs font-semibold text-center py-3 px-4">
-    👋 <strong>Free preview</strong> built by <a href="https://sacvalleyweb.com" target="_blank" class="underline">Sac Valley Web</a> — want this as your real website? $350, live in 24 hrs · <a href="tel:+19169458009" class="underline">(916) 945-8009</a>
+  <div style="background:#1C1510; color:#9E8B78; font-size:0.7rem; text-align:center; padding:10px 16px; letter-spacing:0.05em;">
+    Free preview by <a href="https://sacvalleyweb.com" target="_blank" style="color:#D4B99A; text-decoration:underline;">Sac Valley Web</a> — want this as your real site? $350, live in 24 hrs &nbsp;·&nbsp; <a href="tel:+19169458009" style="color:#D4B99A; text-decoration:underline;">(916) 945-8009</a>
   </div>
 
   <!-- NAV -->
-  <header class="bg-white border-b border-gray-100 px-6 py-4 sticky top-0 z-40 shadow-sm">
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
+  <header style="background:#fff; border-bottom:1px solid #D4B99A; position:sticky; top:0; z-index:40;">
+    <div style="max-width:1020px; margin:0 auto; padding:18px 24px; display:flex; align-items:center; justify-content:space-between;">
       <div>
-        <p class="font-black text-purple-700 text-xl tracking-tight">Tisha's Braids</p>
-        <p class="text-xs text-gray-400">Sacramento, CA · Professional Braiding</p>
+        <p style="font-family:'Playfair Display',serif; font-size:1.2rem; color:#0F0C08; margin:0; line-height:1.2;">Tisha's Braids</p>
+        <p class="label" style="margin:3px 0 0;">Professional Braiding &nbsp;·&nbsp; Sacramento, CA</p>
       </div>
-      <a href="tel:+19163818894" class="bg-purple-600 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-purple-700 transition">Book Appointment</a>
+      <a href="tel:+19163818894" class="btn-dark">Book Appointment</a>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="py-20 px-6 bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <p class="text-purple-300 text-xs font-bold uppercase tracking-widest mb-4">Sacramento's Braiding Specialist</p>
-        <h1 class="text-5xl font-black leading-tight mb-5">Beautiful Braids<br/>That Last<br/><span class="text-purple-300">For Weeks.</span></h1>
-        <p class="text-purple-200 text-lg mb-8 leading-relaxed">Knotless braids, box braids, twists, cornrows, and more — done by a skilled professional who takes the time to get it right. Your hair, your style.</p>
-        <a href="tel:+19163818894" class="inline-block bg-white text-purple-700 font-bold px-8 py-4 rounded-full hover:bg-purple-50 transition">Call to Book: (916) 381-8894</a>
+  <section style="display:flex; min-height:90vh; flex-wrap:wrap;">
+    <!-- Left panel -->
+    <div style="flex:1; min-width:300px; background:#1C1510; display:flex; flex-direction:column; justify-content:center; padding:80px 60px;">
+      <p class="label" style="margin-bottom:24px; color:#9E8B78;">Sacramento, California</p>
+      <h1 style="font-size:clamp(2.4rem,4vw,3.6rem); color:#F2EDE4; line-height:1.15; font-weight:600; margin:0 0 24px;">Beautiful Braids,<br/><em>Done Right.</em></h1>
+      <p class="bi" style="color:#D4B99A; font-size:1.15rem; max-width:380px; margin:0 0 40px;">Knotless braids, box braids, twists, faux locs, and more — by a skilled stylist who takes the time to get every detail right. Your hair, your style.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="tel:+19163818894" class="btn-dark">(916) 381-8894</a>
+        <a href="mailto:tishasbraids@yahoo.com" class="btn-outline">Email Tisha</a>
       </div>
-      <div class="space-y-4">
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
-          <div class="flex items-center gap-3 mb-2"><span class="text-2xl">✨</span><p class="font-bold text-white">Knotless Braids</p></div>
-          <p class="text-purple-200 text-sm">Natural-looking, lightweight, and gentle on your edges. The most requested style.</p>
-        </div>
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
-          <div class="flex items-center gap-3 mb-2"><span class="text-2xl">💜</span><p class="font-bold text-white">Box Braids & Twists</p></div>
-          <p class="text-purple-200 text-sm">Classic box braids, Senegalese twists, passion twists, and faux locs in any size and length.</p>
-        </div>
-        <div class="bg-white/10 backdrop-blur rounded-2xl p-5 border border-white/20">
-          <div class="flex items-center gap-3 mb-2"><span class="text-2xl">👧</span><p class="font-bold text-white">Kids Styles Welcome</p></div>
-          <p class="text-purple-200 text-sm">Patient, gentle technique for children. Cornrows, beads, and simple protective styles.</p>
-        </div>
-      </div>
+    </div>
+    <!-- Right: photo -->
+    <div style="flex:1; min-width:300px; min-height:480px; overflow:hidden;">
+      <img src="../images/braids-portrait.jpg" alt="Box braids portrait" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
     </div>
   </section>
 
-  <!-- PHOTO BAND -->
-  <div class="w-full h-64 md:h-80 overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1400&auto=format&fit=crop&q=80" alt="Professional braided hairstyle" class="w-full h-full object-cover object-center" />
+  <!-- TRUST BAND -->
+  <div style="background:#E8D9C4; border-top:1px solid #D4B99A; border-bottom:1px solid #D4B99A; padding:32px 24px;">
+    <div style="max-width:860px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:32px; text-align:center;">
+      <div>
+        <p style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#1C1510; margin:0;">By Appointment</p>
+        <p class="label" style="margin:6px 0 0; color:#7D5A3C;">Book in Advance</p>
+      </div>
+      <div>
+        <p style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#1C1510; margin:0;">All Hair Types</p>
+        <p class="label" style="margin:6px 0 0; color:#7D5A3C;">Every Texture Welcome</p>
+      </div>
+      <div>
+        <p style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#1C1510; margin:0;">Kids Welcome</p>
+        <p class="label" style="margin:6px 0 0; color:#7D5A3C;">Gentle & Patient</p>
+      </div>
+    </div>
   </div>
 
-  <!-- STATS -->
-  <section class="bg-purple-600 py-8 px-6">
-    <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 text-center text-white">
-      <div><p class="text-2xl font-black">5★</p><p class="text-purple-200 text-xs font-semibold uppercase tracking-wide mt-1">Google Rating</p></div>
-      <div><p class="text-2xl font-black">All Hair</p><p class="text-purple-200 text-xs font-semibold uppercase tracking-wide mt-1">Types Welcome</p></div>
-      <div><p class="text-2xl font-black">Sacramento</p><p class="text-purple-200 text-xs font-semibold uppercase tracking-wide mt-1">Based & Local</p></div>
+  <!-- SERVICES -->
+  <section style="padding:96px 24px; background:#fff;">
+    <div style="max-width:1020px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:64px;">
+        <p class="label">What Tisha Offers</p>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem); color:#1C1510; margin:12px 0 0;">Protective Styles &amp; More</h2>
+        <div class="divider"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px;">
+        <div style="background:#E8D9C4; padding:40px 32px;">
+          <h3 style="font-size:1.2rem; color:#1C1510; margin:0 0 16px; font-weight:600;">Knotless Box Braids</h3>
+          <p class="bi" style="color:#7D5A3C; font-size:1.05rem; margin:0;">Natural-looking, lightweight, and gentle on your edges. Available in small, medium, or large. The most requested style.</p>
+        </div>
+        <div style="background:#E8D9C4; padding:40px 32px;">
+          <h3 style="font-size:1.2rem; color:#1C1510; margin:0 0 16px; font-weight:600;">Box Braids &amp; Twists</h3>
+          <p class="bi" style="color:#7D5A3C; font-size:1.05rem; margin:0;">Classic box braids, Senegalese twists, passion twists, and faux locs in any length. Hair included.</p>
+        </div>
+        <div style="background:#E8D9C4; padding:40px 32px;">
+          <h3 style="font-size:1.2rem; color:#1C1510; margin:0 0 16px; font-weight:600;">Cornrows &amp; Kids Styles</h3>
+          <p class="bi" style="color:#7D5A3C; font-size:1.05rem; margin:0;">Straight back, parted designs, or simple protective styles for children. Patient and gentle technique.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- SERVICES & PRICING -->
-  <section class="py-20 px-6 bg-gray-50">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-purple-600 text-xs font-bold uppercase tracking-widest text-center mb-3">Services & Pricing</p>
-      <h2 class="text-3xl font-black text-gray-900 text-center mb-3">What Tisha Offers</h2>
-      <p class="text-gray-500 text-center mb-12 max-w-lg mx-auto">Pricing varies by length, thickness, and style. All prices include hair unless noted. Contact for a custom quote.</p>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-900">Knotless Box Braids</h3>
-            <span class="text-purple-600 font-bold">From $180</span>
+  <!-- FULL-WIDTH PHOTO BAND -->
+  <div style="width:100%; height:420px; overflow:hidden;">
+    <img src="../images/braids-sunglasses.jpg" alt="Braided style with buns" style="width:100%; height:100%; object-fit:cover; object-position:center 30%; display:block;" />
+  </div>
+
+  <!-- PHOTO SPLIT + PRICING -->
+  <section style="display:flex; flex-wrap:wrap;">
+    <!-- Photo -->
+    <div style="flex:1; min-width:300px; min-height:560px; overflow:hidden;">
+      <img src="../images/braids-city.jpg" alt="Woman with braids in the city" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;" />
+    </div>
+    <!-- Pricing -->
+    <div style="flex:1; min-width:300px; background:#F2EDE4; padding:80px 60px;">
+      <p class="label" style="margin-bottom:16px;">Pricing</p>
+      <h2 style="font-size:2rem; color:#1C1510; margin:0 0 40px; font-weight:600;">Services &amp; Rates</h2>
+      <div style="border-top:1px solid #D4B99A;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid #D4B99A;">
+          <div>
+            <p style="font-family:'Playfair Display',serif; color:#1C1510; margin:0;">Knotless Box Braids</p>
+            <p style="font-size:0.75rem; color:#9E8B78; font-style:italic; margin:2px 0 0;">Small, medium, or large · Hair included</p>
           </div>
-          <p class="text-gray-500 text-sm">Small, medium, or large. Hair included. Duration: 4–6 hrs.</p>
+          <p style="color:#7D5A3C; font-weight:600; margin:0; white-space:nowrap; padding-left:24px;">From $180</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-900">Traditional Box Braids</h3>
-            <span class="text-purple-600 font-bold">From $150</span>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid #D4B99A;">
+          <div>
+            <p style="font-family:'Playfair Display',serif; color:#1C1510; margin:0;">Traditional Box Braids</p>
+            <p style="font-size:0.75rem; color:#9E8B78; font-style:italic; margin:2px 0 0;">Any size and length · Hair included</p>
           </div>
-          <p class="text-gray-500 text-sm">Classic braids in your choice of size and length. Hair included.</p>
+          <p style="color:#7D5A3C; font-weight:600; margin:0; white-space:nowrap; padding-left:24px;">From $150</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-900">Senegalese Twists</h3>
-            <span class="text-purple-600 font-bold">From $170</span>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid #D4B99A;">
+          <div>
+            <p style="font-family:'Playfair Display',serif; color:#1C1510; margin:0;">Senegalese Twists</p>
+            <p style="font-size:0.75rem; color:#9E8B78; font-style:italic; margin:2px 0 0;">Smooth, rope-like twists · Hair included</p>
           </div>
-          <p class="text-gray-500 text-sm">Smooth, rope-like twists. Hair included. Long-lasting style.</p>
+          <p style="color:#7D5A3C; font-weight:600; margin:0; white-space:nowrap; padding-left:24px;">From $170</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-900">Cornrows</h3>
-            <span class="text-purple-600 font-bold">From $80</span>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid #D4B99A;">
+          <div>
+            <p style="font-family:'Playfair Display',serif; color:#1C1510; margin:0;">Faux Locs</p>
+            <p style="font-size:0.75rem; color:#9E8B78; font-style:italic; margin:2px 0 0;">Soft or distressed · Hair included</p>
           </div>
-          <p class="text-gray-500 text-sm">Straight back, designs, or parted styles. Kids pricing available.</p>
+          <p style="color:#7D5A3C; font-weight:600; margin:0; white-space:nowrap; padding-left:24px;">From $200</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-900">Faux Locs</h3>
-            <span class="text-purple-600 font-bold">From $200</span>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid #D4B99A;">
+          <div>
+            <p style="font-family:'Playfair Display',serif; color:#1C1510; margin:0;">Cornrows</p>
+            <p style="font-size:0.75rem; color:#9E8B78; font-style:italic; margin:2px 0 0;">Straight back or parted designs</p>
           </div>
-          <p class="text-gray-500 text-sm">Soft or distressed faux locs. Hair included. Gorgeous and protective.</p>
+          <p style="color:#7D5A3C; font-weight:600; margin:0; white-space:nowrap; padding-left:24px;">From $80</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-          <div class="flex justify-between items-start mb-2">
-            <h3 class="font-bold text-gray-900">Kids Styles</h3>
-            <span class="text-purple-600 font-bold">From $60</span>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0;">
+          <div>
+            <p style="font-family:'Playfair Display',serif; color:#1C1510; margin:0;">Kids Styles</p>
+            <p style="font-size:0.75rem; color:#9E8B78; font-style:italic; margin:2px 0 0;">Cornrows, box braids, protective styles</p>
           </div>
-          <p class="text-gray-500 text-sm">Cornrows, box braids, or simple protective styles for children.</p>
+          <p style="color:#7D5A3C; font-weight:600; margin:0; white-space:nowrap; padding-left:24px;">From $60</p>
         </div>
       </div>
-      <p class="text-gray-400 text-xs text-center mt-6">Prices vary by length and thickness. Contact Tisha for an exact quote before booking.</p>
+      <p style="font-size:0.72rem; color:#9E8B78; font-style:italic; margin-top:16px;">Prices vary by length and thickness. Contact Tisha for an exact quote before booking.</p>
     </div>
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="py-20 px-6 bg-white">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-purple-600 text-xs font-bold uppercase tracking-widest text-center mb-3">Client Love</p>
-      <h2 class="text-3xl font-black text-gray-900 text-center mb-12">What They're Saying</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
-          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
-          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Tisha is incredibly skilled. My knotless braids looked amazing and lasted over 6 weeks. She takes her time and really cares about the result."</p>
-          <p class="font-bold text-gray-900 text-sm">Aaliyah J.</p>
-          <p class="text-gray-400 text-xs">Sacramento, CA</p>
+  <section style="padding:96px 24px; background:#fff;">
+    <div style="max-width:1020px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:64px;">
+        <p class="label">Client Reviews</p>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.6rem); color:#1C1510; margin:12px 0 0;">What Clients Are Saying</h2>
+        <div class="divider"></div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px;">
+        <div style="background:#FAF7F3; border-left:3px solid #D4B99A; padding:36px 32px;">
+          <p class="bi" style="font-size:1.1rem; color:#1C1510; margin:0 0 24px;">"Tisha is incredibly skilled. My knotless braids looked amazing and lasted over 6 weeks. She takes her time and really cares about the result."</p>
+          <p style="font-family:'Playfair Display',serif; font-size:0.9rem; color:#7D5A3C; margin:0;">Aaliyah J.</p>
+          <p style="font-size:0.72rem; color:#9E8B78; margin:4px 0 0;">Sacramento, CA</p>
         </div>
-        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
-          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
-          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Brought my daughter in for her first braids. Tisha was so gentle and patient. My daughter said it didn't hurt at all — and they look beautiful."</p>
-          <p class="font-bold text-gray-900 text-sm">Monique B.</p>
-          <p class="text-gray-400 text-xs">Elk Grove, CA</p>
+        <div style="background:#FAF7F3; border-left:3px solid #D4B99A; padding:36px 32px;">
+          <p class="bi" style="font-size:1.1rem; color:#1C1510; margin:0 0 24px;">"Brought my daughter in for her first braids. Tisha was so gentle and patient. My daughter said it didn't hurt at all — and they look beautiful."</p>
+          <p style="font-family:'Playfair Display',serif; font-size:0.9rem; color:#7D5A3C; margin:0;">Monique B.</p>
+          <p style="font-size:0.72rem; color:#9E8B78; margin:4px 0 0;">Elk Grove, CA</p>
         </div>
-        <div class="bg-purple-50 rounded-2xl p-6 border border-purple-100">
-          <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
-          <p class="text-gray-700 text-sm leading-relaxed mb-4">"I've been to a lot of stylists and Tisha is on a different level. Fair prices, clean setup, and she actually listens to what you want."</p>
-          <p class="font-bold text-gray-900 text-sm">Tamika W.</p>
-          <p class="text-gray-400 text-xs">Sacramento, CA</p>
+        <div style="background:#FAF7F3; border-left:3px solid #D4B99A; padding:36px 32px;">
+          <p class="bi" style="font-size:1.1rem; color:#1C1510; margin:0 0 24px;">"I've been to a lot of stylists and Tisha is on a different level. Fair prices, clean setup, and she actually listens to what you want."</p>
+          <p style="font-family:'Playfair Display',serif; font-size:0.9rem; color:#7D5A3C; margin:0;">Tamika W.</p>
+          <p style="font-size:0.72rem; color:#9E8B78; margin:4px 0 0;">Sacramento, CA</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-20 px-6 bg-purple-700 text-white text-center">
-    <h2 class="text-3xl font-black mb-3">Ready to Book?</h2>
-    <p class="text-purple-200 mb-8 max-w-md mx-auto">Call or text Tisha to schedule your appointment. Located in Sacramento — serving the greater Sacramento area.</p>
-    <a href="tel:+19163818894" class="inline-block bg-white text-purple-700 font-black px-10 py-4 rounded-full text-lg hover:bg-purple-50 transition">(916) 381-8894</a>
-    <p class="text-purple-300 text-sm mt-4">tishasbraids@yahoo.com</p>
+  <section style="background:#1C1510; padding:96px 24px; text-align:center;">
+    <p class="label" style="margin-bottom:24px; color:#9E8B78;">Sacramento, California</p>
+    <h2 style="font-size:clamp(2rem,4vw,3rem); color:#F2EDE4; margin:0 0 16px; font-weight:600;">Ready to Book?</h2>
+    <p class="bi" style="color:#D4B99A; font-size:1.15rem; max-width:480px; margin:0 auto 40px;">Call or text Tisha to schedule your appointment. Located in Sacramento, serving the greater Sacramento area.</p>
+    <a href="tel:+19163818894" class="btn-dark">(916) 381-8894</a>
+    <p style="font-size:0.72rem; color:#7D5A3C; letter-spacing:0.08em; margin-top:20px;">tishasbraids@yahoo.com</p>
   </section>
 
-  <footer class="py-5 px-6 bg-gray-900 text-center text-gray-500 text-xs">
-    <p>&copy; 2026 Tisha's Braids · Sacramento, CA</p>
-    <p class="mt-1">Free preview by <a href="https://sacvalleyweb.com" class="text-purple-400 hover:underline">Sac Valley Web</a> — sacvalleyweb.com · (916) 945-8009</p>
+  <!-- FOOTER -->
+  <footer style="background:#0F0C08; padding:24px; text-align:center; font-size:0.7rem; color:#3D2E22;">
+    <p style="margin:0;">&copy; 2026 Tisha's Braids &nbsp;·&nbsp; Sacramento, CA</p>
+    <p style="margin:6px 0 0;">Free preview by <a href="https://sacvalleyweb.com" style="color:#7D5A3C;">Sac Valley Web</a> &nbsp;·&nbsp; (916) 945-8009</p>
   </footer>
 
 </body>
