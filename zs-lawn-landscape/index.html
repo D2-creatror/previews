@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Z's Lawn & Landscape | Lake Tahoe Landscaping & Maintenance</title>
+  <meta name="description" content="Z's Lawn & Landscape — South Lake Tahoe's trusted landscaping experts for 22+ years. Landscape design, maintenance, irrigation, decks & fences, seasonal cleanup. Licensed CA & NV. Call (530) 544-8570." />
+  <meta property="og:title" content="Z's Lawn & Landscape | Lake Tahoe Landscaping" />
+  <meta property="og:description" content="South Lake Tahoe's trusted landscaping experts for 22+ years. Design. Build. Maintain. Enjoy. Licensed in CA & NV." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1758840303386-c0cb0a241644?w=1200&auto=format&fit=crop&q=80" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LandscapingBusiness",
+    "name": "Z's Lawn & Landscape",
+    "description": "South Lake Tahoe's trusted landscaping company serving the Lake Tahoe South Shore for over 22 years. Landscape design, installation, maintenance, irrigation, decks, fences, and seasonal cleanups. Licensed and bonded in California and Nevada.",
+    "telephone": "+15305448570",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "South Lake Tahoe",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "areaServed": ["South Lake Tahoe","Lake Tahoe","Stateline","Meyers","Al Tahoe","Tahoe Keys"],
+    "award": "Best of Tahoe Landscaping 2013–2017",
+    "license": "CA #854954, NV #0071202",
+    "serviceType": ["Landscape Design","Landscape Installation","Landscape Maintenance","Irrigation","Deck Construction","Fence Installation","Seasonal Cleanup","Property Care"],
+    "sameAs": ["https://www.yelp.com/biz/z-s-lawn-and-landscape-south-lake-tahoe-2"]
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'forest-green': '#173D2B',
+            'deep-pine':    '#0F2A1F',
+            'tahoe-blue':   '#2F6F8F',
+            'stone-gray':   '#E8E3D8',
+            'granite':      '#6F756C',
+            'warm-wood':    '#B88A4A',
+            'snow-white':   '#FAF8F2',
+            'charcoal':     '#1D2420',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"','Georgia','serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    html { scroll-behavior: smooth; }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+    #mobile-menu { display: none; }
+    #mobile-menu.open { display: block; }
+    .hero-overlay {
+      background: linear-gradient(to bottom, rgba(15,42,31,0.6) 0%, rgba(15,42,31,0.45) 50%, rgba(15,42,31,0.72) 100%);
+    }
+    .card-hover { transition: box-shadow 0.2s, transform 0.2s; }
+    .card-hover:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.12); transform: translateY(-2px); }
+    .img-zoom img { transition: transform 0.5s ease; }
+    .img-zoom:hover img { transform: scale(1.06); }
+  </style>
+</head>
+<body class="bg-snow-white text-charcoal">
+
+  <!-- PREVIEW BANNER -->
+  <div id="preview-banner" class="flex items-center justify-center gap-3 px-5 py-3 text-xs font-semibold" style="background:#fbbf24;color:#78350f;">
+    <span>👋 This is your website preview from <strong>Sac Valley Web</strong>. Ready to go live? Call Daniel: <a href="tel:+19169458009" class="underline">(916) 945-8009</a> or <a href="mailto:daniel@sacvalleyweb.com" class="underline">daniel@sacvalleyweb.com</a></span>
+    <button onclick="document.getElementById('preview-banner').remove()" class="ml-2 text-base leading-none opacity-60 hover:opacity-100">&times;</button>
+  </div>
+
+  <!-- TOP BAR -->
+  <div class="text-center py-2 px-4 text-xs font-medium tracking-wide bg-forest-green" style="color:rgba(250,248,242,0.82);">
+    Proudly Serving South Lake Tahoe for Over 22 Years &nbsp;·&nbsp; Licensed &amp; Bonded in California &amp; Nevada
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-deep-pine shadow-xl">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex-shrink-0">
+        <p class="font-display text-lg font-bold text-snow-white leading-tight">Z's Lawn &amp; Landscape</p>
+        <p class="text-xs tracking-widest uppercase" style="color:var(--tw-colors-warm-wood, #B88A4A); color:#B88A4A;">South Lake Tahoe, CA</p>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" style="color:rgba(250,248,242,0.8);">
+        <a href="index.html"        class="hover:text-white transition border-b-2 border-warm-wood text-white" style="border-color:#B88A4A;">Home</a>
+        <a href="services.html"     class="hover:text-white transition">Services</a>
+        <a href="portfolio.html"    class="hover:text-white transition">Portfolio</a>
+        <a href="about.html"        class="hover:text-white transition">About</a>
+        <a href="testimonials.html" class="hover:text-white transition">Testimonials</a>
+        <a href="contact.html"      class="hover:text-white transition">Contact</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="tel:+15305448570" class="text-sm font-semibold hover:opacity-80 transition" style="color:#B88A4A;">(530) 544-8570</a>
+        <a href="contact.html" class="bg-tahoe-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-opacity-90 transition">Free Estimate</a>
+      </div>
+      <button id="menu-btn" class="lg:hidden text-snow-white p-1" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="lg:hidden bg-deep-pine border-t border-white border-opacity-10">
+      <div class="px-6 py-5 flex flex-col gap-4 text-sm font-medium text-snow-white text-opacity-90">
+        <a href="index.html"        class="hover:text-white">Home</a>
+        <a href="services.html"     class="hover:text-white">Services</a>
+        <a href="portfolio.html"    class="hover:text-white">Portfolio</a>
+        <a href="about.html"        class="hover:text-white">About</a>
+        <a href="testimonials.html" class="hover:text-white">Testimonials</a>
+        <a href="contact.html"      class="hover:text-white">Contact</a>
+        <a href="tel:+15305448570"  class="font-bold" style="color:#B88A4A;">(530) 544-8570</a>
+        <a href="contact.html" class="text-center bg-tahoe-blue text-white font-semibold py-3 rounded-full">Request Free Estimate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative flex items-center justify-center overflow-hidden" style="min-height:92vh;">
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1758840303386-c0cb0a241644?w=1600&auto=format&fit=crop&q=80"
+           alt="Lake Tahoe surrounded by tall Sierra Nevada pine trees and snow-capped mountain peaks"
+           class="w-full h-full object-cover object-center" />
+      <div class="absolute inset-0 hero-overlay"></div>
+    </div>
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto py-24">
+      <p class="text-xs font-bold uppercase tracking-widest mb-5" style="color:#B88A4A;letter-spacing:0.2em;">South Lake Tahoe · Est. 2003</p>
+      <h1 class="font-display text-4xl md:text-6xl font-bold leading-tight mb-5 text-snow-white">
+        Lake Tahoe Landscaping,<br class="hidden md:block" />
+        Maintenance &amp;<br class="hidden md:block" />
+        Outdoor Living Experts
+      </h1>
+      <p class="text-xl md:text-2xl font-light mb-5 tracking-wide" style="color:#B88A4A;">Design. Build. Maintain. Enjoy.</p>
+      <p class="text-base md:text-lg leading-relaxed mb-10 max-w-2xl mx-auto" style="color:rgba(250,248,242,0.87);">
+        Proudly serving South Lake Tahoe for over 22 years with professional landscaping, property care, and outdoor living solutions tailored to our mountain environment.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-block font-semibold px-9 py-4 rounded-full text-base transition" style="background:#B88A4A;color:#0F2A1F;" onmouseover="this.style.background='#c99a55'" onmouseout="this.style.background='#B88A4A'">Request a Free Estimate</a>
+        <a href="tel:+15305448570" class="inline-block font-semibold px-9 py-4 rounded-full text-base border-2 border-white border-opacity-60 text-snow-white hover:border-opacity-100 transition">Call (530) 544-8570</a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 opacity-50 animate-bounce">
+      <svg class="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <section class="bg-stone-gray py-9 px-6">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-11 h-11 rounded-full bg-forest-green flex items-center justify-center text-lg">🏅</div>
+        <p class="font-bold text-sm text-charcoal">Licensed &amp; Bonded</p>
+        <p class="text-xs text-granite">California &amp; Nevada</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center text-lg" style="background:#B88A4A;">⭐</div>
+        <p class="font-bold text-sm text-charcoal">Best of Tahoe Award</p>
+        <p class="text-xs text-granite">Landscaping 2013–2017</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-11 h-11 rounded-full bg-tahoe-blue flex items-center justify-center text-lg">🌲</div>
+        <p class="font-bold text-sm text-charcoal">22+ Years Local Experience</p>
+        <p class="text-xs text-granite">South Lake Tahoe Experts</p>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <div class="w-11 h-11 rounded-full bg-forest-green flex items-center justify-center text-lg">🏔️</div>
+        <p class="font-bold text-sm text-charcoal">Tahoe Strong</p>
+        <p class="text-xs text-granite">Mountain Proud</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="py-20 px-6 bg-snow-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#B88A4A;letter-spacing:0.2em;">What We Do</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Full-Service Landscaping<br class="hidden md:block" /> for the Lake Tahoe Basin</h2>
+        <p class="text-base text-granite max-w-2xl mx-auto">From design and installation to ongoing maintenance — built for the mountain climate, Sierra soils, and the Tahoe environment.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div class="rounded-2xl overflow-hidden border border-stone-gray bg-white card-hover">
+          <div class="h-48 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1689607559500-6df5b5bdaa41?w=600&auto=format&fit=crop&q=75"
+                 alt="Natural stone pathway winding through a pine forest in the Lake Tahoe basin" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <div class="text-2xl mb-3">🌿</div>
+            <h3 class="font-bold text-lg text-charcoal mb-2">Landscape Design &amp; Installation</h3>
+            <p class="text-sm text-granite leading-relaxed mb-4">Custom designs using Jeffrey pine, quaking aspen, manzanita, ceanothus, lupine, native wildflowers, and granite boulders — built to thrive at Tahoe's elevation.</p>
+            <a href="services.html#design" class="text-sm font-semibold text-tahoe-blue hover:underline">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-stone-gray bg-white card-hover">
+          <div class="h-48 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1774331510646-a1781c4a9713?w=600&auto=format&fit=crop&q=75"
+                 alt="Well-maintained mountain property surrounded by Sierra Nevada pine forest and ridgeline" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <div class="text-2xl mb-3">✂️</div>
+            <h3 class="font-bold text-lg text-charcoal mb-2">Landscape Maintenance</h3>
+            <p class="text-sm text-granite leading-relaxed mb-4">Scheduled mowing, edging, pruning, weeding, and property upkeep to keep your South Lake Tahoe property looking its mountain best all season long.</p>
+            <a href="services.html#maintenance" class="text-sm font-semibold text-tahoe-blue hover:underline">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-stone-gray bg-white card-hover">
+          <div class="h-48 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1762175112236-bbb15c895247?w=600&auto=format&fit=crop&q=75"
+                 alt="Native alpine wildflowers in a Sierra mountain meadow, ideal for water-smart Lake Tahoe landscaping" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <div class="text-2xl mb-3">💧</div>
+            <h3 class="font-bold text-lg text-charcoal mb-2">Irrigation &amp; Water-Smart Landscaping</h3>
+            <p class="text-sm text-granite leading-relaxed mb-4">Smart irrigation systems, drip line installation, and water-efficient native planting plans designed to protect the Sierra Nevada watershed.</p>
+            <a href="services.html#irrigation" class="text-sm font-semibold text-tahoe-blue hover:underline">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-stone-gray bg-white card-hover">
+          <div class="h-48 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1697807650304-907257330a3e?w=600&auto=format&fit=crop&q=75"
+                 alt="Timber deck on a mountain cabin nestled among tall pine trees in Lake Tahoe forest" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <div class="text-2xl mb-3">🪵</div>
+            <h3 class="font-bold text-lg text-charcoal mb-2">Decks &amp; Fences</h3>
+            <p class="text-sm text-granite leading-relaxed mb-4">Custom timber decks, natural wood fencing, and outdoor living structures built to handle Tahoe's snow loads, freezing temps, and mountain elements.</p>
+            <a href="services.html#decks" class="text-sm font-semibold text-tahoe-blue hover:underline">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-stone-gray bg-white card-hover">
+          <div class="h-48 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1757330878339-0b0c3b02d9b5?w=600&auto=format&fit=crop&q=75"
+                 alt="Mountain slope with native grasses and alpine wildflowers, typical of Lake Tahoe seasonal landscape" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <div class="text-2xl mb-3">🍂</div>
+            <h3 class="font-bold text-lg text-charcoal mb-2">Seasonal Cleanups</h3>
+            <p class="text-sm text-granite leading-relaxed mb-4">Spring and fall cleanup services — pine needle removal, debris clearing, bed prep, and pre/post-winter property preparation for every Tahoe season.</p>
+            <a href="services.html#cleanup" class="text-sm font-semibold text-tahoe-blue hover:underline">Learn more →</a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-stone-gray bg-white card-hover">
+          <div class="h-48 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1611602132349-7032e597432a?w=600&auto=format&fit=crop&q=75"
+                 alt="Well-maintained Tahoe-style cabin home with pine trees and native mountain landscaping" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-6">
+            <div class="text-2xl mb-3">🏔️</div>
+            <h3 class="font-bold text-lg text-charcoal mb-2">Property Care &amp; Vacation Home Upkeep</h3>
+            <p class="text-sm text-granite leading-relaxed mb-4">Trusted landscape management for vacation homes throughout the Lake Tahoe Basin — so your property looks its best whether you're here or not.</p>
+            <a href="services.html#property-care" class="text-sm font-semibold text-tahoe-blue hover:underline">Learn more →</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt-12">
+        <a href="services.html" class="inline-block bg-forest-green text-snow-white font-semibold px-9 py-4 rounded-full text-base hover:bg-deep-pine transition">View All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="py-20 px-6 bg-deep-pine">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#B88A4A;letter-spacing:0.2em;">About Z's Lawn &amp; Landscape</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-snow-white mb-6">22+ Years Rooted<br class="hidden md:block" /> in Lake Tahoe</h2>
+        <p class="text-base leading-relaxed mb-5" style="color:rgba(250,248,242,0.82);">Z's Lawn &amp; Landscape has been South Lake Tahoe's trusted landscaping partner for over two decades. We know the Tahoe Basin the way a local knows it — the Jeffrey pines, the granite soils, the snowloads, and the way a well-designed mountain yard can feel like home.</p>
+        <p class="text-base leading-relaxed mb-8" style="color:rgba(250,248,242,0.82);">Licensed and bonded in both California and Nevada, we serve the entire South Shore — residential properties, vacation cabins, and commercial spaces alike.</p>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="px-4 py-2 rounded-full text-sm font-medium border" style="background:rgba(184,138,74,0.15);color:#B88A4A;border-color:rgba(184,138,74,0.35);">CA License #854954</span>
+          <span class="px-4 py-2 rounded-full text-sm font-medium border" style="background:rgba(184,138,74,0.15);color:#B88A4A;border-color:rgba(184,138,74,0.35);">NV License #0071202</span>
+          <span class="px-4 py-2 rounded-full text-sm font-medium border" style="background:rgba(47,111,143,0.2);color:#7ab8d4;border-color:rgba(47,111,143,0.4);">Best of Tahoe 2013–2017</span>
+        </div>
+        <a href="about.html" class="inline-block font-semibold px-7 py-3.5 rounded-full text-sm transition" style="background:#B88A4A;color:#0F2A1F;" onmouseover="this.style.background='#c99a55'" onmouseout="this.style.background='#B88A4A'">Our Story →</a>
+      </div>
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden aspect-video shadow-2xl">
+          <img src="https://images.unsplash.com/photo-1774331510646-a1781c4a9713?w=900&auto=format&fit=crop&q=80"
+               alt="Sierra Nevada mountain range rising behind a dense pine forest typical of the Lake Tahoe Basin" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute -bottom-5 -left-4 rounded-2xl p-5 shadow-xl" style="background:#B88A4A;">
+          <p class="font-bold text-sm" style="color:#0F2A1F;">⭐ Best of Tahoe</p>
+          <p class="text-xs font-semibold" style="color:#0F2A1F;">Landscaping Award</p>
+          <p class="text-xs" style="color:rgba(15,42,31,0.65);">2013 · 2014 · 2015 · 2016 · 2017</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PREVIEW -->
+  <section class="py-20 px-6 bg-snow-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#B88A4A;letter-spacing:0.2em;">Our Work</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-charcoal mb-4">Lake Tahoe Landscaping Projects</h2>
+        <p class="text-base text-granite max-w-xl mx-auto">Every project is built for the Tahoe environment — native plant installations, granite hardscaping, and mountain outdoor living spaces.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="group rounded-2xl overflow-hidden border border-stone-gray">
+          <div class="relative h-64 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1689607559500-6df5b5bdaa41?w=600&auto=format&fit=crop&q=75"
+                 alt="Natural stone path through native pine forest landscaping at a Lake Tahoe property" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5" style="background:linear-gradient(to top,rgba(15,42,31,0.85) 0%,transparent 60%);">
+              <a href="portfolio.html" class="text-sm font-semibold text-white">View Portfolio →</a>
+            </div>
+          </div>
+          <div class="p-5 bg-white">
+            <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color:#B88A4A;">South Lake Tahoe</p>
+            <h3 class="font-bold text-base text-charcoal">Stone Path &amp; Native Plant Installation</h3>
+          </div>
+        </div>
+
+        <div class="group rounded-2xl overflow-hidden border border-stone-gray">
+          <div class="relative h-64 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1697807650304-907257330a3e?w=600&auto=format&fit=crop&q=75"
+                 alt="Custom timber deck on mountain cabin surrounded by tall Sierra Nevada pine trees" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5" style="background:linear-gradient(to top,rgba(15,42,31,0.85) 0%,transparent 60%);">
+              <a href="portfolio.html" class="text-sm font-semibold text-white">View Portfolio →</a>
+            </div>
+          </div>
+          <div class="p-5 bg-white">
+            <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color:#B88A4A;">Tahoe Keys</p>
+            <h3 class="font-bold text-base text-charcoal">Mountain Cabin Deck &amp; Outdoor Living</h3>
+          </div>
+        </div>
+
+        <div class="group rounded-2xl overflow-hidden border border-stone-gray">
+          <div class="relative h-64 overflow-hidden img-zoom">
+            <img src="https://images.unsplash.com/photo-1762175112236-bbb15c895247?w=600&auto=format&fit=crop&q=75"
+                 alt="Alpine wildflower meadow with native mountain plants in the Lake Tahoe Sierra Nevada region" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-5" style="background:linear-gradient(to top,rgba(15,42,31,0.85) 0%,transparent 60%);">
+              <a href="portfolio.html" class="text-sm font-semibold text-white">View Portfolio →</a>
+            </div>
+          </div>
+          <div class="p-5 bg-white">
+            <p class="text-xs font-bold uppercase tracking-widest mb-1" style="color:#B88A4A;">Meyers, CA</p>
+            <h3 class="font-bold text-base text-charcoal">Native Wildflower &amp; Meadow Garden</h3>
+          </div>
+        </div>
+
+      </div>
+      <div class="text-center mt-12">
+        <a href="portfolio.html" class="inline-block font-semibold px-9 py-4 rounded-full text-base border-2 border-forest-green text-forest-green hover:bg-forest-green hover:text-snow-white transition">View Full Portfolio →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 px-6 bg-forest-green">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#B88A4A;letter-spacing:0.2em;">What Our Clients Say</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-snow-white">Trusted by Tahoe Homeowners</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <div class="rounded-2xl p-7" style="background:rgba(250,248,242,0.07);border:1px solid rgba(250,248,242,0.12);">
+          <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+          <p class="text-base leading-relaxed mb-6" style="color:rgba(250,248,242,0.9);">"Z's has been taking care of our South Lake Tahoe cabin for over eight years. They always show up when they say they will, the yard looks beautiful, and they really understand the mountain environment — using plants that actually survive here."</p>
+          <p class="font-bold text-sm text-snow-white">Karen M.</p>
+          <p class="text-xs" style="color:rgba(250,248,242,0.5);">South Lake Tahoe Homeowner</p>
+        </div>
+
+        <div class="rounded-2xl p-7" style="background:rgba(250,248,242,0.07);border:1px solid rgba(250,248,242,0.12);">
+          <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+          <p class="text-base leading-relaxed mb-6" style="color:rgba(250,248,242,0.9);">"We hired Z's to design our new front yard — granite boulders, a stone path, manzanita, and native grasses. It looks incredible and feels completely natural. We get compliments from neighbors every single week."</p>
+          <p class="font-bold text-sm text-snow-white">Tom &amp; Diane R.</p>
+          <p class="text-xs" style="color:rgba(250,248,242,0.5);">Tahoe Keys, South Lake Tahoe</p>
+        </div>
+
+        <div class="rounded-2xl p-7" style="background:rgba(250,248,242,0.07);border:1px solid rgba(250,248,242,0.12);">
+          <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+          <p class="text-base leading-relaxed mb-6" style="color:rgba(250,248,242,0.9);">"As vacation rental owners, we needed someone reliable. Z's handles all our spring and fall cleanups, irrigation, and seasonal prep. Our property is always guest-ready. Worth every penny."</p>
+          <p class="font-bold text-sm text-snow-white">Brian S.</p>
+          <p class="text-xs" style="color:rgba(250,248,242,0.5);">Vacation Rental Owner, Meyers CA</p>
+        </div>
+
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+        <a href="testimonials.html" class="text-sm font-semibold hover:underline" style="color:#B88A4A;">Read More Reviews →</a>
+        <span class="hidden sm:block text-sm" style="color:rgba(250,248,242,0.25);">|</span>
+        <a href="https://www.yelp.com/biz/z-s-lawn-and-landscape-south-lake-tahoe-2?osq=z%27s+lawn+and+landscape&override_cta=Request+a+quote"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 text-sm font-semibold rounded-full px-5 py-2 transition"
+           style="background:rgba(250,248,242,0.1);color:rgba(250,248,242,0.85);border:1px solid rgba(250,248,242,0.2);"
+           onmouseover="this.style.background='rgba(250,248,242,0.18)'" onmouseout="this.style.background='rgba(250,248,242,0.1)'">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF1A1A" aria-hidden="true"><path d="M21.111 18.226c-.141.969-2.119 3.483-3.029 3.847-.311.124-.611.094-.85-.09-.154-.12-.314-.365-2.447-3.827l-.633-1.032c-.244-.383-.162-.894.188-1.174a1.02 1.02 0 0 1 1.148-.098l.034.019c3.479 2.038 3.701 2.186 3.849 2.325.249.226.327.549.186.918-.01.03-.018.06-.027.09l-.419-.001zM9.546 14.862l-.03.012c-.406.162-.849-.025-1.047-.43L4.454 5.782c-.195-.397-.046-.864.332-1.084C5.878 3.923 8.499 3.5 9.512 3.674c.323.057.556.268.633.571.02.08 1.108 5.133 1.604 7.694.078.401.083.75.014 1.037-.116.484-.59.761-1.006.878l-.211-.001zm11.408-5.465c-.191.946-2.439 3.155-3.386 3.39-.313.078-.61.02-.83-.166-.14-.119-.26-.327-1.775-2.888l-.545-.938c-.221-.371-.156-.856.161-1.15.316-.295.773-.356 1.148-.16l.033.018c3.179 1.648 3.385 1.775 3.521 1.908.237.22.306.537.168.906l-.495 1.08zm-13.427 8.98c-.198.934-1.066 1.608-2.054 1.608-.17 0-.343-.02-.516-.063C3.62 19.582 2 17.578 2 15.406c0-1.289.61-2.487 1.661-3.283.47-.352 1.1-.434 1.652-.214.393.158.682.472.797.869l1.663 5.504c.108.355.026.738-.246 1.006l-.003.099zm5.462 4.252c-1.002.097-3.773-1.08-4.347-1.987-.187-.296-.208-.617-.059-.895.097-.18.345-.413 3.266-2.509l.884-.617c.33-.228.793-.196 1.091.072.298.271.39.704.225 1.076l-.015.033c-1.461 3.346-1.574 3.554-1.726 3.686-.228.197-.551.238-.9.175l-.419-.034z"/></svg>
+          See us on Yelp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-24 px-6 text-center bg-tahoe-blue">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:rgba(250,248,242,0.7);letter-spacing:0.2em;">Ready to Get Started?</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-snow-white mb-5">Request Your Free Estimate</h2>
+      <p class="text-base mb-10" style="color:rgba(250,248,242,0.85);">Serving South Lake Tahoe and the entire Tahoe South Shore. Let's talk about your property — we'll get back to you fast.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-block bg-snow-white font-semibold px-9 py-4 rounded-full text-base text-tahoe-blue hover:bg-stone-gray transition">Get a Free Estimate</a>
+        <a href="tel:+15305448570" class="inline-block border-2 border-white border-opacity-60 text-snow-white font-semibold px-9 py-4 rounded-full text-base hover:border-opacity-100 transition">Call (530) 544-8570</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-deep-pine">
+    <div class="max-w-7xl mx-auto px-6 py-14">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+        <div class="col-span-2 md:col-span-1">
+          <p class="font-display text-lg font-bold text-snow-white mb-2">Z's Lawn &amp; Landscape</p>
+          <p class="text-sm mb-5" style="color:rgba(250,248,242,0.6);">South Lake Tahoe's trusted landscaping experts for over 22 years.</p>
+          <a href="tel:+15305448570" class="text-sm font-semibold hover:opacity-80 transition block mb-2" style="color:#B88A4A;">📞 (530) 544-8570</a>
+          <p class="text-sm" style="color:rgba(250,248,242,0.6);">📍 South Lake Tahoe, CA</p>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#B88A4A;">Services</p>
+          <ul class="space-y-2 text-sm" style="color:rgba(250,248,242,0.7);">
+            <li><a href="services.html#design"        class="hover:text-white transition">Landscape Design</a></li>
+            <li><a href="services.html#maintenance"   class="hover:text-white transition">Maintenance</a></li>
+            <li><a href="services.html#irrigation"    class="hover:text-white transition">Irrigation</a></li>
+            <li><a href="services.html#decks"         class="hover:text-white transition">Decks &amp; Fences</a></li>
+            <li><a href="services.html#cleanup"       class="hover:text-white transition">Seasonal Cleanups</a></li>
+            <li><a href="services.html#property-care" class="hover:text-white transition">Property Care</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#B88A4A;">Company</p>
+          <ul class="space-y-2 text-sm" style="color:rgba(250,248,242,0.7);">
+            <li><a href="about.html"        class="hover:text-white transition">About Us</a></li>
+            <li><a href="portfolio.html"    class="hover:text-white transition">Portfolio</a></li>
+            <li><a href="testimonials.html" class="hover:text-white transition">Testimonials</a></li>
+            <li><a href="contact.html"      class="hover:text-white transition">Contact</a></li>
+            <li><a href="contact.html"      class="hover:text-white transition">Free Estimate</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#B88A4A;">Licenses</p>
+          <ul class="space-y-2 text-sm mb-6" style="color:rgba(250,248,242,0.7);">
+            <li>CA Lic. #854954</li>
+            <li>NV Lic. #0071202</li>
+            <li>Licensed &amp; Bonded</li>
+          </ul>
+          <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#B88A4A;">Service Area</p>
+          <p class="text-sm" style="color:rgba(250,248,242,0.65);">South Lake Tahoe · Stateline · Meyers · Al Tahoe · Tahoe Keys · South Shore</p>
+        </div>
+      </div>
+      <div class="border-t border-white border-opacity-10 pt-7 flex flex-col md:flex-row items-center justify-between gap-3 text-xs" style="color:rgba(250,248,242,0.4);">
+        <p>&copy; <span id="year"></span> Z's Lawn &amp; Landscape. All rights reserved. &nbsp;·&nbsp; CA #854954 &nbsp;·&nbsp; NV #0071202</p>
+        <p>Website by <a href="https://sacvalleyweb.com" target="_blank" class="hover:text-white transition" style="color:rgba(250,248,242,0.5);">Sac Valley Web</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
