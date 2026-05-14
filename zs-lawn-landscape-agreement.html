@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Purchase Agreement — Z's Lawn & Landscape | Sac Valley Web</title>
+  <style>
+    :root {
+      --navy:        #1B2D72;
+      --navy-dark:   #111E52;
+      --green:       #3CB54A;
+      --green-light: #EBF7ED;
+      --blue-light:  #F0F3FF;
+      --text:        #111827;
+      --muted:       #6B7280;
+      --border:      #D1D5DB;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #E8EBF7;
+      color: var(--text);
+      padding: 40px 20px;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.14);
+    }
+
+    /* ── HEADER ── */
+    .hd {
+      background: var(--navy-dark);
+      padding: 28px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .hd-brand { color: #fff; font-size: 22px; font-weight: 900; letter-spacing: -0.3px; }
+    .hd-tag   { color: var(--green); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; margin-top: 3px; }
+    .hd-right { text-align: right; }
+    .hd-title { color: #fff; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; }
+    .hd-meta  { color: rgba(255,255,255,0.55); font-size: 11px; margin-top: 5px; }
+
+    /* ── GREEN ACCENT BAR ── */
+    .accent-bar {
+      background: var(--green);
+      height: 5px;
+    }
+
+    /* ── BODY ── */
+    .body { padding: 36px 40px; }
+
+    /* ── PARTIES ── */
+    .parties {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .party {
+      background: var(--blue-light);
+      border-left: 4px solid var(--navy);
+      border-radius: 6px;
+      padding: 18px 20px;
+    }
+    .party-role  { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--navy); margin-bottom: 6px; }
+    .party-name  { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 5px; }
+    .party-info  { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    /* ── SECTION HEADERS ── */
+    .sec-hd {
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 7px 14px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+
+    .section { margin-bottom: 30px; }
+
+    /* ── TIER BADGE ── */
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: #fff;
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .tier-badge .price { color: var(--green); }
+
+    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ── DELIVERABLES ── */
+    .del-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .del-item {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      background: var(--green-light);
+      border-radius: 6px;
+      padding: 9px 12px;
+    }
+    .chk { color: var(--green); font-weight: 900; font-size: 13px; flex-shrink: 0; padding-top: 1px; }
+    .del-text { font-size: 12px; line-height: 1.45; color: var(--text); }
+    .del-text strong { display: block; font-size: 12.5px; margin-bottom: 1px; }
+
+    /* ── PRICING TABLE ── */
+    .ptable { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .ptable th {
+      background: var(--navy);
+      color: #fff;
+      padding: 9px 14px;
+      text-align: left;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .ptable th:last-child { text-align: right; }
+    .ptable td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .ptable td.r { text-align: right; font-weight: 600; white-space: nowrap; }
+    .ptable td.note { font-size: 11px; color: var(--muted); padding-top: 2px; padding-bottom: 10px; }
+    .ptable tr.total td { background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; }
+    .ptable tr.total td.r { color: #fff; }
+    .ptable tr.deposit td { background: var(--green-light); font-weight: 600; }
+    .ptable tr.deposit td .sub { font-size: 11px; font-weight: 400; color: var(--muted); }
+    .ptable tr:last-child td { border-bottom: none; }
+
+    /* ── TERMS ── */
+    .terms { list-style: none; }
+    .terms li {
+      display: flex;
+      gap: 12px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .terms li:last-child { border-bottom: none; }
+    .tl { font-weight: 700; color: var(--navy); min-width: 130px; flex-shrink: 0; }
+
+    /* ── ADD-ONS ── */
+    .addons { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .addons td { padding: 6px 10px; border-bottom: 1px solid var(--border); }
+    .addons td:nth-child(even) { font-weight: 700; color: var(--navy); text-align: right; white-space: nowrap; }
+    .addons tr:last-child td { border-bottom: none; }
+
+    /* ── SIGNATURES ── */
+    .sigs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 36px;
+    }
+    .sig-block { }
+    .sig-line-top {
+      border-top: 2px solid var(--navy);
+      padding-top: 10px;
+      margin-bottom: 6px;
+    }
+    .sig-write {
+      height: 38px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+    }
+    .sig-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+    .sig-name  { font-size: 12px; font-weight: 700; color: var(--text); margin-top: 3px; }
+    .sig-date  { margin-top: 14px; }
+
+    /* ── AGREEMENT NOTE ── */
+    .agree-note {
+      margin-top: 22px;
+      background: var(--blue-light);
+      border-radius: 7px;
+      padding: 14px 18px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+    .agree-note a { color: var(--navy); text-decoration: none; font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .ft {
+      background: var(--navy-dark);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0;
+    }
+    .ft-brand { color: #fff; font-size: 13px; font-weight: 800; }
+    .ft-tag   { color: var(--green); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .ft-contact { font-size: 11px; color: rgba(255,255,255,0.55); text-align: right; line-height: 1.7; }
+    .ft-contact a { color: var(--green); text-decoration: none; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="hd">
+    <div>
+      <div class="hd-brand">Sac Valley Web</div>
+      <div class="hd-tag">Modern Websites. Local Results.</div>
+    </div>
+    <div class="hd-right">
+      <div class="hd-title">Purchase Agreement</div>
+      <div class="hd-meta">Date: May 13, 2026 &nbsp;·&nbsp; Agreement #SVW-2026-001</div>
+    </div>
+  </div>
+  <div class="accent-bar"></div>
+
+  <div class="body">
+
+    <!-- Parties -->
+    <div class="parties">
+      <div class="party">
+        <div class="party-role">Service Provider</div>
+        <div class="party-name">Sac Valley Web</div>
+        <div class="party-info">
+          Daniel Dennis<br />
+          daniel@sacvalleyweb.com<br />
+          (916) 945-8009<br />
+          Sacramento, CA &nbsp;·&nbsp; sacvalleyweb.com
+        </div>
+      </div>
+      <div class="party">
+        <div class="party-role">Client</div>
+        <div class="party-name">Z's Lawn &amp; Landscape</div>
+        <div class="party-info">
+          Ryan Zebo, Owner<br />
+          (530) 544-8570<br />
+          South Lake Tahoe, CA<br />
+          CA Lic. #854954 &nbsp;·&nbsp; NV Lic. #0071202
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Overview -->
+    <div class="section">
+      <div class="sec-hd">Project Overview</div>
+      <div class="tier-badge">Business Website &nbsp;<span class="price">$750 – $1,500 Tier</span></div>
+      <p class="project-desc">
+        Design, development, and staging delivery of a custom 6-page business website for Z's Lawn &amp; Landscape,
+        built specifically for the South Lake Tahoe market. The site features a premium mountain aesthetic,
+        full SEO optimization, real Yelp review integration, a Formspree-powered estimate request form,
+        and mobile-responsive design optimized for all devices.
+      </p>
+    </div>
+
+    <!-- Deliverables -->
+    <div class="section">
+      <div class="sec-hd">Scope of Work — Deliverables Completed</div>
+      <div class="del-grid">
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>6-Page Custom Website</strong>Home, Services, Portfolio, About, Testimonials, Contact</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Custom Tahoe Mountain Design</strong>Full brand palette, Playfair Display &amp; Inter typography</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Mobile-Responsive Build</strong>Optimized for all screen sizes and devices</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>SEO Optimization</strong>Meta tags, Open Graph, LocalBusiness schema markup</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Service Pages</strong>6 service sections with descriptions, checklists &amp; CTAs</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Portfolio / Photo Gallery</strong>3-category project portfolio with hover overlays</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Estimate Request Form</strong>Formspree-integrated contact &amp; free estimate form</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Real Yelp Review Integration</strong>9 verified Yelp reviews across Testimonials, Homepage &amp; Contact</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Licensed Photography</strong>8 commercially-licensed Unsplash images — Tahoe-specific</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Logo Integration</strong>Business logo + Best of Tahoe award badge on all 6 pages</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>2 Rounds of Revisions</strong>Included per Business Website tier</div>
+        </div>
+        <div class="del-item">
+          <span class="chk">✓</span>
+          <div class="del-text"><strong>Staging Preview Delivered</strong>Private preview link: sacvalleyweb.com/preview?code=ZLAWN26</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="section">
+      <div class="sec-hd">Pricing &amp; Payment Schedule</div>
+      <table class="ptable">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Business Website — Custom Design &amp; Development (6 pages)</td>
+            <td class="r">$750.00</td>
+          </tr>
+          <tr>
+            <td class="note" colspan="2">
+              Includes: custom design, mobile-responsive build, SEO setup, Formspree form integration,
+              Yelp review integration, logo placement, 8 licensed photos, 2 revision rounds, staging preview
+            </td>
+          </tr>
+          <tr class="total">
+            <td>Total Project Investment</td>
+            <td class="r">$750.00</td>
+          </tr>
+          <tr class="deposit">
+            <td>
+              <strong>Deposit — Due Upon Signing (50%)</strong><br />
+              <span class="sub">Work has already been delivered. Deposit confirms agreement.</span>
+            </td>
+            <td class="r">$375.00</td>
+          </tr>
+          <tr class="deposit">
+            <td>
+              <strong>Balance — Due Before Live Deployment (50%)</strong><br />
+              <span class="sub">Due upon client approval of the final site, before domain goes live</span>
+            </td>
+            <td class="r">$375.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Terms -->
+    <div class="section">
+      <div class="sec-hd">Terms &amp; Conditions</div>
+      <ul class="terms">
+        <li>
+          <span class="tl">Deposit</span>
+          50% of the total project fee ($375.00) is due upon signing this agreement. The preview has already been delivered; deposit confirms the engagement.
+        </li>
+        <li>
+          <span class="tl">Final Payment</span>
+          The remaining balance ($375.00) is due upon client approval of the completed website and before the site is deployed to a live domain.
+        </li>
+        <li>
+          <span class="tl">Ownership</span>
+          Client owns the final approved website content and design after full payment is received. Sac Valley Web retains the right to display the project in its portfolio.
+        </li>
+        <li>
+          <span class="tl">Revisions</span>
+          2 rounds of revisions are included. A revision round is a grouped list of changes submitted at one time. Additional revisions are billed at $25–$150 depending on scope, or quoted individually for major changes.
+        </li>
+        <li>
+          <span class="tl">Turnaround</span>
+          Final deployment timeline depends on receipt of client approval and final payment. Client is responsible for providing any domain credentials, additional content, or materials required for go-live.
+        </li>
+        <li>
+          <span class="tl">Photography</span>
+          Site includes 8 Unsplash-licensed commercial stock photos. Client may provide or request substitution of any images at no additional charge within the included revision rounds.
+        </li>
+        <li>
+          <span class="tl">Hosting</span>
+          Initial staging is hosted via GitHub Pages at no charge. Managed hosting with a custom domain is available via a monthly care plan or can be arranged separately.
+        </li>
+        <li>
+          <span class="tl">Monthly Care</span>
+          Optional monthly website care plans start at $49/month (Essential) and may be added at any time. Plans may be canceled with 30 days' written notice. Unused edit time does not roll over.
+        </li>
+        <li>
+          <span class="tl">Cancellation</span>
+          If client cancels after work has begun, the deposit is non-refundable. Any work completed beyond the deposit value will be invoiced at the standard hourly rate.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Optional Add-Ons -->
+    <div class="section">
+      <div class="sec-hd">Optional Add-Ons (Not Included — Available Upon Request)</div>
+      <table class="addons">
+        <tr>
+          <td>Additional Pages</td><td>$75–$150 ea.</td>
+          <td>Google Business Optimization</td><td>$150</td>
+        </tr>
+        <tr>
+          <td>Monthly SEO</td><td>$300–$1,500/mo</td>
+          <td>Essential Care Plan</td><td>$49/mo</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Signatures -->
+    <div class="sigs">
+      <div class="sig-block">
+        <div class="sig-line-top">Service Provider</div>
+        <div class="sig-write"></div>
+        <div class="sig-label">Signature</div>
+        <div class="sig-name">Daniel Dennis — Sac Valley Web</div>
+        <div class="sig-date">
+          <div class="sig-write"></div>
+          <div class="sig-label">Date</div>
+        </div>
+      </div>
+      <div class="sig-block">
+        <div class="sig-line-top">Client</div>
+        <div class="sig-write"></div>
+        <div class="sig-label">Signature</div>
+        <div class="sig-name">Ryan Zebo — Z's Lawn &amp; Landscape</div>
+        <div class="sig-date">
+          <div class="sig-write"></div>
+          <div class="sig-label">Date</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="agree-note">
+      By signing above, both parties agree to the full scope of work, pricing, and terms outlined in this agreement.<br />
+      Questions? <a href="mailto:daniel@sacvalleyweb.com">daniel@sacvalleyweb.com</a> &nbsp;·&nbsp; <a href="tel:+19169458009">(916) 945-8009</a>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- Footer -->
+  <div class="ft">
+    <div>
+      <div class="ft-brand">Sac Valley Web</div>
+      <div class="ft-tag">Modern Websites. Local Results.</div>
+    </div>
+    <div class="ft-contact">
+      <a href="tel:+19169458009">(916) 945-8009</a> &nbsp;·&nbsp;
+      <a href="mailto:daniel@sacvalleyweb.com">daniel@sacvalleyweb.com</a><br />
+      sacvalleyweb.com &nbsp;·&nbsp; Sacramento, CA
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
