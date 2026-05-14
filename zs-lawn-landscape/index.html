@@ -75,6 +75,13 @@
   <div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:9998;background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27340%27%20height%3D%27220%27%3E%3Ctext%20transform%3D%27rotate%28-30%20170%20110%29%27%20x%3D%27170%27%20y%3D%27118%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2713%27%20font-weight%3D%27bold%27%20letter-spacing%3D%273%27%20fill%3D%27rgba%280%2C0%2C0%2C0.10%29%27%3EPREVIEW%20-%20NOT%20LICENSED%3C/text%3E%3Ctext%20transform%3D%27rotate%28-30%20170%20110%29%27%20x%3D%27170%27%20y%3D%27119%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2713%27%20font-weight%3D%27bold%27%20letter-spacing%3D%273%27%20fill%3D%27rgba%28255%2C255%2C255%2C0.07%29%27%3EPREVIEW%20-%20NOT%20LICENSED%3C/text%3E%3C/svg%3E');background-repeat:repeat;background-size:340px 220px;"></div>
 
   <!-- PREVIEW BANNER -->
+  <!-- Countdown banner -->
+  <div id="svw-countdown" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 16px;font-size:12px;font-weight:600;background:#1B2D72;color:#fff;text-align:center;flex-wrap:wrap;">
+    <span style="opacity:0.75;">⏱ Preview expires in:</span>
+    <span id="svw-timer" style="color:#3CB54A;font-size:13px;font-weight:900;letter-spacing:0.5px;">calculating...</span>
+    <span style="opacity:0.5;">·</span>
+    <span style="opacity:0.75;">Ready to go live? <a href="tel:+19169458009" style="color:#3CB54A;text-decoration:underline;">(916) 945-8009</a></span>
+  </div>
   <div id="preview-banner" class="flex items-center justify-center gap-3 px-5 py-3 text-xs font-semibold" style="background:#fbbf24;color:#78350f;">
     <span>👋 This is your website preview from <strong>Sac Valley Web</strong>. Ready to go live? Call Daniel: <a href="tel:+19169458009" class="underline">(916) 945-8009</a> or <a href="mailto:daniel@sacvalleyweb.com" class="underline">daniel@sacvalleyweb.com</a></span>
     <button onclick="document.getElementById('preview-banner').remove()" class="ml-2 text-base leading-none opacity-60 hover:opacity-100">&times;</button>
@@ -467,6 +474,54 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <!-- Countdown JS -->
+  <script>
+  (function(){
+    var expiry = new Date('2026-05-16T00:00:00');
+    var banner = document.getElementById('svw-countdown');
+    var timer  = document.getElementById('svw-timer');
+    var expired = false;
+
+    function showExpired(){
+      if(expired) return;
+      expired = true;
+      document.body.innerHTML = '<div style="position:fixed;inset:0;background:#111E52;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;font-family:Arial,sans-serif;">'
+        + '<div style="font-size:52px;margin-bottom:20px;">⏱</div>'
+        + '<h1 style="color:#fff;font-size:28px;font-weight:900;margin-bottom:12px;">Preview Expired</h1>'
+        + '<p style="color:rgba(255,255,255,0.65);font-size:15px;max-width:420px;line-height:1.6;margin-bottom:32px;">This website preview from Sac Valley Web has expired. Contact Daniel to extend your preview or get started.</p>'
+        + '<a href="tel:+19169458009" style="background:#3CB54A;color:#fff;font-weight:700;padding:14px 36px;border-radius:100px;text-decoration:none;font-size:16px;display:inline-block;margin-bottom:14px;">(916) 945-8009</a>'
+        + '<p style="color:rgba(255,255,255,0.45);font-size:13px;">daniel@sacvalleyweb.com &nbsp;·&nbsp; sacvalleyweb.com</p>'
+        + '</div>';
+    }
+
+    function update(){
+      var diff = expiry - new Date();
+      if(diff <= 0){ showExpired(); return; }
+
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+
+      var parts = [];
+      if(d > 0) parts.push(d + (d===1?' day':' days'));
+      if(d > 0 || h > 0) parts.push(h + 'h');
+      parts.push(m + 'm ' + (s<10?'0'+s:s) + 's');
+      timer.textContent = parts.join(' ');
+
+      if(diff < 3600000){        // < 1 hour — red
+        banner.style.background = '#B91C1C';
+        timer.style.color = '#FCA5A5';
+      } else if(diff < 86400000){ // < 24 hours — amber
+        banner.style.background = '#92400E';
+        timer.style.color = '#FCD34D';
+      }
+    }
+
+    update();
+    setInterval(update, 1000);
+  })();
   </script>
   <!-- Preview protection: remove when site goes live -->
   <script>
