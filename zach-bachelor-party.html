@@ -412,6 +412,64 @@
       box-shadow: 0 0 22px rgba(255,46,196,.32);
     }
 
+    .money-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .money-card {
+      min-height: 100%;
+    }
+
+    .money-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .money-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.11);
+    }
+
+    .money-row:last-child { border-bottom: none; }
+
+    .money-row strong {
+      display: block;
+      color: #fff;
+      font-size: 17px;
+    }
+
+    .money-row span {
+      display: block;
+      color: var(--muted);
+      line-height: 1.4;
+      margin-top: 3px;
+    }
+
+    .amount {
+      color: var(--green);
+      font-size: 24px;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .total-note {
+      margin: 18px 0 0;
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(82,255,168,.1);
+      border: 1px solid rgba(82,255,168,.22);
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
     .todo li { margin: 10px 0; color: var(--muted); }
     .todo strong { color: #fff; }
 
@@ -426,7 +484,7 @@
     }
 
     @media (max-width: 860px) {
-      .grid.two, .grid.three, .grid.four, .sleep-map { grid-template-columns: 1fr; }
+      .grid.two, .grid.three, .grid.four, .sleep-map, .money-grid { grid-template-columns: 1fr; }
       .section-title { align-items: flex-start; flex-direction: column; }
       .event { grid-template-columns: 1fr; gap: 5px; }
       .hero { min-height: 500px; }
@@ -446,6 +504,7 @@
           <a class="pill primary" href="#itinerary">View Itinerary</a>
           <a class="pill" href="#flights">Flight Board</a>
           <a class="pill" href="#sleeping">Sleeping Map</a>
+          <a class="pill" href="#reimbursements">Reimbursements</a>
           <a class="pill" href="#open-items">Open Items</a>
         </div>
       </div>
@@ -457,6 +516,7 @@
       <a href="#tuesday">Tuesday</a>
       <a href="#wednesday">Wednesday</a>
       <a href="#sleeping">Sleeping</a>
+      <a href="#reimbursements">Money</a>
       <a href="#open-items">Confirm</a>
     </nav>
 
@@ -580,7 +640,7 @@
       </div>
       <article class="card sleep-map">
         <div class="floorplan image-floorplan">
-          <img src="neon-vegas-sleeping-arrangements.png" alt="Vegas bachelor party sleeping arrangements floor map showing spots 1 through 6" />
+          <img src="sleeping-arrangements.png" alt="Vegas bachelor party sleeping arrangements floor map showing spots 1 through 6" />
         </div>
         <div class="sleep-list">
           <div class="sleep-spot"><div class="badge">1</div><div><strong>Zach</strong><br><span class="event-note">Private bedroom, lower-right layout.</span></div></div>
@@ -591,6 +651,58 @@
           <div class="sleep-spot"><div class="badge">6</div><div><strong>Garret</strong><br><span class="event-note">Lower-right room in upper-right suite area.</span></div></div>
         </div>
       </article>
+    </section>
+
+    <section id="reimbursements">
+      <div class="section-title">
+        <h2>Reimbursements</h2>
+        <p>Noble and Scott have carried the booking costs.</p>
+      </div>
+      <div class="money-grid">
+        <article class="card money-card">
+          <div class="mini-label">Pay Noble</div>
+          <h3>Hotel + Spa Day Pass</h3>
+          <p>Noble has covered the hotel booking and will cover Waldorf Astoria Spa day passes for anyone who wants day-pass-only access.</p>
+          <div class="money-list">
+            <div class="money-row">
+              <div>
+                <strong>Hotel share</strong>
+                <span>Each person owes Noble for Marriott Grand Chateau.</span>
+              </div>
+              <div class="amount">$355.79</div>
+            </div>
+            <div class="money-row">
+              <div>
+                <strong>Optional spa day pass</strong>
+                <span>Only if you do not buy a treatment. Treatments include day pass access.</span>
+              </div>
+              <div class="amount">$100</div>
+            </div>
+          </div>
+        </article>
+        <article class="card money-card">
+          <div class="mini-label">Pay Scott</div>
+          <h3>Puzzles + Resort Pass</h3>
+          <p>Scott has handled group costs for the puzzles and resort pass.</p>
+          <div class="money-list">
+            <div class="money-row">
+              <div>
+                <strong>Puzzles</strong>
+                <span>Each person owes Scott for the puzzle supplies.</span>
+              </div>
+              <div class="amount">$10</div>
+            </div>
+            <div class="money-row">
+              <div>
+                <strong>Resort pass</strong>
+                <span>Each person owes Scott for the resort pass.</span>
+              </div>
+              <div class="amount">$49</div>
+            </div>
+          </div>
+        </article>
+      </div>
+      <p class="total-note">Baseline per person: $355.79 to Noble for the hotel and $59 to Scott for puzzles plus resort pass. Add $100 to Noble only if you want the spa day pass and are not buying a treatment.</p>
     </section>
 
     <section id="departures">
