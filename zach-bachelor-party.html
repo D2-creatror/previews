@@ -353,18 +353,34 @@
     }
 
     .floorplan {
+      min-height: 360px;
       border-radius: 24px;
-      overflow: hidden;
-      display: flex;
-      align-items: stretch;
+      border: 1px solid rgba(255,255,255,.18);
+      background:
+        linear-gradient(rgba(255,255,255,.05), rgba(255,255,255,.05)),
+        radial-gradient(circle at 20% 30%, rgba(36,246,255,.16), transparent 10rem),
+        radial-gradient(circle at 75% 65%, rgba(255,46,196,.18), transparent 12rem);
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      text-align: center;
     }
 
-    .floorplan img {
+    .image-floorplan img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
+      min-height: 360px;
+      object-fit: contain;
+      border-radius: 20px;
       display: block;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+    }
+
+    .floorplan strong {
+      display: block;
+      font-size: 24px;
+      letter-spacing: -.03em;
+      margin-bottom: 8px;
     }
 
     .sleep-list {
@@ -462,7 +478,7 @@
         <article class="card">
           <div class="mini-label">Tue · May 26</div>
           <h3>Spa + Shows</h3>
-          <p>Waldorf Astoria Spa day, Bavette's at Park MGM, and Atomic Saloon at Venetian.</p>
+          <p>Waldorf Astoria Spa day, Bavette's at Park MGM, and Atomic Saloon at Venetian. Spa passes are $100 per person.</p>
         </article>
         <article class="card">
           <div class="mini-label">Wed · May 27</div>
@@ -510,7 +526,7 @@
             <div class="event"><div class="time">2:22–5:06</div><div><div class="event-title">Everyone lands at LAS</div><div class="event-note">Airport arrivals stagger through the afternoon.</div></div></div>
             <div class="event"><div class="time">3:00</div><div><div class="event-title">Hotel Check-In</div><div class="event-note">Marriott Grand Chateau. Drop bags, unpack, and get situated.</div></div></div>
             <div class="event"><div class="time">Evening</div><div><div class="event-title">Food + Head to Luxor</div><div class="event-note">Keep dinner easy so nobody is late to the show.</div></div></div>
-            <div class="event"><div class="time">8:00</div><div><div class="event-title">Carrot Top</div><div class="event-note">Luxor Hotel & Casino.</div></div></div>
+            <div class="event"><div class="time">8:00</div><div><div class="event-title">Carrot Top</div><div class="event-note">Luxor Hotel & Casino. Free — Daniel has tickets.</div></div></div>
           </div>
         </article>
 
@@ -534,10 +550,10 @@
             <h3>Spa + Dinner + Show</h3>
           </div>
           <div class="schedule">
-            <div class="event"><div class="time">9–5</div><div><div class="event-title">Waldorf Astoria Spa</div><div class="event-note">Default plan: $100 day pass for anyone not booking a treatment. Noble owns pass research/purchase.</div></div></div>
+            <div class="event"><div class="time">9–5</div><div><div class="event-title">Waldorf Astoria Spa</div><div class="event-note">$100 per person. Noble will buy day passes. If you want a treatment, buy your own treatment since it includes a day pass. Let Noble know by Friday, May 15.</div></div></div>
             <div class="event"><div class="time">Afternoon</div><div><div class="event-title">Hotel Reset</div><div class="event-note">Shower, change, optional downtime before dinner.</div></div></div>
             <div class="event"><div class="time">6:00</div><div><div class="event-title">Bavette's</div><div class="event-note">Park MGM dinner reservation.</div></div></div>
-            <div class="event"><div class="time">9:30</div><div><div class="event-title">Atomic Saloon</div><div class="event-note">Venetian. Noble has tickets.</div></div></div>
+            <div class="event"><div class="time">9:30</div><div><div class="event-title">Atomic Saloon</div><div class="event-note">Venetian. Free — Noble has tickets.</div></div></div>
           </div>
         </article>
 
@@ -562,8 +578,8 @@
         <p>Because chaos needs assigned beds.</p>
       </div>
       <article class="card sleep-map">
-        <div class="floorplan">
-          <img src="sleeping-arrangements.png" alt="Sleeping Arrangements Floor Plan" />
+        <div class="floorplan image-floorplan">
+          <img src="neon-vegas-sleeping-arrangements.png" alt="Vegas bachelor party sleeping arrangements floor map showing spots 1 through 6" />
         </div>
         <div class="sleep-list">
           <div class="sleep-spot"><div class="badge">1</div><div><strong>Zach</strong><br><span class="event-note">Private bedroom, lower-right layout.</span></div></div>
@@ -615,6 +631,9 @@
           <div class="mini-label">Reservations + Logistics</div>
           <ul class="todo">
             <li><strong>Scott:</strong> purchase AREA15 Level 1 passes.</li>
+            <li><strong>Everyone:</strong> let Noble know by Friday, May 15 if you want a $100 Waldorf Astoria Spa day pass.</li>
+            <li><strong>Noble:</strong> buy the spa day passes for everyone who opts into the day pass only.</li>
+            <li><strong>Anyone booking a treatment:</strong> buy your own treatment directly since it includes day pass access.</li>
             <li><strong>Noble:</strong> confirm Waldorf Spa availability, in/out privileges, and clothing policy.</li>
             <li><strong>Daniel D:</strong> confirm Marriott Grand Chateau 4 PM late checkout.</li>
           </ul>
