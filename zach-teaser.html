@@ -299,6 +299,13 @@
       transition: opacity .2s ease, transform .2s ease;
     }
 
+    .hidden-mouse.source-mouse {
+      right: auto;
+      left: clamp(22px, 4vw, 58px);
+      bottom: clamp(24px, 5vw, 70px);
+      opacity: .065;
+    }
+
     .hidden-mouse:hover,
     .hidden-mouse:focus-visible {
       opacity: .5;
@@ -409,7 +416,12 @@
       <button class="hidden-mouse" id="hiddenMouse" type="button" aria-label="Hidden clue">
         <span></span>
       </button>
+      <button class="hidden-mouse source-mouse" id="sourceMouse" type="button" aria-label="Hidden source clue">
+        <span></span>
+      </button>
     </header>
+
+    <!-- Hope you like being nude -->
 
     <section id="briefing">
       <div class="grid">
@@ -523,6 +535,12 @@
     document.getElementById("hiddenMouse").addEventListener("click", () => {
       const notice = document.getElementById("notice");
       notice.textContent = "Hidden clue found: pack swim shorts.";
+      notice.classList.add("visible");
+    });
+
+    document.getElementById("sourceMouse").addEventListener("click", () => {
+      const notice = document.getElementById("notice");
+      notice.textContent = "Hidden clue found: check the page source.";
       notice.classList.add("visible");
     });
 
