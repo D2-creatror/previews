@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zach's Bachelor Puzzle</title>
+  <style>
+    :root {
+      --bg: #090714;
+      --bg-2: #130f2a;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #fff7f1;
+      --muted: #c8bfd8;
+      --pink: #ff2ec4;
+      --gold: #ffd166;
+      --cyan: #24f6ff;
+      --purple: #8b5cf6;
+      --green: #52ffa8;
+      --shadow: 0 24px 80px rgba(0,0,0,.35);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 46, 196, .28), transparent 34rem),
+        radial-gradient(circle at top right, rgba(36, 246, 255, .22), transparent 34rem),
+        radial-gradient(circle at 50% 40%, rgba(139, 92, 246, .18), transparent 40rem),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.45), transparent 75%);
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 36px;
+      padding: clamp(30px, 6vw, 76px);
+      min-height: 460px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(9,7,20,.32), rgba(9,7,20,.72)),
+        url("https://images.unsplash.com/photo-1605833556294-ea5c7a74f57d?auto=format&fit=crop&w=1800&q=80") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "PUZZLE A";
+      position: absolute;
+      left: 50%;
+      bottom: -20px;
+      transform: translateX(-50%);
+      font-size: clamp(54px, 12vw, 140px);
+      font-weight: 950;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.06);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.38);
+      border: 1px solid rgba(255,255,255,.24);
+      color: var(--gold);
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 9vw, 112px);
+      line-height: .88;
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+      text-shadow: 0 0 24px rgba(255,46,196,.7), 0 0 40px rgba(36,246,255,.35);
+    }
+
+    h1 span {
+      display: block;
+      color: var(--cyan);
+    }
+
+    .subtitle {
+      max-width: 780px;
+      margin: 24px auto 0;
+      color: #fff;
+      font-size: clamp(18px, 2.2vw, 24px);
+      line-height: 1.35;
+      text-shadow: 0 2px 18px rgba(0,0,0,.7);
+    }
+
+    section { margin-top: 26px; }
+
+    .section-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 0 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 56px);
+      letter-spacing: -.05em;
+      line-height: .95;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.15);
+      background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
+      box-shadow: 0 18px 50px rgba(0,0,0,.26);
+      padding: 22px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at top right, rgba(255,46,196,.18), transparent 16rem);
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .puzzle-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .puzzle-board {
+      overflow: auto;
+      padding: 14px;
+      border-radius: 22px;
+      background: rgba(0,0,0,.2);
+      border: 1px solid rgba(255,255,255,.12);
+      touch-action: none;
+    }
+
+    .letter-grid {
+      display: grid;
+      grid-template-columns: repeat(18, minmax(30px, 1fr));
+      gap: 4px;
+      min-width: 650px;
+    }
+
+    .cell {
+      aspect-ratio: 1;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cell.preview {
+      background: rgba(36,246,255,.22);
+      border-color: rgba(36,246,255,.7);
+    }
+
+    .cell.found {
+      background: #fff200;
+      border-color: rgba(255,242,0,.9);
+      color: #151100;
+      box-shadow: 0 0 16px rgba(255,242,0,.28);
+    }
+
+    .word-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 16px;
+    }
+
+    .word {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.09);
+      color: #fff;
+      font-weight: 850;
+      letter-spacing: .02em;
+    }
+
+    .word::after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .word.found {
+      color: var(--green);
+      text-decoration: line-through;
+      text-decoration-thickness: 2px;
+    }
+
+    .word.found::after {
+      border-color: var(--green);
+      background: var(--green);
+      box-shadow: inset 0 0 0 4px rgba(9,7,20,.9);
+    }
+
+    .helper {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .status {
+      margin-top: 14px;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(36,246,255,.1);
+      border: 1px solid rgba(36,246,255,.2);
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .bonus {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+
+    .bonus h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: -.02em;
+    }
+
+    @media (max-width: 920px) {
+      .puzzle-layout { grid-template-columns: 1fr; }
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page { width: min(100% - 20px, 1180px); }
+      .hero { min-height: 420px; }
+      .letter-grid {
+        grid-template-columns: repeat(18, 31px);
+        min-width: 626px;
+      }
+      .cell {
+        font-size: 17px;
+        border-radius: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="kicker">Zach's Bachelor Puzzle</div>
+        <h1>Hotel Word <span>Search</span></h1>
+        <p class="subtitle">Find every hidden hotel name, then use the unused letters to unlock the next clue.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">
+        <h2>Puzzle A</h2>
+        <p>Click and drag from the first letter to the last letter.</p>
+      </div>
+      <div class="puzzle-layout">
+        <article class="card">
+          <div class="puzzle-board" id="board" aria-label="Hotel word search puzzle"></div>
+          <p class="status" id="status">0 of 21 words found.</p>
+        </article>
+        <aside class="card">
+          <p class="helper">Words can run forward, backward, vertical, horizontal, or diagonal. After all words are found, read the unused letters starting from the top left, down, then zig-zag up and down from left to right.</p>
+          <div class="word-list" id="wordList"></div>
+          <div class="bonus">
+            <h3>Bonus Finds</h3>
+            <p class="helper">These are included so the final message reads cleanly.</p>
+            <div class="word-list" id="bonusList"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const rows = [
+      "BAUAETAHCDNARGLCOE",
+      "AMIRAGEEOGNIMALFLP",
+      "TARTSARTSOPIVAVEFO",
+      "CGSEILGOMTWTIDEGOL",
+      "EETXNENCORESAEDVNE",
+      "HCOCSIRAPSIRTVENTV",
+      "EVAAATEHOSAENNYWAN",
+      "BELLAGIOLOTFEEBAID",
+      "LNGIAACEIRHTIAYRNN",
+      "OOEBSPALTCIGERAOEA",
+      "RITUUESTAAENSIRRBR",
+      "DTHRITSRNAVITAOOLG",
+      "EAMANDALAYBAYRXFEM",
+      "SNERCIRCUSCIRCUSUG",
+      "DLROWSTROSEROELGOM",
+      "TREASUREISLANDSNRE",
+      "TISHARRAHLENCBKIED"
+    ];
+
+    const primaryWords = [
+      "FONTAINEBLEU",
+      "VENETIAN",
+      "WYNN",
+      "ENCORE",
+      "CAESARS PALACE",
+      "ARIA",
+      "COSMOPOLITAN",
+      "RESORTS WORLD",
+      "MANDALAY BAY",
+      "LUXOR",
+      "TREASURE ISLAND",
+      "MIRAGE",
+      "STRAT",
+      "PARIS",
+      "FLAMINGO",
+      "VDARA",
+      "GRAND CHATEAU",
+      "HARRAHS"
+    ];
+
+    const bonusWords = ["BELLAGIO", "CIRCUS CIRCUS", "EXCALIBUR"];
+    const allWords = [...primaryWords, ...bonusWords].map((label) => ({
+      label,
+      key: label.replace(/[^A-Z]/g, ""),
+      found: false
+    }));
+
+    const board = document.getElementById("board");
+    const wordList = document.getElementById("wordList");
+    const bonusList = document.getElementById("bonusList");
+    const status = document.getElementById("status");
+    let selecting = false;
+    let startCell = null;
+    let previewCells = [];
+    const foundCells = new Set();
+
+    function cellId(row, col) {
+      return `${row}-${col}`;
+    }
+
+    function renderBoard() {
+      const grid = document.createElement("div");
+      grid.className = "letter-grid";
+      rows.forEach((rowValue, row) => {
+        [...rowValue].forEach((letter, col) => {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          cell.textContent = letter;
+          cell.dataset.row = row;
+          cell.dataset.col = col;
+          cell.setAttribute("role", "button");
+          cell.setAttribute("aria-label", `Row ${row + 1}, column ${col + 1}, letter ${letter}`);
+          grid.appendChild(cell);
+        });
+      });
+      board.appendChild(grid);
+    }
+
+    function renderWords() {
+      wordList.innerHTML = "";
+      bonusList.innerHTML = "";
+      allWords.forEach((word, index) => {
+        const item = document.createElement("div");
+        item.className = `word${word.found ? " found" : ""}`;
+        item.textContent = word.label;
+        item.dataset.key = word.key;
+        if (index < primaryWords.length) {
+          wordList.appendChild(item);
+        } else {
+          bonusList.appendChild(item);
+        }
+      });
+    }
+
+    function getCell(row, col) {
+      return board.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+    }
+
+    function getPath(from, to) {
+      const rowDelta = to.row - from.row;
+      const colDelta = to.col - from.col;
+      const rowStep = Math.sign(rowDelta);
+      const colStep = Math.sign(colDelta);
+      const sameRow = rowDelta === 0;
+      const sameCol = colDelta === 0;
+      const diagonal = Math.abs(rowDelta) === Math.abs(colDelta);
+
+      if (!sameRow && !sameCol && !diagonal) return [];
+
+      const length = Math.max(Math.abs(rowDelta), Math.abs(colDelta)) + 1;
+      return Array.from({ length }, (_, index) => ({
+        row: from.row + rowStep * index,
+        col: from.col + colStep * index
+      }));
+    }
+
+    function clearPreview() {
+      previewCells.forEach(({ row, col }) => {
+        const cell = getCell(row, col);
+        if (cell) cell.classList.remove("preview");
+      });
+      previewCells = [];
+    }
+
+    function showPreview(path) {
+      clearPreview();
+      previewCells = path;
+      path.forEach(({ row, col }) => {
+        const cell = getCell(row, col);
+        if (cell && !cell.classList.contains("found")) cell.classList.add("preview");
+      });
+    }
+
+    function normalizeSelection(path) {
+      return path.map(({ row, col }) => rows[row][col]).join("");
+    }
+
+    function completeSelection(path) {
+      const selected = normalizeSelection(path);
+      const reversed = [...selected].reverse().join("");
+      const match = allWords.find((word) => !word.found && (word.key === selected || word.key === reversed));
+
+      if (!match) {
+        status.textContent = "No match yet. Try another line.";
+        return;
+      }
+
+      match.found = true;
+      path.forEach(({ row, col }) => {
+        foundCells.add(cellId(row, col));
+        getCell(row, col).classList.add("found");
+      });
+      renderWords();
+      updateStatus();
+    }
+
+    function updateStatus() {
+      const foundCount = allWords.filter((word) => word.found).length;
+      if (foundCount === allWords.length) {
+        status.textContent = "All words found. Decode the unused letters to unlock the next clue.";
+      } else {
+        status.textContent = `${foundCount} of ${allWords.length} words found.`;
+      }
+    }
+
+    board.addEventListener("pointerdown", (event) => {
+      const cell = event.target.closest(".cell");
+      if (!cell) return;
+      selecting = true;
+      startCell = {
+        row: Number(cell.dataset.row),
+        col: Number(cell.dataset.col)
+      };
+      showPreview([startCell]);
+      cell.setPointerCapture(event.pointerId);
+    });
+
+    board.addEventListener("pointerover", (event) => {
+      if (!selecting || !startCell) return;
+      const cell = event.target.closest(".cell");
+      if (!cell) return;
+      const endCell = {
+        row: Number(cell.dataset.row),
+        col: Number(cell.dataset.col)
+      };
+      const path = getPath(startCell, endCell);
+      if (path.length) showPreview(path);
+    });
+
+    board.addEventListener("pointermove", (event) => {
+      if (!selecting || !startCell) return;
+      const cell = document.elementFromPoint(event.clientX, event.clientY)?.closest(".cell");
+      if (!cell || !board.contains(cell)) return;
+      const endCell = {
+        row: Number(cell.dataset.row),
+        col: Number(cell.dataset.col)
+      };
+      const path = getPath(startCell, endCell);
+      if (path.length) showPreview(path);
+    });
+
+    board.addEventListener("pointerup", () => {
+      if (!selecting) return;
+      selecting = false;
+      if (previewCells.length > 1) completeSelection(previewCells);
+      clearPreview();
+      startCell = null;
+    });
+
+    board.addEventListener("pointercancel", () => {
+      selecting = false;
+      clearPreview();
+      startCell = null;
+    });
+
+    renderBoard();
+    renderWords();
+    updateStatus();
+  </script>
+</body>
+</html>
