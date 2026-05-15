@@ -276,18 +276,6 @@
       line-height: 1.4;
     }
 
-    .bonus {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.12);
-    }
-
-    .bonus h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing: -.02em;
-    }
-
     @media (max-width: 920px) {
       .puzzle-layout { grid-template-columns: 1fr; }
       .section-title {
@@ -315,8 +303,8 @@
     <header class="hero">
       <div>
         <div class="kicker">Zach's Bachelor Puzzle</div>
-        <h1>Hotel Word <span>Search</span></h1>
-        <p class="subtitle">Find every hidden hotel name, then use the unused letters to unlock the next clue.</p>
+        <h1>Zach's <span>Bachelor Party</span></h1>
+        <p class="subtitle">Word Search: find every hidden hotel name, then use the unused letters to unlock the next clue.</p>
       </div>
     </header>
 
@@ -333,11 +321,6 @@
         <aside class="card">
           <p class="helper">Words can run forward, backward, vertical, horizontal, or diagonal. After all words are found, read the unused letters starting from the top left, down, then zig-zag up and down from left to right.</p>
           <div class="word-list" id="wordList"></div>
-          <div class="bonus">
-            <h3>Bonus Finds</h3>
-            <p class="helper">These are included so the final message reads cleanly.</p>
-            <div class="word-list" id="bonusList"></div>
-          </div>
         </aside>
       </div>
     </section>
@@ -382,11 +365,13 @@
       "FLAMINGO",
       "VDARA",
       "GRAND CHATEAU",
-      "HARRAHS"
+      "HARRAHS",
+      "BELLAGIO",
+      "CIRCUS CIRCUS",
+      "EXCALIBUR"
     ];
 
-    const bonusWords = ["BELLAGIO", "CIRCUS CIRCUS", "EXCALIBUR"];
-    const allWords = [...primaryWords, ...bonusWords].map((label) => ({
+    const allWords = primaryWords.map((label) => ({
       label,
       key: label.replace(/[^A-Z]/g, ""),
       found: false
@@ -394,7 +379,6 @@
 
     const board = document.getElementById("board");
     const wordList = document.getElementById("wordList");
-    const bonusList = document.getElementById("bonusList");
     const status = document.getElementById("status");
     let selecting = false;
     let startCell = null;
@@ -425,17 +409,12 @@
 
     function renderWords() {
       wordList.innerHTML = "";
-      bonusList.innerHTML = "";
-      allWords.forEach((word, index) => {
+      allWords.forEach((word) => {
         const item = document.createElement("div");
         item.className = `word${word.found ? " found" : ""}`;
         item.textContent = word.label;
         item.dataset.key = word.key;
-        if (index < primaryWords.length) {
-          wordList.appendChild(item);
-        } else {
-          bonusList.appendChild(item);
-        }
+        wordList.appendChild(item);
       });
     }
 
