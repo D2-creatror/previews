@@ -379,10 +379,10 @@
       </div>
       <article class="card teaser-link">
         <div>
-          <strong>Code-In Protocol</strong>
-          <span>Once on board your flight to Vegas, you may be asked by your seatmate to provide a code in. The code is <strong>VIVA LAS VEGAS</strong>.</span>
+          <strong id="specialTitle">Something Special Is Coming</strong>
+          <span id="specialMessage">Check back 30 minutes before takeoff for something special.</span>
         </div>
-        <span class="pill">Stay Tuned</span>
+        <span class="pill" id="specialStatus">Stay Tuned</span>
       </article>
     </section>
 
@@ -470,6 +470,9 @@
       minutes: document.getElementById("minutes"),
       seconds: document.getElementById("seconds")
     };
+    const specialTitle = document.getElementById("specialTitle");
+    const specialMessage = document.getElementById("specialMessage");
+    const specialStatus = document.getElementById("specialStatus");
 
     function updateCountdown() {
       const remaining = Math.max(0, departureTime - Date.now());
@@ -482,6 +485,12 @@
       countdownFields.hours.textContent = String(hours).padStart(2, "0");
       countdownFields.minutes.textContent = String(minutes).padStart(2, "0");
       countdownFields.seconds.textContent = String(seconds).padStart(2, "0");
+
+      if (remaining <= 1800000) {
+        specialTitle.textContent = "Your Boarding Mission";
+        specialMessage.textContent = "Tell the flight attendant upon boarding that you're going to Vegas for your bachelor party to get the party started.";
+        specialStatus.textContent = "Unlocked";
+      }
     }
 
     window.addEventListener("resize", resizeCanvas);
