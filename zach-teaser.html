@@ -658,6 +658,8 @@
     const specialTitle = document.getElementById("specialTitle");
     const specialMessage = document.getElementById("specialMessage");
     const specialStatus = document.getElementById("specialStatus");
+    const earlyLookMessage = "We knew you might try look here, sorry to dissapoint you";
+    const boardingMission = "V2hlbiBzY2FubmluZyB5b3VyIGJvYXJkaW5nIHBhc3MgdG8gZW50ZXIsIHRlbGwgdGhlIGdhdGUgYWdlbnQgIkknbSBnb2luZyB0byBWZWdhcyBmb3IgbXkgYmFjaGVsb3IgcGFydHksIEkgY2FuJ3QgYmVsaWV2ZSBpdCdzIGZpbmFsbHkgaGFwcGVuaW5nLiI=";
 
     function updateCountdown() {
       const remaining = Math.max(0, departureTime - Date.now());
@@ -673,7 +675,7 @@
 
       if (remaining <= 1800000) {
         specialTitle.textContent = "Your Boarding Mission";
-        specialMessage.textContent = "When scanning your boarding pass to enter, tell the gate agent \"I'm going to Vegas for my bachelor party, I can't believe it's finally happening.\"";
+        specialMessage.textContent = atob(boardingMission);
         specialStatus.textContent = "Unlocked";
       }
     }
