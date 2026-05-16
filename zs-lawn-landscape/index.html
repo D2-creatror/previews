@@ -97,9 +97,14 @@
     <span style="opacity:0.5;">·</span>
     <span style="opacity:0.75;">Ready to go live? <a href="tel:+19169458009" style="color:#3CB54A;text-decoration:underline;">(916) 945-8009</a></span>
   </div>
-  <div id="preview-banner" class="flex items-center justify-center gap-3 px-5 py-3 text-xs font-semibold" style="background:#fbbf24;color:#78350f;">
-    <span>👋 This is your website preview from <strong>Sac Valley Web</strong>. Ready to go live? Call Daniel: <a href="tel:+19169458009" class="underline">(916) 945-8009</a> or <a href="mailto:daniel@sacvalleyweb.com" class="underline">daniel@sacvalleyweb.com</a></span>
-    <button onclick="document.getElementById('preview-banner').remove()" class="ml-2 text-base leading-none opacity-60 hover:opacity-100">&times;</button>
+  <div id="preview-banner" class="flex items-start sm:items-center justify-between gap-3 px-4 py-2.5 text-xs font-semibold" style="background:#fbbf24;color:#78350f;">
+    <span>
+      <span class="hidden sm:inline">👋 This is your website preview from <strong>Sac Valley Web</strong>. Ready to go live? Call </span>
+      <span class="sm:hidden">Preview by <strong>Sac Valley Web</strong> · </span>
+      <a href="tel:+19169458009" class="underline font-bold">(916) 945-8009</a>
+      <span class="hidden sm:inline"> or <a href="mailto:daniel@sacvalleyweb.com" class="underline">daniel@sacvalleyweb.com</a></span>
+    </span>
+    <button onclick="document.getElementById('preview-banner').remove()" class="flex-shrink-0 text-lg leading-none opacity-60 hover:opacity-100 mt-0.5">&times;</button>
   </div>
 
   <!-- HEADER -->
