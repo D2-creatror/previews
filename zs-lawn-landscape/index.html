@@ -10,46 +10,17 @@
   <meta property="og:type" content="website" />
   <meta name="robots" content="noindex, nofollow" />
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink:      '#101612',
-            pine:     '#173829',
-            pineDark: '#071A13',
-            alpine:   '#274D3A',
-            moss:     '#6F7F55',
-            tahoe:    '#226780',
-            lake:     '#DDECEF',
-            cream:    '#F7F1E6',
-            stone:    '#D9D1C2',
-            granite:  '#6E746D',
-            bark:     '#9A7248',
-            gold:     '#C89A58',
-            snow:     '#FFFCF5'
-          },
-          fontFamily: {
-            sans:    ['Inter', 'system-ui', 'sans-serif'],
-            display: ['Cormorant Garamond', 'Georgia', 'serif']
-          },
-          boxShadow: {
-            soft: '0 24px 80px rgba(7, 26, 19, 0.22)',
-            card: '0 18px 45px rgba(16, 22, 18, 0.12)'
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="assets/styles.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, sans-serif; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: Inter, system-ui, sans-serif; overflow-x: hidden; }
+    #mobile-menu { display: none; }
+    #form-success { display: none; }
     .font-display { font-family: "Cormorant Garamond", Georgia, serif; }
     .image-shade::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(7,26,19,0.08), rgba(7,26,19,0.62)); }
     .service-card img, .gallery-card img { transition: transform .65s ease; }
@@ -502,7 +473,7 @@
           <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold mb-6">Make your property look professionally cared for.</h2>
           <p class="text-lg leading-relaxed text-white/70 mb-10">Fill out the form or call us directly. We serve South Lake Tahoe, Stateline, Meyers, Al Tahoe, Tahoe Keys, and the entire South Shore.</p>
 
-          <div id="form-success" class="hidden bg-white/10 border border-white/20 rounded-[2rem] p-10 text-center mb-8" style="display:none;">
+          <div id="form-success" class="bg-white/10 border border-white/20 rounded-[2rem] p-10 text-center mb-8">
             <p class="text-4xl mb-4">✅</p>
             <p class="font-black text-white text-xl mb-2">Message received!</p>
             <p class="text-white/70">We'll get back to you within 24 hours.</p>
