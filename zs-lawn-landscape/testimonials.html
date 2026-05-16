@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testimonials | Z's Lawn & Landscape — South Lake Tahoe</title>
+  <meta name="description" content="Read reviews from South Lake Tahoe homeowners and property managers who trust Z's Lawn & Landscape for their landscaping, maintenance, and property care." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'forest-green':'#173D2B','deep-pine':'#0F2A1F','tahoe-blue':'#2F6F8F',
+            'stone-gray':'#E8E3D8','granite':'#6F756C','warm-wood':'#B88A4A',
+            'snow-white':'#FAF8F2','charcoal':'#1D2420',
+          },
+          fontFamily: { display:['"Playfair Display"','Georgia','serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family:'Inter',sans-serif; } html { scroll-behavior:smooth; }
+    .font-display { font-family:'Playfair Display',Georgia,serif; }
+    #mobile-menu { display:none; } #mobile-menu.open { display:block; }
+  </style>
+  <meta name="robots" content="noindex, nofollow" />
+</head>
+<body class="bg-snow-white text-charcoal">
+  <!-- Preview watermark: remove when site goes live -->
+  <div aria-hidden="true" style="position:fixed;inset:0;pointer-events:none;z-index:9998;background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27340%27%20height%3D%27220%27%3E%3Ctext%20transform%3D%27rotate%28-30%20170%20110%29%27%20x%3D%27170%27%20y%3D%27118%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2713%27%20font-weight%3D%27bold%27%20letter-spacing%3D%273%27%20fill%3D%27rgba%280%2C0%2C0%2C0.10%29%27%3EPREVIEW%20-%20NOT%20LICENSED%3C/text%3E%3Ctext%20transform%3D%27rotate%28-30%20170%20110%29%27%20x%3D%27170%27%20y%3D%27119%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2Csans-serif%27%20font-size%3D%2713%27%20font-weight%3D%27bold%27%20letter-spacing%3D%273%27%20fill%3D%27rgba%28255%2C255%2C255%2C0.07%29%27%3EPREVIEW%20-%20NOT%20LICENSED%3C/text%3E%3C/svg%3E');background-repeat:repeat;background-size:340px 220px;"></div>
+
+  <!-- Countdown banner -->
+  <div id="svw-countdown" style="display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 16px;font-size:12px;font-weight:600;background:#1B2D72;color:#fff;text-align:center;flex-wrap:wrap;">
+    <span style="opacity:0.75;">⏱ Preview expires in:</span>
+    <span id="svw-timer" style="color:#3CB54A;font-size:13px;font-weight:900;letter-spacing:0.5px;">calculating...</span>
+    <span style="opacity:0.5;">·</span>
+    <span style="opacity:0.75;">Ready to go live? <a href="tel:+19169458009" style="color:#3CB54A;text-decoration:underline;">(916) 945-8009</a></span>
+  </div>
+  <div id="preview-banner" class="flex items-center justify-center gap-3 px-5 py-3 text-xs font-semibold" style="background:#fbbf24;color:#78350f;">
+    <span>👋 This is your website preview from <strong>Sac Valley Web</strong>. Ready to go live? <a href="tel:+19169458009" class="underline">(916) 945-8009</a> · <a href="mailto:daniel@sacvalleyweb.com" class="underline">daniel@sacvalleyweb.com</a></span>
+    <button onclick="document.getElementById('preview-banner').remove()" class="ml-2 text-base leading-none opacity-60 hover:opacity-100">&times;</button>
+  </div>
+
+  <div class="text-center py-2 px-4 text-xs font-medium tracking-wide bg-forest-green" style="color:rgba(250,248,242,0.82);">
+    Proudly Serving South Lake Tahoe for Over 29 Years &nbsp;·&nbsp; Licensed &amp; Bonded in California &amp; Nevada
+  </div>
+
+  <header class="sticky top-0 z-50 bg-deep-pine shadow-xl">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="images/zs-logo.png" alt="Z's Lawn &amp; Landscape" class="h-14 w-auto" />
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium" style="color:rgba(250,248,242,0.8);">
+        <a href="index.html" class="hover:text-white transition">Home</a>
+        <a href="services.html" class="hover:text-white transition">Services</a>
+        <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+        <a href="about.html" class="hover:text-white transition">About</a>
+        <a href="testimonials.html" class="hover:text-white transition border-b-2 text-white" style="border-color:#B88A4A;">Testimonials</a>
+        <a href="contact.html" class="hover:text-white transition">Contact</a>
+      </nav>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="tel:+15305448570" class="text-sm font-semibold hover:opacity-80 transition" style="color:#B88A4A;">(530) 544-8570</a>
+        <a href="contact.html" class="bg-tahoe-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-90 transition">Free Estimate</a>
+      </div>
+      <button class="lg:hidden text-snow-white p-1" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Toggle navigation">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="lg:hidden bg-deep-pine border-t border-white border-opacity-10">
+      <div class="px-6 py-5 flex flex-col gap-4 text-sm font-medium" style="color:rgba(250,248,242,0.9);">
+        <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a>
+        <a href="tel:+15305448570" class="font-bold" style="color:#B88A4A;">(530) 544-8570</a>
+        <a href="contact.html" class="text-center bg-tahoe-blue text-white font-semibold py-3 rounded-full">Request Free Estimate</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="py-20 px-6 text-center bg-forest-green">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+      <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#B88A4A;letter-spacing:0.2em;">Client Reviews</p>
+      <h1 class="font-display text-4xl md:text-5xl font-bold text-snow-white mb-5">Trusted by Tahoe Homeowners</h1>
+      <p class="text-base leading-relaxed" style="color:rgba(250,248,242,0.82);">29+ years of serving South Lake Tahoe. Here's what our clients say about Z's Lawn &amp; Landscape.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS GRID -->
+  <section class="py-20 px-6 bg-snow-white">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"Ryan and his team transformed our front yard from boring grass to drought tolerant landscaping that elevated the appearance of our home. He was so wonderful to work with and very considerate of our preferences and budget. He worked within our budget, was incredibly prompt and the results far exceeded our expectations. His team is also very professional and worked quickly, but efficiently to get the job done. 10/10, would recommend!"</p>
+        <div>
+          <p class="font-bold text-charcoal">S.E.</p>
+          <p class="text-sm text-granite">South Lake Tahoe, CA · Jan 2017</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"Z's Lawn and Landscape owned by Ryan Zebo has developed such a positive reputation. Ryan has created the unique ability to take a client's conversation, use his creativity and experience, to create a dream and turn it into reality."</p>
+        <div>
+          <p class="font-bold text-charcoal">Bruce F.</p>
+          <p class="text-sm text-granite">South Lake Tahoe, CA · Oct 2020</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"Great landscaping company. Happy to have them service any of my properties that I manage with Tahoe All Seasons Properties as well as my personal home's that I own. Ryan is wonderful!"</p>
+        <div>
+          <p class="font-bold text-charcoal">Brandon G.</p>
+          <p class="text-sm text-granite">South Lake Tahoe, CA · Aug 2021</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"I can recommend Ryan and his great team of workers for your lawn, sprinkler, and landscaping needs."</p>
+        <div>
+          <p class="font-bold text-charcoal">Rob M.</p>
+          <p class="text-sm text-granite">South Lake Tahoe Area, CA · Oct 2020</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"I am a local real estate Broker/Owner. I personally use Z's Lawn &amp; Landscape. I highly recommend them to my clients. Several of my clients use their services as well and are very happy and have personally thanked me for the referral. They are always on time, knowledgeable and reasonably priced."</p>
+        <div>
+          <p class="font-bold text-charcoal">Jesse S.</p>
+          <p class="text-sm text-granite">South Lake Tahoe, CA · Oct 2014</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"These guys are great. Honest and hard working, and with an excellent eye for aesthetics. Ryan insisted on setting a cap on the price even though we were paying by the hour. Very considerate, and they did beautiful work planting on our steep slope."</p>
+        <div>
+          <p class="font-bold text-charcoal">Chris S.</p>
+          <p class="text-sm text-granite">South Lake Tahoe, CA · Sep 2013</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"Super honest and very fair plus did a great job."</p>
+        <div>
+          <p class="font-bold text-charcoal">Ellen G.</p>
+          <p class="text-sm text-granite">Zephyr Cove, NV · Jun 2017</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"I hired Ryan and his small crew to install edging in my back yard, and remove all of the grass from the planter beds. The guys were professional, hard-working and friendly. They did a great job cleaning up and hauling away all the weeds and sod they pulled from the yard. I highly recommend this company!"</p>
+        <div>
+          <p class="font-bold text-charcoal">Linda C.</p>
+          <p class="text-sm text-granite">South Lake Tahoe, CA · Aug 2012</p>
+        </div>
+      </div>
+
+      <div class="rounded-2xl p-8 border border-stone-gray bg-white">
+        <div class="text-yellow-400 text-sm mb-4">★★★★★</div>
+        <p class="text-base text-granite leading-relaxed mb-6 italic">"Great, reliable service with no attitude. Highly recommended!"</p>
+        <div>
+          <p class="font-bold text-charcoal">Erik C.</p>
+          <p class="text-sm text-granite">Zephyr Cove, NV · Nov 2012</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Yelp CTA -->
+    <div class="max-w-5xl mx-auto mt-12 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-stone-gray bg-white">
+      <div>
+        <p class="font-bold text-charcoal mb-1">More reviews on Yelp</p>
+        <p class="text-sm text-granite">See what other South Lake Tahoe homeowners and property managers are saying about Z's Lawn &amp; Landscape.</p>
+      </div>
+      <a href="https://www.yelp.com/biz/z-s-lawn-and-landscape-south-lake-tahoe-2"
+         target="_blank" rel="noopener"
+         class="flex-shrink-0 inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full transition"
+         style="background:#D32323;color:#fff;"
+         onmouseover="this.style.background='#b81d1d'" onmouseout="this.style.background='#D32323'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M21.111 18.226c-.141.969-2.119 3.483-3.029 3.847-.311.124-.611.094-.85-.09-.154-.12-.314-.365-2.447-3.827l-.633-1.032c-.244-.383-.162-.894.188-1.174a1.02 1.02 0 0 1 1.148-.098l.034.019c3.479 2.038 3.701 2.186 3.849 2.325.249.226.327.549.186.918-.01.03-.018.06-.027.09l-.419-.001zM9.546 14.862l-.03.012c-.406.162-.849-.025-1.047-.43L4.454 5.782c-.195-.397-.046-.864.332-1.084C5.878 3.923 8.499 3.5 9.512 3.674c.323.057.556.268.633.571.02.08 1.108 5.133 1.604 7.694.078.401.083.75.014 1.037-.116.484-.59.761-1.006.878l-.211-.001zm11.408-5.465c-.191.946-2.439 3.155-3.386 3.39-.313.078-.61.02-.83-.166-.14-.119-.26-.327-1.775-2.888l-.545-.938c-.221-.371-.156-.856.161-1.15.316-.295.773-.356 1.148-.16l.033.018c3.179 1.648 3.385 1.775 3.521 1.908.237.22.306.537.168.906l-.495 1.08zm-13.427 8.98c-.198.934-1.066 1.608-2.054 1.608-.17 0-.343-.02-.516-.063C3.62 19.582 2 17.578 2 15.406c0-1.289.61-2.487 1.661-3.283.47-.352 1.1-.434 1.652-.214.393.158.682.472.797.869l1.663 5.504c.108.355.026.738-.246 1.006l-.003.099zm5.462 4.252c-1.002.097-3.773-1.08-4.347-1.987-.187-.296-.208-.617-.059-.895.097-.18.345-.413 3.266-2.509l.884-.617c.33-.228.793-.196 1.091.072.298.271.39.704.225 1.076l-.015.033c-1.461 3.346-1.574 3.554-1.726 3.686-.228.197-.551.238-.9.175l-.419-.034z"/></svg>
+        See us on Yelp
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 px-6 text-center bg-tahoe-blue">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-3xl font-bold text-snow-white mb-4">Join Our Happy Clients</h2>
+      <p class="text-base mb-8" style="color:rgba(250,248,242,0.85);">Contact us for a free estimate on landscaping, maintenance, or any outdoor project at your South Lake Tahoe property.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="contact.html" class="inline-block bg-snow-white text-tahoe-blue font-semibold px-9 py-4 rounded-full hover:bg-stone-gray transition">Get a Free Estimate</a>
+        <a href="tel:+15305448570" class="inline-block border-2 border-white border-opacity-60 text-snow-white font-semibold px-9 py-4 rounded-full hover:border-opacity-100 transition">Call (530) 544-8570</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-deep-pine">
+    <div class="max-w-7xl mx-auto px-6 py-10">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <img src="images/zs-logo.png" alt="Z's Lawn &amp; Landscape" class="h-12 w-auto" />
+        <div class="flex flex-wrap justify-center gap-6 text-xs" style="color:rgba(250,248,242,0.6);">
+          <a href="index.html" class="hover:text-white transition">Home</a>
+          <a href="services.html" class="hover:text-white transition">Services</a>
+          <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+          <a href="about.html" class="hover:text-white transition">About</a>
+          <a href="testimonials.html" class="hover:text-white transition">Testimonials</a>
+          <a href="contact.html" class="hover:text-white transition">Contact</a>
+        </div>
+        <a href="tel:+15305448570" class="text-sm font-semibold" style="color:#B88A4A;">(530) 544-8570</a>
+      </div>
+      <div class="border-t border-white border-opacity-10 mt-7 pt-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs" style="color:rgba(250,248,242,0.4);">
+        <p>&copy; <span id="year"></span> Z's Lawn &amp; Landscape · CA #854954 · NV #0071202</p>
+        <p>Website by <a href="https://sacvalleyweb.com" target="_blank" class="hover:text-white transition" style="color:rgba(250,248,242,0.5);">Sac Valley Web</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- Countdown JS -->
+  <script>
+  (function(){
+    var expiry = new Date('2026-05-16T00:00:00');
+    var banner = document.getElementById('svw-countdown');
+    var timer  = document.getElementById('svw-timer');
+    var expired = false;
+
+    function showExpired(){
+      if(expired) return;
+      expired = true;
+      document.body.innerHTML = '<div style="position:fixed;inset:0;background:#111E52;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;font-family:Arial,sans-serif;">'
+        + '<div style="font-size:52px;margin-bottom:20px;">⏱</div>'
+        + '<h1 style="color:#fff;font-size:28px;font-weight:900;margin-bottom:12px;">Preview Expired</h1>'
+        + '<p style="color:rgba(255,255,255,0.65);font-size:15px;max-width:420px;line-height:1.6;margin-bottom:32px;">This website preview from Sac Valley Web has expired. Contact Daniel to extend your preview or get started.</p>'
+        + '<a href="tel:+19169458009" style="background:#3CB54A;color:#fff;font-weight:700;padding:14px 36px;border-radius:100px;text-decoration:none;font-size:16px;display:inline-block;margin-bottom:14px;">(916) 945-8009</a>'
+        + '<p style="color:rgba(255,255,255,0.45);font-size:13px;">daniel@sacvalleyweb.com &nbsp;·&nbsp; sacvalleyweb.com</p>'
+        + '</div>';
+    }
+
+    function update(){
+      var diff = expiry - new Date();
+      if(diff <= 0){ showExpired(); return; }
+
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+
+      var parts = [];
+      if(d > 0) parts.push(d + (d===1?' day':' days'));
+      if(d > 0 || h > 0) parts.push(h + 'h');
+      parts.push(m + 'm ' + (s<10?'0'+s:s) + 's');
+      timer.textContent = parts.join(' ');
+
+      if(diff < 3600000){        // < 1 hour — red
+        banner.style.background = '#B91C1C';
+        timer.style.color = '#FCA5A5';
+      } else if(diff < 86400000){ // < 24 hours — amber
+        banner.style.background = '#92400E';
+        timer.style.color = '#FCD34D';
+      }
+    }
+
+    update();
+    setInterval(update, 1000);
+  })();
+  </script>
+  <!-- Preview protection: remove when site goes live -->
+  <script>
+    document.addEventListener("contextmenu",function(e){e.preventDefault();});
+    document.addEventListener("keydown",function(e){
+      if(e.ctrlKey&&["u","s"].includes(e.key.toLowerCase())){e.preventDefault();}
+      if(e.key==="F12"){e.preventDefault();}
+      if(e.ctrlKey&&e.shiftKey&&["i","c","j"].includes(e.key.toLowerCase())){e.preventDefault();}
+    });
+  </script>
+</body>
+</html>
