@@ -105,10 +105,10 @@
   <!-- HEADER -->
   <header class="fixed top-0 inset-x-0 z-50 bg-pineDark/90 backdrop-blur-xl border-b border-white/10">
     <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <img src="images/zs-logo.png" alt="Z's Lawn & Landscape" class="h-16 w-auto" />
-        <div class="leading-tight">
-          <p class="text-white font-black text-base tracking-wide">Z's Lawn & Landscape</p>
+      <a href="#" class="flex items-center gap-2 sm:gap-3">
+        <img src="images/zs-logo.png" alt="Z's Lawn & Landscape" class="h-11 sm:h-12 lg:h-16 w-auto" />
+        <div class="hidden sm:block leading-tight">
+          <p class="text-white font-black text-sm sm:text-base tracking-wide">Z's Lawn & Landscape</p>
           <p class="text-white/50 text-xs font-semibold tracking-widest uppercase">South Lake Tahoe</p>
         </div>
       </a>
@@ -126,7 +126,23 @@
         <a href="#contact" class="bg-cream text-pineDark px-5 py-3 rounded-full text-sm font-black hover:bg-white transition">Free Estimate</a>
       </div>
 
-      <a href="tel:+15305448570" class="md:hidden bg-cream text-pineDark px-4 py-2 rounded-full text-sm font-black">Call</a>
+      <div class="md:hidden flex items-center gap-2">
+        <a href="tel:+15305448570" class="bg-cream text-pineDark px-4 py-2 rounded-full text-sm font-black">Call</a>
+        <button id="mobile-menu-btn" onclick="var m=document.getElementById('mobile-menu');m.classList.toggle('hidden')" class="flex flex-col gap-1.5 p-2 ml-1" aria-label="Menu">
+          <span class="w-5 h-0.5 bg-white rounded block"></span>
+          <span class="w-5 h-0.5 bg-white rounded block"></span>
+          <span class="w-5 h-0.5 bg-white rounded block"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-pineDark border-t border-white/10 px-5 py-4 space-y-1">
+      <a href="#services"  onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-white/80 font-bold py-3 border-b border-white/10 hover:text-white">Services</a>
+      <a href="#showcase"  onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-white/80 font-bold py-3 border-b border-white/10 hover:text-white">Tahoe Landscape Inspiration</a>
+      <a href="#process"   onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-white/80 font-bold py-3 border-b border-white/10 hover:text-white">Process</a>
+      <a href="#reviews"   onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block text-white/80 font-bold py-3 border-b border-white/10 hover:text-white">Reviews</a>
+      <a href="#contact"   onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block bg-cream text-pineDark font-black text-center py-3 rounded-full mt-3">Free Estimate</a>
     </div>
   </header>
 
@@ -148,7 +164,7 @@
               <span class="text-xs font-black tracking-[0.24em] uppercase text-white/82">Professional Tahoe Landscaping · Est. 1997</span>
             </div>
 
-            <h1 class="font-display text-6xl sm:text-7xl lg:text-8xl leading-[0.88] font-bold tracking-tight mb-7">
+            <h1 class="font-display text-4xl sm:text-6xl lg:text-8xl leading-[0.92] lg:leading-[0.88] font-bold tracking-tight mb-7">
               Refined outdoor spaces for Tahoe homes.
             </h1>
 
@@ -197,7 +213,7 @@
         <div class="grid lg:grid-cols-[.85fr_1.15fr] gap-12 mb-14 items-end">
           <div>
             <p class="text-xs font-black tracking-[0.24em] uppercase text-bark mb-4">Services</p>
-            <h2 class="font-display text-5xl sm:text-6xl leading-none font-bold text-pineDark">Full-service landscaping with a Tahoe eye.</h2>
+            <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold text-pineDark">Full-service landscaping with a Tahoe eye.</h2>
           </div>
           <p class="text-lg leading-relaxed text-granite max-w-2xl">
             The service mix is simple and professional: create the landscape, clean it up, maintain it, water it correctly, and build the stonework that makes it feel finished.
@@ -213,7 +229,7 @@
             </div>
             <div class="p-7">
               <p class="text-xs font-black tracking-[0.2em] uppercase text-bark mb-3">01 · Design + Install</p>
-              <h3 class="font-display text-4xl font-bold text-pineDark mb-3">Landscape Design & Install</h3>
+              <h3 class="font-display text-2xl sm:text-4xl font-bold text-pineDark mb-3">Landscape Design & Install</h3>
               <p class="text-sm leading-relaxed text-granite mb-5">Complete landscape planning and installation for front yards, backyards, cabins, rental properties, and custom Tahoe homes.</p>
               <div class="flex flex-wrap gap-2 text-xs font-black text-pineDark">
                 <span class="bg-cream rounded-full px-3 py-2">Planting beds</span>
@@ -231,7 +247,7 @@
             </div>
             <div class="p-7">
               <p class="text-xs font-black tracking-[0.2em] uppercase text-bark mb-3">05 · Stonework + Outdoor Living</p>
-              <h3 class="font-display text-4xl font-bold text-pineDark mb-3">Hardscape</h3>
+              <h3 class="font-display text-2xl sm:text-4xl font-bold text-pineDark mb-3">Hardscape</h3>
               <p class="text-sm leading-relaxed text-granite mb-5">Stone patios, walkways, steps, retaining walls, boulder features, and outdoor living spaces that match Tahoe's terrain.</p>
               <div class="flex flex-wrap gap-2 text-xs font-black text-pineDark">
                 <span class="bg-cream rounded-full px-3 py-2">Patios</span>
@@ -252,7 +268,7 @@
             </div>
             <div class="p-6">
               <p class="text-xs font-black tracking-[0.2em] uppercase text-bark mb-3">02</p>
-              <h3 class="font-display text-3xl font-bold text-pineDark mb-3">Yard Cleanup</h3>
+              <h3 class="font-display text-xl sm:text-3xl font-bold text-pineDark mb-3">Yard Cleanup</h3>
               <p class="text-sm leading-relaxed text-granite">Pine needles, leaves, limbs, bed refresh, debris removal, seasonal resets, and prep before or after winter weather.</p>
             </div>
           </article>
@@ -267,7 +283,7 @@
             </div>
             <div class="p-6">
               <p class="text-xs font-black tracking-[0.2em] uppercase text-bark mb-3">03</p>
-              <h3 class="font-display text-3xl font-bold text-pineDark mb-3">Yard Maintenance</h3>
+              <h3 class="font-display text-xl sm:text-3xl font-bold text-pineDark mb-3">Yard Maintenance</h3>
               <p class="text-sm leading-relaxed text-granite">Recurring mowing, edging, pruning, weed control, property checks, and dependable upkeep for homes and rentals.</p>
             </div>
           </article>
@@ -281,7 +297,7 @@
             </div>
             <div class="p-6">
               <p class="text-xs font-black tracking-[0.2em] uppercase text-bark mb-3">04</p>
-              <h3 class="font-display text-3xl font-bold text-pineDark mb-3">Irrigation</h3>
+              <h3 class="font-display text-xl sm:text-3xl font-bold text-pineDark mb-3">Irrigation</h3>
               <p class="text-sm leading-relaxed text-granite">Sprinkler and drip work, repairs, seasonal startup, water coverage improvements, and smarter watering for Tahoe landscapes.</p>
             </div>
           </article>
@@ -296,7 +312,7 @@
         <div class="grid lg:grid-cols-[.8fr_1.2fr] gap-12 mb-12 items-end">
           <div>
             <p class="text-xs font-black tracking-[0.24em] uppercase text-gold mb-4">Tahoe Landscape Inspiration</p>
-            <h2 class="font-display text-5xl sm:text-6xl leading-none font-bold">Mountain-home landscaping. Done right.</h2>
+            <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold">Mountain-home landscaping. Done right.</h2>
           </div>
           <p class="text-white/70 text-lg leading-relaxed">Explore the kind of mountain-home landscapes Z's can design, build, and maintain — outdoor spaces built for Tahoe properties, four-season living, and the look of the Basin.</p>
         </div>
@@ -350,7 +366,7 @@
       <div class="max-w-7xl mx-auto grid lg:grid-cols-[.9fr_1.1fr] gap-14 items-start">
         <div class="lg:sticky lg:top-28">
           <p class="text-xs font-black tracking-[0.24em] uppercase text-bark mb-4">Process</p>
-          <h2 class="font-display text-5xl sm:text-6xl leading-none font-bold text-pineDark mb-6">Clear scope. Professional crews. Tahoe-ready results.</h2>
+          <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold text-pineDark mb-6">Clear scope. Professional crews. Tahoe-ready results.</h2>
           <p class="text-lg leading-relaxed text-granite">We start with a free walkthrough, recommend only what the property actually needs, and deliver results that look right for the Basin and hold up through the seasons.</p>
         </div>
 
@@ -379,11 +395,11 @@
       <div class="max-w-7xl mx-auto">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="rounded-[2.5rem] overflow-hidden shadow-soft bg-white p-3 rotate-[-1deg]">
-            <img src="assets/maintenance.jpg" alt="Tahoe lawn and planting beds maintained with professional care" class="rounded-[2rem] w-full h-[560px] object-cover">
+            <img src="assets/maintenance.jpg" alt="Tahoe lawn and planting beds maintained with professional care" class="rounded-[2rem] w-full h-[340px] sm:h-[560px] object-cover">
           </div>
           <div>
             <p class="text-xs font-black tracking-[0.24em] uppercase text-bark mb-4">Tahoe Built</p>
-            <h2 class="font-display text-5xl sm:text-6xl leading-none font-bold text-pineDark mb-6">A yard that looks like it belongs here.</h2>
+            <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold text-pineDark mb-6">A yard that looks like it belongs here.</h2>
             <p class="text-lg leading-relaxed text-granite mb-8">Ryan and the Z's crew know the Basin inside and out — what grows here, what holds up through winter, and what actually looks right next to Tahoe pines, granite outcroppings, and mountain architecture. Designed for Tahoe properties, not copied from suburban templates. Just clean, durable landscapes built for where you live.</p>
             <div class="grid sm:grid-cols-2 gap-4">
               <div class="bg-white border border-stone rounded-2xl p-5">
@@ -413,7 +429,7 @@
       <div class="max-w-7xl mx-auto">
         <div class="mb-14">
           <p class="text-xs font-black tracking-[0.24em] uppercase text-bark mb-4">Client Reviews</p>
-          <h2 class="font-display text-5xl sm:text-6xl leading-none font-bold text-pineDark">Trusted by Tahoe homeowners since 1997.</h2>
+          <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold text-pineDark">Trusted by Tahoe homeowners since 1997.</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-6">
 
@@ -474,7 +490,7 @@
       <div class="relative max-w-7xl mx-auto">
         <div class="max-w-xl">
           <p class="text-xs font-black tracking-[0.24em] uppercase text-gold mb-4">Free Estimate</p>
-          <h2 class="font-display text-5xl sm:text-6xl leading-none font-bold mb-6">Make your property look professionally cared for.</h2>
+          <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-tight lg:leading-none font-bold mb-6">Make your property look professionally cared for.</h2>
           <p class="text-lg leading-relaxed text-white/70 mb-10">Fill out the form or call us directly. We serve South Lake Tahoe, Stateline, Meyers, Al Tahoe, Tahoe Keys, and the entire South Shore.</p>
 
           <div id="form-success" class="hidden bg-white/10 border border-white/20 rounded-[2rem] p-10 text-center mb-8" style="display:none;">
