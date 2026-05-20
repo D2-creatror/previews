@@ -8,7 +8,6 @@
     :root {
       --bg: #090714;
       --bg-2: #130f2a;
-      --card: rgba(255, 255, 255, 0.08);
       --text: #fff7f1;
       --muted: #c8bfd8;
       --pink: #ff2ec4;
@@ -62,7 +61,7 @@
       border: 1px solid rgba(255,255,255,.18);
       border-radius: 36px;
       padding: clamp(28px, 6vw, 76px);
-      min-height: 430px;
+      min-height: 410px;
       display: grid;
       place-items: center;
       text-align: center;
@@ -73,12 +72,12 @@
     }
 
     .hero::after {
-      content: "FLIGHT UNLOCK";
+      content: "ARCADE UNLOCK";
       position: absolute;
       left: 50%;
       bottom: -22px;
       transform: translateX(-50%);
-      font-size: clamp(46px, 10vw, 130px);
+      font-size: clamp(42px, 10vw, 130px);
       font-weight: 950;
       letter-spacing: .07em;
       color: rgba(255,255,255,.06);
@@ -111,10 +110,7 @@
       text-shadow: 0 0 24px rgba(255,46,196,.7), 0 0 40px rgba(36,246,255,.35);
     }
 
-    h1 span {
-      display: block;
-      color: var(--cyan);
-    }
+    h1 span { display: block; color: var(--cyan); }
 
     .subtitle {
       max-width: 760px;
@@ -127,7 +123,7 @@
 
     section { margin-top: 26px; }
 
-    .game {
+    .layout {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr);
       gap: 18px;
@@ -152,27 +148,24 @@
       background: radial-gradient(circle at top right, rgba(255,46,196,.18), transparent 16rem);
     }
 
-    .card > * {
-      position: relative;
-      z-index: 1;
+    .card > * { position: relative; z-index: 1; }
+
+    .arcade {
+      display: grid;
+      gap: 16px;
     }
 
-    .evidence {
-      padding: 12px;
-    }
-
-    .evidence img {
-      display: block;
-      width: 100%;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,.16);
-      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+    .stage-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .mini-label {
       display: inline-flex;
       width: fit-content;
-      margin-bottom: 14px;
       padding: 8px 12px;
       border-radius: 999px;
       background: rgba(255,255,255,.11);
@@ -190,16 +183,115 @@
       line-height: .98;
     }
 
+    h3 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -.03em;
+    }
+
     .helper {
-      margin: 0 0 20px;
+      margin: 0;
       color: var(--muted);
       line-height: 1.55;
     }
 
-    form {
-      display: grid;
-      gap: 15px;
+    canvas {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      max-height: 520px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.42);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 18px 40px rgba(0,0,0,.28);
+      touch-action: none;
     }
+
+    .scorebar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .metric {
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.24);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 4px;
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(3, 58px);
+      grid-template-areas:
+        ". up ."
+        "left down right";
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .control-btn,
+    .stage-btn,
+    .submit-btn {
+      appearance: none;
+      border: 0;
+      min-height: 50px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 28px rgba(255,46,196,.35);
+    }
+
+    .control-btn {
+      min-height: 54px;
+      width: 58px;
+      padding: 0;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: none;
+    }
+
+    .control-btn[data-dir="up"] { grid-area: up; }
+    .control-btn[data-dir="down"] { grid-area: down; }
+    .control-btn[data-dir="left"] { grid-area: left; }
+    .control-btn[data-dir="right"] { grid-area: right; }
+
+    .stage-panel { display: none; gap: 14px; }
+    .stage-panel.active { display: grid; }
+
+    .field-group {
+      display: none;
+      gap: 8px;
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .field-group.unlocked { display: grid; }
+
+    form { display: grid; gap: 14px; }
 
     label {
       display: grid;
@@ -222,10 +314,7 @@
       outline: none;
     }
 
-    select option {
-      background: #130f2a;
-      color: #fff;
-    }
+    select option { background: #130f2a; color: #fff; }
 
     input:focus,
     select:focus {
@@ -233,36 +322,16 @@
       box-shadow: 0 0 0 4px rgba(36,246,255,.12);
     }
 
+    .locked-note {
+      color: var(--muted);
+      line-height: 1.45;
+      margin: 0;
+    }
+
     .fine-print {
       color: var(--muted);
       font-size: 13px;
       line-height: 1.45;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    button {
-      appearance: none;
-      border: 0;
-      min-height: 50px;
-      padding: 13px 18px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--pink), var(--purple));
-      color: #fff;
-      font: inherit;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 0 28px rgba(255,46,196,.35);
-    }
-
-    button:disabled {
-      cursor: wait;
-      opacity: .68;
     }
 
     .status {
@@ -283,15 +352,22 @@
       border-color: rgba(255,95,109,.26);
     }
 
+    .submit-btn:disabled,
+    .stage-btn:disabled {
+      cursor: not-allowed;
+      opacity: .58;
+    }
+
     @media (max-width: 900px) {
-      .game { grid-template-columns: 1fr; }
-      .hero { min-height: 410px; }
+      .layout { grid-template-columns: 1fr; }
+      .hero { min-height: 400px; }
     }
 
     @media (max-width: 560px) {
       .page { width: min(100% - 20px, 1180px); }
       .hero { border-radius: 28px; }
       .card { padding: 18px; }
+      .scorebar { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -301,50 +377,80 @@
       <div>
         <div class="kicker">Info Collection</div>
         <h1>Ready to Party? <span>Not So Fast.</span></h1>
-        <p class="subtitle">Before the fun begins, provide three pieces of information to unlock your ability to take flight.</p>
+        <p class="subtitle">Beat three arcade challenges to unlock the three pieces of flight intel.</p>
       </div>
     </header>
 
-    <section class="game">
-      <article class="card evidence">
-        <img src="zach-game-source.jpg" alt="Info collection clue for Zach's website" />
+    <section class="layout">
+      <article class="card arcade">
+        <div class="stage-head">
+          <div>
+            <div class="mini-label" id="stageLabel">Stage 1 of 3</div>
+            <h2 id="stageTitle">Snake</h2>
+          </div>
+          <button class="stage-btn" id="startButton" type="button">Start Stage</button>
+        </div>
+
+        <p class="helper" id="stageHelp">Reach length 8 to unlock the first question. Use arrow keys, WASD, swipe, or the buttons below.</p>
+
+        <div class="scorebar">
+          <div class="metric"><span>Goal</span><strong id="goalMetric">Length 8</strong></div>
+          <div class="metric"><span>Progress</span><strong id="progressMetric">0</strong></div>
+          <div class="metric"><span>Status</span><strong id="gameStatus">Ready</strong></div>
+        </div>
+
+        <canvas id="gameCanvas" width="520" height="520" aria-label="Arcade game canvas"></canvas>
+
+        <div class="controls" aria-label="Game controls">
+          <button class="control-btn" type="button" data-dir="up">↑</button>
+          <button class="control-btn" type="button" data-dir="left">←</button>
+          <button class="control-btn" type="button" data-dir="down">↓</button>
+          <button class="control-btn" type="button" data-dir="right">→</button>
+        </div>
       </article>
 
       <article class="card">
         <div class="mini-label">Transmission Form</div>
         <h2>Submit Your Flight Intel</h2>
-        <p class="helper">Enter the information exactly enough that the crew can process it. TSA will frown on any mistakes.</p>
+        <p class="helper">Each completed game unlocks one answer field. TSA will frown on any mistakes.</p>
 
         <form id="intelForm" action="https://formspree.io/f/xnjoqvrv" method="POST">
           <input type="hidden" name="_subject" value="Zach Flight Unlock Answers" />
           <input type="hidden" name="source_page" value="zach-info-game.html" />
+          <input type="hidden" name="snake_unlocked" id="snakeUnlocked" value="no" />
+          <input type="hidden" name="pinball_unlocked" id="pinballUnlocked" value="no" />
+          <input type="hidden" name="breakout_unlocked" id="breakoutUnlocked" value="no" />
 
-          <label>
-            Southwest Rapid Rewards number
-            <input name="rapid_rewards_number" autocomplete="off" inputmode="text" required />
-          </label>
-
-          <label>
-            Date of birth
-            <input name="date_of_birth" autocomplete="bday" placeholder="MM/DD/YYYY" required />
-          </label>
-
-          <label>
-            Seating preference
-            <select name="seating_preference" required>
-              <option value="">Choose one</option>
-              <option value="Aisle">Aisle</option>
-              <option value="Window">Window</option>
-              <option value="Dealer's choice">Dealer's choice</option>
-            </select>
-          </label>
-
-          <p class="fine-print">You may bring up to one checked bag for free. This form sends your answers to the planning crew.</p>
-
-          <div class="actions">
-            <button id="submitButton" type="submit">Unlock Flight</button>
+          <div class="field-group" id="rapidGroup">
+            <label>
+              Southwest Rapid Rewards number
+              <input name="rapid_rewards_number" autocomplete="off" inputmode="text" />
+            </label>
           </div>
 
+          <div class="field-group" id="dobGroup">
+            <label>
+              Date of birth
+              <input name="date_of_birth" autocomplete="bday" placeholder="MM/DD/YYYY" />
+            </label>
+          </div>
+
+          <div class="field-group" id="seatGroup">
+            <label>
+              Seating preference
+              <select name="seating_preference">
+                <option value="">Choose one</option>
+                <option value="Aisle">Aisle</option>
+                <option value="Window">Window</option>
+                <option value="Dealer's choice">Dealer's choice</option>
+              </select>
+            </label>
+          </div>
+
+          <p class="locked-note" id="lockedNote">Locked fields: 3. Beat Snake to begin.</p>
+          <p class="fine-print">You may bring up to one checked bag for free. This form sends your answers to the planning crew.</p>
+
+          <button class="submit-btn" id="submitButton" type="submit" disabled>Submit Flight Intel</button>
           <p class="status" id="status"></p>
         </form>
       </article>
@@ -352,13 +458,375 @@
   </main>
 
   <script>
-    const form = document.getElementById("intelForm");
-    const button = document.getElementById("submitButton");
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const startButton = document.getElementById("startButton");
+    const stageLabel = document.getElementById("stageLabel");
+    const stageTitle = document.getElementById("stageTitle");
+    const stageHelp = document.getElementById("stageHelp");
+    const goalMetric = document.getElementById("goalMetric");
+    const progressMetric = document.getElementById("progressMetric");
+    const gameStatus = document.getElementById("gameStatus");
+    const lockedNote = document.getElementById("lockedNote");
+    const submitButton = document.getElementById("submitButton");
     const status = document.getElementById("status");
+    const form = document.getElementById("intelForm");
+    const unlockState = [false, false, false];
+    let stage = 0;
+    let activeLoop = null;
+    let keys = {};
+    let swipeStart = null;
+
+    const stages = [
+      {
+        title: "Snake",
+        help: "Reach length 8 to unlock the first question. Use arrow keys, WASD, swipe, or the buttons below.",
+        goal: "Length 8"
+      },
+      {
+        title: "Mini Pinball",
+        help: "Score 1,500 points to unlock the second question. Use left/right keys or buttons to move the flipper.",
+        goal: "1,500 pts"
+      },
+      {
+        title: "Breakout",
+        help: "Clear 10 blocks to unlock the final question. Use left/right keys, swipe, or the buttons below.",
+        goal: "10 blocks"
+      }
+    ];
+
+    function setStatus(text) {
+      gameStatus.textContent = text;
+    }
+
+    function drawBackdrop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#090714";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "rgba(255,255,255,.07)";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= canvas.width; i += 26) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, canvas.height);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(canvas.width, i);
+        ctx.stroke();
+      }
+    }
+
+    function stopLoop() {
+      if (activeLoop) cancelAnimationFrame(activeLoop);
+      activeLoop = null;
+    }
+
+    function unlock(index) {
+      stopLoop();
+      unlockState[index] = true;
+      document.getElementById(["snakeUnlocked", "pinballUnlocked", "breakoutUnlocked"][index]).value = "yes";
+      document.getElementById(["rapidGroup", "dobGroup", "seatGroup"][index]).classList.add("unlocked");
+      const inputs = document.querySelectorAll("#rapidGroup input, #dobGroup input, #seatGroup select");
+      inputs.forEach((input) => {
+        input.required = input.closest(".unlocked") !== null;
+      });
+      const remaining = unlockState.filter((value) => !value).length;
+      lockedNote.textContent = remaining ? `Locked fields: ${remaining}. Beat the next game to continue.` : "All fields unlocked. Submit when ready.";
+      submitButton.disabled = remaining > 0;
+      setStatus("Unlocked");
+      progressMetric.textContent = "Done";
+      if (index < stages.length - 1) {
+        stage = index + 1;
+        renderStage();
+      } else {
+        stage = index;
+        startButton.disabled = true;
+        startButton.textContent = "Complete";
+      }
+    }
+
+    function renderStage() {
+      const config = stages[stage];
+      stageLabel.textContent = `Stage ${stage + 1} of 3`;
+      stageTitle.textContent = config.title;
+      stageHelp.textContent = config.help;
+      goalMetric.textContent = config.goal;
+      progressMetric.textContent = "0";
+      setStatus("Ready");
+      startButton.disabled = false;
+      startButton.textContent = "Start Stage";
+      drawBackdrop();
+    }
+
+    function startSnake() {
+      const cells = 20;
+      const size = canvas.width / cells;
+      let snake = [{ x: 10, y: 10 }];
+      let dir = { x: 1, y: 0 };
+      let nextDir = { x: 1, y: 0 };
+      let food = { x: 14, y: 10 };
+      let last = 0;
+      setStatus("Playing");
+
+      function placeFood() {
+        do {
+          food = {
+            x: Math.floor(Math.random() * cells),
+            y: Math.floor(Math.random() * cells)
+          };
+        } while (snake.some((part) => part.x === food.x && part.y === food.y));
+      }
+
+      function setSnakeDir(direction) {
+        const map = {
+          up: { x: 0, y: -1 },
+          down: { x: 0, y: 1 },
+          left: { x: -1, y: 0 },
+          right: { x: 1, y: 0 }
+        };
+        const next = map[direction];
+        if (!next) return;
+        if (next.x + dir.x === 0 && next.y + dir.y === 0) return;
+        nextDir = next;
+      }
+      window.currentDirectionHandler = setSnakeDir;
+
+      function frame(time) {
+        activeLoop = requestAnimationFrame(frame);
+        if (time - last < 115) return;
+        last = time;
+        dir = nextDir;
+        const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+        const crashed = head.x < 0 || head.x >= cells || head.y < 0 || head.y >= cells || snake.some((part) => part.x === head.x && part.y === head.y);
+        if (crashed) {
+          snake = [{ x: 10, y: 10 }];
+          dir = { x: 1, y: 0 };
+          nextDir = dir;
+          placeFood();
+          setStatus("Restarted");
+        } else {
+          snake.unshift(head);
+          if (head.x === food.x && head.y === food.y) {
+            placeFood();
+          } else {
+            snake.pop();
+          }
+        }
+
+        drawBackdrop();
+        ctx.fillStyle = "#ff2ec4";
+        ctx.fillRect(food.x * size + 3, food.y * size + 3, size - 6, size - 6);
+        ctx.fillStyle = "#52ffa8";
+        snake.forEach((part, index) => {
+          ctx.globalAlpha = index ? .82 : 1;
+          ctx.fillRect(part.x * size + 2, part.y * size + 2, size - 4, size - 4);
+        });
+        ctx.globalAlpha = 1;
+        progressMetric.textContent = String(snake.length);
+        if (snake.length >= 8) unlock(0);
+      }
+      frame(0);
+    }
+
+    function startPinball() {
+      let ball = { x: 260, y: 180, vx: 3.2, vy: -3.8, r: 10 };
+      let paddle = { x: 210, y: 465, w: 100, h: 14 };
+      let score = 0;
+      const bumpers = [
+        { x: 155, y: 145, r: 28 },
+        { x: 365, y: 145, r: 28 },
+        { x: 260, y: 245, r: 34 }
+      ];
+      setStatus("Playing");
+      window.currentDirectionHandler = (direction) => {
+        if (direction === "left") keys.ArrowLeft = true;
+        if (direction === "right") keys.ArrowRight = true;
+        setTimeout(() => {
+          keys.ArrowLeft = false;
+          keys.ArrowRight = false;
+        }, 140);
+      };
+
+      function frame() {
+        activeLoop = requestAnimationFrame(frame);
+        if (keys.ArrowLeft || keys.a) paddle.x -= 7;
+        if (keys.ArrowRight || keys.d) paddle.x += 7;
+        paddle.x = Math.max(20, Math.min(canvas.width - paddle.w - 20, paddle.x));
+
+        ball.vy += .08;
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+
+        if (ball.x < ball.r || ball.x > canvas.width - ball.r) ball.vx *= -1;
+        if (ball.y < ball.r) ball.vy *= -1;
+        if (ball.y > canvas.height + 30) {
+          ball = { x: 260, y: 180, vx: 3.2, vy: -4.1, r: 10 };
+          setStatus("Ball saved");
+        }
+
+        if (ball.y + ball.r > paddle.y && ball.y - ball.r < paddle.y + paddle.h && ball.x > paddle.x && ball.x < paddle.x + paddle.w && ball.vy > 0) {
+          ball.vy = -Math.abs(ball.vy) - .7;
+          ball.vx += (ball.x - (paddle.x + paddle.w / 2)) / 28;
+          score += 120;
+        }
+
+        bumpers.forEach((bumper) => {
+          const dx = ball.x - bumper.x;
+          const dy = ball.y - bumper.y;
+          const distance = Math.hypot(dx, dy);
+          if (distance < ball.r + bumper.r) {
+            const angle = Math.atan2(dy, dx);
+            ball.vx = Math.cos(angle) * 5;
+            ball.vy = Math.sin(angle) * 5;
+            score += 180;
+          }
+        });
+
+        drawBackdrop();
+        ctx.fillStyle = "rgba(36,246,255,.22)";
+        ctx.fillRect(40, 40, 440, 440);
+        bumpers.forEach((bumper) => {
+          ctx.beginPath();
+          ctx.fillStyle = "#ffd166";
+          ctx.arc(bumper.x, bumper.y, bumper.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.strokeStyle = "rgba(255,255,255,.65)";
+          ctx.lineWidth = 3;
+          ctx.stroke();
+        });
+        ctx.fillStyle = "#52ffa8";
+        ctx.fillRect(paddle.x, paddle.y, paddle.w, paddle.h);
+        ctx.beginPath();
+        ctx.fillStyle = "#ff2ec4";
+        ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+        ctx.fill();
+        progressMetric.textContent = String(score);
+        if (score >= 1500) unlock(1);
+      }
+      frame();
+    }
+
+    function startBreakout() {
+      let paddle = { x: 205, y: 470, w: 110, h: 13 };
+      let ball = { x: 260, y: 360, vx: 3.5, vy: -4, r: 9 };
+      let cleared = 0;
+      const bricks = [];
+      for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 5; col++) {
+          bricks.push({ x: 54 + col * 84, y: 70 + row * 38, w: 68, h: 24, alive: true });
+        }
+      }
+      setStatus("Playing");
+      window.currentDirectionHandler = (direction) => {
+        if (direction === "left") keys.ArrowLeft = true;
+        if (direction === "right") keys.ArrowRight = true;
+        setTimeout(() => {
+          keys.ArrowLeft = false;
+          keys.ArrowRight = false;
+        }, 140);
+      };
+
+      function frame() {
+        activeLoop = requestAnimationFrame(frame);
+        if (keys.ArrowLeft || keys.a) paddle.x -= 8;
+        if (keys.ArrowRight || keys.d) paddle.x += 8;
+        paddle.x = Math.max(16, Math.min(canvas.width - paddle.w - 16, paddle.x));
+
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+        if (ball.x < ball.r || ball.x > canvas.width - ball.r) ball.vx *= -1;
+        if (ball.y < ball.r) ball.vy *= -1;
+        if (ball.y > canvas.height + 20) {
+          ball = { x: 260, y: 360, vx: 3.5, vy: -4, r: 9 };
+          setStatus("Ball reset");
+        }
+        if (ball.y + ball.r > paddle.y && ball.x > paddle.x && ball.x < paddle.x + paddle.w && ball.vy > 0) {
+          ball.vy *= -1;
+          ball.vx += (ball.x - (paddle.x + paddle.w / 2)) / 34;
+        }
+        bricks.forEach((brick) => {
+          if (!brick.alive) return;
+          const hit = ball.x + ball.r > brick.x && ball.x - ball.r < brick.x + brick.w && ball.y + ball.r > brick.y && ball.y - ball.r < brick.y + brick.h;
+          if (hit) {
+            brick.alive = false;
+            ball.vy *= -1;
+            cleared += 1;
+          }
+        });
+
+        drawBackdrop();
+        bricks.forEach((brick, index) => {
+          if (!brick.alive) return;
+          ctx.fillStyle = ["#ff2ec4", "#24f6ff", "#ffd166"][index % 3];
+          ctx.fillRect(brick.x, brick.y, brick.w, brick.h);
+        });
+        ctx.fillStyle = "#52ffa8";
+        ctx.fillRect(paddle.x, paddle.y, paddle.w, paddle.h);
+        ctx.beginPath();
+        ctx.fillStyle = "#fff";
+        ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
+        ctx.fill();
+        progressMetric.textContent = String(cleared);
+        if (cleared >= 10) unlock(2);
+      }
+      frame();
+    }
+
+    function startStage() {
+      stopLoop();
+      if (stage === 0) startSnake();
+      if (stage === 1) startPinball();
+      if (stage === 2) startBreakout();
+    }
+
+    startButton.addEventListener("click", startStage);
+
+    document.querySelectorAll(".control-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        window.currentDirectionHandler?.(button.dataset.dir);
+      });
+    });
+
+    window.addEventListener("keydown", (event) => {
+      keys[event.key] = true;
+      const directionMap = {
+        ArrowUp: "up",
+        w: "up",
+        ArrowDown: "down",
+        s: "down",
+        ArrowLeft: "left",
+        a: "left",
+        ArrowRight: "right",
+        d: "right"
+      };
+      if (directionMap[event.key]) {
+        event.preventDefault();
+        window.currentDirectionHandler?.(directionMap[event.key]);
+      }
+    });
+
+    window.addEventListener("keyup", (event) => {
+      keys[event.key] = false;
+    });
+
+    canvas.addEventListener("pointerdown", (event) => {
+      swipeStart = { x: event.clientX, y: event.clientY };
+    });
+
+    canvas.addEventListener("pointerup", (event) => {
+      if (!swipeStart) return;
+      const dx = event.clientX - swipeStart.x;
+      const dy = event.clientY - swipeStart.y;
+      if (Math.max(Math.abs(dx), Math.abs(dy)) < 18) return;
+      const direction = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+      window.currentDirectionHandler?.(direction);
+      swipeStart = null;
+    });
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      button.disabled = true;
+      submitButton.disabled = true;
       status.className = "status";
       status.textContent = "";
 
@@ -373,14 +841,14 @@
 
         status.textContent = "Flight intel received. Stand by for boarding instructions.";
         status.className = "status visible";
-        form.reset();
       } catch (error) {
         status.textContent = "Transmission failed. Check your connection and try again.";
         status.className = "status visible error";
-      } finally {
-        button.disabled = false;
+        submitButton.disabled = false;
       }
     });
+
+    renderStage();
   </script>
 </body>
 </html>
