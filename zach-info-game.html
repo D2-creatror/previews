@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zach's Bachelor Party | Flight Unlock</title>
+  <style>
+    :root {
+      --bg: #090714;
+      --bg-2: #130f2a;
+      --card: rgba(255, 255, 255, 0.08);
+      --text: #fff7f1;
+      --muted: #c8bfd8;
+      --pink: #ff2ec4;
+      --gold: #ffd166;
+      --cyan: #24f6ff;
+      --purple: #8b5cf6;
+      --green: #52ffa8;
+      --danger: #ff5f6d;
+      --shadow: 0 24px 80px rgba(0,0,0,.35);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 46, 196, .28), transparent 34rem),
+        radial-gradient(circle at top right, rgba(36, 246, 255, .22), transparent 34rem),
+        radial-gradient(circle at 50% 40%, rgba(139, 92, 246, .18), transparent 40rem),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.45), transparent 75%);
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 36px;
+      padding: clamp(28px, 6vw, 76px);
+      min-height: 430px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(9,7,20,.22), rgba(9,7,20,.74)),
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,.14), transparent 20rem);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "FLIGHT UNLOCK";
+      position: absolute;
+      left: 50%;
+      bottom: -22px;
+      transform: translateX(-50%);
+      font-size: clamp(46px, 10vw, 130px);
+      font-weight: 950;
+      letter-spacing: .07em;
+      color: rgba(255,255,255,.06);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.38);
+      border: 1px solid rgba(255,255,255,.24);
+      color: var(--gold);
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(46px, 9vw, 112px);
+      line-height: .88;
+      letter-spacing: -.07em;
+      text-transform: uppercase;
+      text-shadow: 0 0 24px rgba(255,46,196,.7), 0 0 40px rgba(36,246,255,.35);
+    }
+
+    h1 span {
+      display: block;
+      color: var(--cyan);
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: #fff;
+      font-size: clamp(18px, 2.1vw, 24px);
+      line-height: 1.35;
+      text-shadow: 0 2px 18px rgba(0,0,0,.7);
+    }
+
+    section { margin-top: 26px; }
+
+    .game {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(340px, .9fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.15);
+      background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
+      box-shadow: 0 18px 50px rgba(0,0,0,.26);
+      padding: 22px;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at top right, rgba(255,46,196,.18), transparent 16rem);
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .evidence {
+      padding: 12px;
+    }
+
+    .evidence img {
+      display: block;
+      width: 100%;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow: 0 18px 40px rgba(0,0,0,.28);
+    }
+
+    .mini-label {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.11);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -.04em;
+      line-height: .98;
+    }
+
+    .helper {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    label {
+      display: grid;
+      gap: 7px;
+      color: #fff;
+      font-weight: 850;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 50px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.28);
+      color: #fff;
+      font: inherit;
+      font-weight: 750;
+      padding: 12px 14px;
+      outline: none;
+    }
+
+    select option {
+      background: #130f2a;
+      color: #fff;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: rgba(36,246,255,.72);
+      box-shadow: 0 0 0 4px rgba(36,246,255,.12);
+    }
+
+    .fine-print {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    button {
+      appearance: none;
+      border: 0;
+      min-height: 50px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      color: #fff;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 0 28px rgba(255,46,196,.35);
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: .68;
+    }
+
+    .status {
+      display: none;
+      margin: 0;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(82,255,168,.1);
+      border: 1px solid rgba(82,255,168,.22);
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .status.visible { display: block; }
+    .status.error {
+      background: rgba(255,95,109,.11);
+      border-color: rgba(255,95,109,.26);
+    }
+
+    @media (max-width: 900px) {
+      .game { grid-template-columns: 1fr; }
+      .hero { min-height: 410px; }
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 20px, 1180px); }
+      .hero { border-radius: 28px; }
+      .card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="kicker">Info Collection</div>
+        <h1>Ready to Party? <span>Not So Fast.</span></h1>
+        <p class="subtitle">Before the fun begins, provide three pieces of information to unlock your ability to take flight.</p>
+      </div>
+    </header>
+
+    <section class="game">
+      <article class="card evidence">
+        <img src="zach-game-source.jpg" alt="Info collection clue for Zach's website" />
+      </article>
+
+      <article class="card">
+        <div class="mini-label">Transmission Form</div>
+        <h2>Submit Your Flight Intel</h2>
+        <p class="helper">Enter the information exactly enough that the crew can process it. TSA will frown on any mistakes.</p>
+
+        <form id="intelForm" action="https://formspree.io/f/xnjoqvrv" method="POST">
+          <input type="hidden" name="_subject" value="Zach Flight Unlock Answers" />
+          <input type="hidden" name="source_page" value="zach-info-game.html" />
+
+          <label>
+            Southwest Rapid Rewards number
+            <input name="rapid_rewards_number" autocomplete="off" inputmode="text" required />
+          </label>
+
+          <label>
+            Date of birth
+            <input name="date_of_birth" autocomplete="bday" placeholder="MM/DD/YYYY" required />
+          </label>
+
+          <label>
+            Seating preference
+            <select name="seating_preference" required>
+              <option value="">Choose one</option>
+              <option value="Aisle">Aisle</option>
+              <option value="Window">Window</option>
+              <option value="Dealer's choice">Dealer's choice</option>
+            </select>
+          </label>
+
+          <p class="fine-print">You may bring up to one checked bag for free. This form sends your answers to the planning crew.</p>
+
+          <div class="actions">
+            <button id="submitButton" type="submit">Unlock Flight</button>
+          </div>
+
+          <p class="status" id="status"></p>
+        </form>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    const form = document.getElementById("intelForm");
+    const button = document.getElementById("submitButton");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      button.disabled = true;
+      status.className = "status";
+      status.textContent = "";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" }
+        });
+
+        if (!response.ok) throw new Error("Submission failed");
+
+        status.textContent = "Flight intel received. Stand by for boarding instructions.";
+        status.className = "status visible";
+        form.reset();
+      } catch (error) {
+        status.textContent = "Transmission failed. Check your connection and try again.";
+        status.className = "status visible error";
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
