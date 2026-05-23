@@ -483,9 +483,9 @@
     <header class="hero">
       <canvas id="neonField" aria-hidden="true"></canvas>
       <div class="hero-content">
-        <div class="kicker">Stand By · Details Sealed</div>
+        <div class="kicker">Sunday Morning · 11:30 AM Pickup</div>
         <h1>Zach's <span>Bachelor Party</span></h1>
-        <p class="subtitle">The plan exists. The destination is classified. Your only job is to show up ready.</p>
+        <p class="subtitle">The kidnapping commences Sunday morning. Be ready to get picked up from your house at 11:30 AM.</p>
         <div class="countdown" aria-label="Countdown to departure">
           <div class="count-box"><strong id="days">--</strong><span>Days</span></div>
           <div class="count-box"><strong id="hours">--</strong><span>Hours</span></div>
@@ -496,7 +496,7 @@
           <button class="pill primary" id="revealButton" type="button">Accept Assignment</button>
           <a class="pill" href="#briefing">View Briefing</a>
         </div>
-        <div class="notice" id="notice">Assignment accepted. Further details will arrive only when absolutely necessary.</div>
+        <div class="notice" id="notice">Assignment accepted. Your captor has been notified.</div>
       </div>
       <button class="hidden-mouse" id="hiddenMouse" type="button" aria-label="Hidden clue">
         <span></span>
@@ -516,45 +516,38 @@
     <section id="briefing">
       <div class="grid">
         <article class="card">
-          <div class="mini-label">Destination</div>
-          <h2>Classified</h2>
-          <p>No spoilers. No leaks. No accidental hints in group texts.</p>
+          <div class="mini-label">The Kidnapping</div>
+          <h2>11:30 AM Pickup</h2>
+          <p>The kidnapping commences Sunday morning. If you're lucky, you'll be released after four days; your return flight is scheduled for Wednesday evening.</p>
         </article>
         <article class="card">
-          <div class="mini-label">Schedule</div>
-          <h2>Locked</h2>
-          <p>There is a plan. You are not responsible for knowing it yet.</p>
+          <div class="mini-label">Your Kidnapper</div>
+          <h2>Scott</h2>
+          <p>Your captor and traveling companion will be Scott. Your other kidnappers will be meeting up with you in Sin City.</p>
         </article>
         <article class="card">
-          <div class="mini-label">Packing</div>
-          <h2>Flexible</h2>
-          <p>Bring options. Assume photos will happen. Comfort still matters.</p>
+          <div class="mini-label">Luggage Options</div>
+          <h2>Southwest out of LGB</h2>
+          <p>You may carry one bag and one personal item on board. You're eligible for one free checked bag if you need it.</p>
         </article>
         <article class="card">
-          <div class="mini-label">Energy</div>
-          <h2>High</h2>
-          <p>Hydrate early. Rest when possible. Trust the process.</p>
+          <div class="mini-label">Outbound Flight</div>
+          <h2>Seat 18D</h2>
+          <p>As requested, you'll be seated in an aisle. Southwest Flight 712 departs at 2:00 PM and arrives at 3:10 PM.</p>
         </article>
       </div>
       <article class="card teaser-link">
         <div>
-          <strong id="specialTitle">Something Special Is Coming</strong>
-          <span id="specialMessage">Check back 30 minutes before takeoff for something special.</span>
+          <strong id="specialTitle">Flight Details</strong>
+          <span id="specialMessage">All flight details should populate to your Southwest app because you provided your Rapid Rewards number. Your return flight on Wednesday departs at 7:50 PM and lands at LGB at 9:00 PM.</span>
         </div>
-        <span class="pill" id="specialStatus">Stay Tuned</span>
-      </article>
-      <article class="card teaser-link">
-        <div>
-          <strong>Ready to Party? Not So Fast.</strong>
-          <span>Before the fun begins, provide three pieces of information to unlock your ability to take flight.</span>
-        </div>
-        <a class="pill primary" href="zach-info-game.html">Start Unlock</a>
+        <span class="pill" id="specialStatus">Confirmed</span>
       </article>
     </section>
 
     <footer class="footer">
       <strong>Zach's Bachelor Party</strong><br />
-      Official details remain under seal until further notice.
+      Sunday through Wednesday · Long Beach to Sin City · Captor: Scott
     </footer>
   </main>
 
@@ -662,11 +655,6 @@
       minutes: document.getElementById("minutes"),
       seconds: document.getElementById("seconds")
     };
-    const specialTitle = document.getElementById("specialTitle");
-    const specialMessage = document.getElementById("specialMessage");
-    const specialStatus = document.getElementById("specialStatus");
-    const earlyLookMessage = "We knew you might try look here, sorry to dissapoint you";
-    const boardingMission = "V2hlbiBzY2FubmluZyB5b3VyIGJvYXJkaW5nIHBhc3MgdG8gZW50ZXIsIHRlbGwgdGhlIGdhdGUgYWdlbnQgIkknbSBnb2luZyB0byBWZWdhcyBmb3IgbXkgYmFjaGVsb3IgcGFydHksIEkgY2FuJ3QgYmVsaWV2ZSBpdCdzIGZpbmFsbHkgaGFwcGVuaW5nLiI=";
 
     function updateCountdown() {
       const remaining = Math.max(0, departureTime - Date.now());
@@ -679,12 +667,6 @@
       countdownFields.hours.textContent = String(hours).padStart(2, "0");
       countdownFields.minutes.textContent = String(minutes).padStart(2, "0");
       countdownFields.seconds.textContent = String(seconds).padStart(2, "0");
-
-      if (remaining <= 1800000) {
-        specialTitle.textContent = "Your Boarding Mission";
-        specialMessage.textContent = atob(boardingMission);
-        specialStatus.textContent = "Unlocked";
-      }
     }
 
     window.addEventListener("resize", resizeCanvas);
