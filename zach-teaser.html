@@ -543,6 +543,13 @@
         </div>
         <span class="pill" id="specialStatus">Confirmed</span>
       </article>
+      <article class="card teaser-link">
+        <div>
+          <strong id="missionTitle">Boarding Mission Locked</strong>
+          <span id="missionMessage">Check back 30 minutes before takeoff for something special.</span>
+        </div>
+        <span class="pill" id="missionStatus">Locked</span>
+      </article>
     </section>
 
     <footer class="footer">
@@ -655,6 +662,9 @@
       minutes: document.getElementById("minutes"),
       seconds: document.getElementById("seconds")
     };
+    const missionTitle = document.getElementById("missionTitle");
+    const missionMessage = document.getElementById("missionMessage");
+    const missionStatus = document.getElementById("missionStatus");
 
     function updateCountdown() {
       const remaining = Math.max(0, departureTime - Date.now());
@@ -667,6 +677,12 @@
       countdownFields.hours.textContent = String(hours).padStart(2, "0");
       countdownFields.minutes.textContent = String(minutes).padStart(2, "0");
       countdownFields.seconds.textContent = String(seconds).padStart(2, "0");
+
+      if (remaining <= 1800000) {
+        missionTitle.textContent = "Your Boarding Mission";
+        missionMessage.textContent = "When scanning your boarding pass to enter, tell the gate agent \"I'm going to Vegas for my bachelor party, I can't believe it's finally happening.\"";
+        missionStatus.textContent = "Unlocked";
+      }
     }
 
     window.addEventListener("resize", resizeCanvas);
