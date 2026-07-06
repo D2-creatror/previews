@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sell, Stay, or Borrow? — Your Decision Tool</title>
+<style>
+  :root{
+    --bg:#F3F1F5;
+    --card:#FFFFFF;
+    --ink:#2A2730;
+    --muted:#6E6A78;
+    --faint:#948FA0;
+    --line:rgba(42,39,48,0.12);
+    --line-strong:rgba(42,39,48,0.22);
+
+    --p1:#1D6FA5;   /* Sell */
+    --p1-soft:rgba(29,111,165,0.08);
+    --p1-mid:rgba(29,111,165,0.16);
+
+    --p2:#2E8B4F;   /* Stay - cash flow */
+    --p2-soft:rgba(46,139,79,0.08);
+    --p2-mid:rgba(46,139,79,0.16);
+
+    --p3:#7B4FA8;   /* Stay - HELOC */
+    --p3-soft:rgba(123,79,168,0.08);
+    --p3-mid:rgba(123,79,168,0.16);
+
+    --good:#2E8B4F;
+    --warn:#A87A1E;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --serif: Georgia, "Times New Roman", serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#1E1B24;
+      --card:#272330;
+      --ink:#EFEBF5;
+      --muted:#B4AEC2;
+      --faint:#847E93;
+      --line:rgba(239,235,245,0.12);
+      --line-strong:rgba(239,235,245,0.22);
+      --p1:#4E9BD6;
+      --p1-soft:rgba(78,155,214,0.12);
+      --p1-mid:rgba(78,155,214,0.22);
+      --p2:#3FA466;
+      --p2-soft:rgba(63,164,102,0.12);
+      --p2-mid:rgba(63,164,102,0.22);
+      --p3:#A57ED4;
+      --p3-soft:rgba(165,126,212,0.12);
+      --p3-mid:rgba(165,126,212,0.22);
+      --good:#3FA466;
+      --warn:#C99A3E;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1E1B24; --card:#272330; --ink:#EFEBF5; --muted:#B4AEC2; --faint:#847E93;
+    --line:rgba(239,235,245,0.12); --line-strong:rgba(239,235,245,0.22);
+    --p1:#4E9BD6; --p1-soft:rgba(78,155,214,0.12); --p1-mid:rgba(78,155,214,0.22);
+    --p2:#3FA466; --p2-soft:rgba(63,164,102,0.12); --p2-mid:rgba(63,164,102,0.22);
+    --p3:#A57ED4; --p3-soft:rgba(165,126,212,0.12); --p3-mid:rgba(165,126,212,0.22);
+    --good:#3FA466; --warn:#C99A3E;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+
+  header{padding:56px 20px 32px;text-align:center;}
+  header .eyebrow{
+    font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin:0 0 14px;
+  }
+  header h1{
+    font-family:var(--serif);
+    font-size:clamp(28px,5vw,42px);
+    margin:0 0 16px;
+    text-wrap:balance;
+  }
+  header p{
+    max-width:60ch; margin:0 auto; color:var(--muted); font-size:17px;
+  }
+
+  section{padding:36px 20px;}
+
+  .panel{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:24px 26px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  h2{font-family:var(--serif); font-size:24px; margin:0 0 6px;}
+  .sub{color:var(--muted); font-size:15px; margin:0 0 20px; max-width:65ch;}
+
+  /* input grid */
+  .inputs-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:16px 20px;
+  }
+  .field label{
+    display:block; font-size:13px; color:var(--muted); margin-bottom:6px; font-weight:600;
+  }
+  .field .hint{font-size:12px; color:var(--faint); margin-top:4px;}
+  .field .inputrow{
+    display:flex; align-items:center;
+    border:1.5px solid var(--line-strong);
+    border-radius:10px;
+    background:var(--bg);
+    overflow:hidden;
+  }
+  .field .prefix{padding:0 10px; color:var(--faint); font-family:var(--mono); font-size:14px;}
+  .field input[type=number]{
+    width:100%; border:none; background:transparent; padding:10px 10px 10px 0;
+    font-family:var(--mono); font-size:15px; color:var(--ink);
+    -moz-appearance:textfield;
+  }
+  .field input[type=number]:focus{outline:2px solid var(--p3); outline-offset:-2px;}
+  .field input[type=number]::-webkit-outer-spin-button,
+  .field input[type=number]::-webkit-inner-spin-button{ margin-left:6px; }
+  .field .suffix{padding:0 10px; color:var(--faint); font-size:13px;}
+
+  /* path cards */
+  .path-card{
+    border-radius:18px;
+    border:1.5px solid var(--line-strong);
+    background:var(--card);
+    overflow:hidden;
+    margin-bottom:28px;
+  }
+  .path-head{
+    padding:22px 26px 18px;
+    display:flex; align-items:flex-start; gap:16px;
+    border-bottom:1px solid var(--line);
+  }
+  .path-badge{
+    flex:none; width:44px; height:44px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px; color:#fff;
+  }
+  .p1 .path-badge{background:var(--p1);}
+  .p2 .path-badge{background:var(--p2);}
+  .p3 .path-badge{background:var(--p3);}
+  .path-head h3{margin:0 0 4px; font-family:var(--serif); font-size:21px;}
+  .path-head p{margin:0; color:var(--muted); font-size:15px; max-width:60ch;}
+
+  .path-body{padding:22px 26px;}
+  .path-body .inputs-grid{margin-bottom:22px;}
+
+  .results-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:16px;
+  }
+  .result-tile{background:var(--card); padding:16px 16px 14px;}
+  .result-tile .big{
+    font-family:var(--mono); font-weight:700; font-size:22px;
+    font-variant-numeric:tabular-nums;
+  }
+  .p1 .result-tile .big{color:var(--p1);}
+  .p2 .result-tile .big{color:var(--p2);}
+  .p3 .result-tile .big{color:var(--p3);}
+  .result-tile .lbl{font-size:12.5px; color:var(--muted); margin-top:4px;}
+
+  .story{
+    font-size:16.5px;
+    line-height:1.6;
+    margin:0 0 22px;
+    padding:18px 20px 8px;
+    border-radius:12px;
+  }
+  .p1 .story{background:var(--p1-soft); border:1px solid var(--p1-mid);}
+  .p2 .story{background:var(--p2-soft); border:1px solid var(--p2-mid);}
+  .p3 .story{background:var(--p3-soft); border:1px solid var(--p3-mid);}
+  .story b{font-variant-numeric:tabular-nums;}
+  .p1 .story b{color:var(--p1);}
+  .p2 .story b{color:var(--p2);}
+  .p3 .story b{color:var(--p3);}
+
+  .flow-intro{font-size:16px; margin:0 0 14px;}
+  .flow-group-lbl{
+    font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--muted); font-weight:700; margin:18px 0 4px;
+  }
+  .flow-group-lbl:first-of-type{margin-top:0;}
+  .flow-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:14px; padding:7px 0; font-size:15px; border-bottom:1px solid var(--line);
+  }
+  .flow-row:last-child{border-bottom:none;}
+  .flow-row .flabel{color:var(--muted);}
+  .flow-row .fval{
+    font-family:var(--mono); font-variant-numeric:tabular-nums;
+    font-weight:600; color:var(--ink); white-space:nowrap;
+  }
+  .flow-row.cost .fval{color:var(--critical);}
+  .flow-row.total{border-top:1.5px solid var(--line-strong); border-bottom:none; margin-top:2px; padding-top:11px;}
+  .flow-row.total .flabel{color:var(--ink); font-weight:600;}
+  .p1 .flow-row.total .fval{color:var(--p1); font-size:17px;}
+  .p2 .flow-row.total .fval{color:var(--p2); font-size:17px;}
+  .p3 .flow-row.total .fval{color:var(--p3); font-size:17px;}
+  .flow-note{
+    font-size:14px; color:var(--muted); margin:16px 0 0;
+    padding-top:12px; border-top:1px dashed var(--line);
+  }
+
+  .goal-summary{
+    display:flex; align-items:flex-start; gap:10px;
+    font-size:15px; font-weight:600; line-height:1.5;
+    padding:14px 18px; border-radius:10px; margin:0 0 20px;
+  }
+  .goal-summary .check{flex:none; font-size:15px;}
+  .p1 .goal-summary{background:var(--p1-mid); color:var(--p1);}
+  .p2 .goal-summary{background:var(--p2-mid); color:var(--p2);}
+  .p3 .goal-summary{background:var(--p3-mid); color:var(--p3);}
+  .goal-summary.warn{background:rgba(168,122,30,0.14); color:var(--warn);}
+
+  details.adjust{margin-top:4px;}
+  details.adjust summary{
+    cursor:pointer; list-style:none; display:inline-flex; align-items:center; gap:8px;
+    font-size:13.5px; font-weight:600; color:var(--muted);
+    padding:9px 16px; border:1px dashed var(--line-strong); border-radius:10px;
+    background:var(--bg); user-select:none;
+  }
+  details.adjust summary::-webkit-details-marker{display:none;}
+  details.adjust summary::after{content:"▾"; margin-left:2px; font-size:11px; transition:transform .15s ease;}
+  details.adjust[open] summary::after{transform:rotate(-180deg);}
+  details.adjust summary:hover{color:var(--ink); border-color:var(--faint);}
+  details.adjust .inputs-grid{margin-top:18px;}
+
+  .lever-banner{
+    position:relative;
+    border-radius:18px;
+    padding:30px 32px 26px;
+    background:linear-gradient(135deg, var(--p2-soft), var(--p3-soft));
+    border:1.5px solid var(--line-strong);
+    overflow:hidden;
+  }
+  .lever-banner::before{
+    content:"";
+    position:absolute; top:0; left:0; right:0; height:6px;
+    background:linear-gradient(90deg, var(--p2), var(--p3));
+  }
+  .lever-chips{display:flex; gap:8px; margin:0 0 14px;}
+  .chip{
+    display:inline-flex; align-items:center;
+    padding:4px 12px; border-radius:999px;
+    font-size:12px; font-weight:700; color:#fff; letter-spacing:0.02em;
+  }
+  .chip.p2{background:var(--p2);}
+  .chip.p3{background:var(--p3);}
+  .lever-banner h2{
+    font-size:26px; margin:0 0 8px; display:flex; align-items:center; gap:12px;
+  }
+  .lever-banner .lever-emoji{font-size:28px; line-height:1;}
+  .lever-banner .sub{margin-bottom:24px; font-size:15.5px; max-width:60ch;}
+  .lever-banner .inputs-grid{
+    background:var(--card); border:1px solid var(--line-strong);
+    border-radius:14px; padding:22px 24px;
+  }
+
+  /* comparison */
+  .compare-table{width:100%; border-collapse:collapse; font-size:14.5px;}
+  .compare-table th, .compare-table td{
+    text-align:left; padding:12px 14px; border-bottom:1px solid var(--line);
+  }
+  .compare-table th{font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted);}
+  .compare-table td.num{font-family:var(--mono); font-variant-numeric:tabular-nums;}
+  .dot{display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:8px; vertical-align:-1px;}
+  .dot.p1{background:var(--p1);} .dot.p2{background:var(--p2);} .dot.p3{background:var(--p3);}
+  .table-scroll{overflow-x:auto;}
+
+  /* recommendation */
+  .reco{
+    background:linear-gradient(180deg, var(--p3-soft), transparent 60%);
+    border:1.5px solid var(--p3-mid);
+    border-radius:18px;
+    padding:28px 30px;
+  }
+  .reco h2{margin-bottom:14px;}
+  .reco p{max-width:70ch;}
+  .reco .steps{margin:18px 0 0; padding-left:0; list-style:none;}
+  .reco .steps li{
+    display:flex; gap:12px; padding:10px 0; border-top:1px solid var(--line);
+  }
+  .reco .steps li:first-child{border-top:none;}
+  .reco .steps .n{
+    flex:none; width:26px; height:26px; border-radius:50%;
+    background:var(--p3); color:#fff; font-size:13px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  footer{padding:30px 20px 60px; text-align:center; color:var(--faint); font-size:12.5px;}
+  footer p{max-width:60ch; margin:0 auto;}
+
+  .reset-btn{
+    display:inline-block; margin-top:8px; font-size:13px; color:var(--muted);
+    background:none; border:1px solid var(--line-strong); border-radius:8px;
+    padding:8px 14px; cursor:pointer; font-family:var(--sans);
+  }
+  .reset-btn:hover{border-color:var(--faint); color:var(--ink);}
+
+  .path-card{scroll-margin-top:24px;}
+
+  /* quiz */
+  .quiz-panel{
+    background:var(--card);
+    border:1.5px solid var(--line-strong);
+    border-radius:18px;
+    padding:28px 30px;
+  }
+  .quiz-step-lbl{
+    font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint);
+    font-weight:700; margin:0 0 10px;
+  }
+  .quiz-question{
+    font-family:var(--serif); font-size:21px; margin:0 0 20px; text-wrap:balance;
+  }
+  .quiz-options{display:flex; flex-wrap:wrap; gap:12px;}
+  .quiz-opt{
+    flex:1 1 220px;
+    text-align:left;
+    padding:16px 18px;
+    border:1.5px solid var(--line-strong);
+    border-radius:12px;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:15px;
+    cursor:pointer;
+    transition:border-color .12s ease, transform .08s ease;
+  }
+  .quiz-opt:hover{border-color:var(--p3); transform:translateY(-1px);}
+  .quiz-opt:focus-visible{outline:2px solid var(--p3); outline-offset:2px;}
+
+  .quiz-result{
+    border-radius:14px;
+    padding:20px 22px;
+  }
+  .quiz-result.r1{background:var(--p1-soft); border:1.5px solid var(--p1-mid);}
+  .quiz-result.r2{background:var(--p2-soft); border:1.5px solid var(--p2-mid);}
+  .quiz-result.r3{background:var(--p3-soft); border:1.5px solid var(--p3-mid);}
+  .quiz-result h3{margin:0 0 8px; font-family:var(--serif); font-size:20px;}
+  .quiz-result p{margin:0 0 16px; font-size:15px;}
+  .quiz-jump{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:10px 18px; border-radius:10px; border:none;
+    font-size:14px; font-weight:600; color:#fff; cursor:pointer;
+    text-decoration:none;
+  }
+  .r1 .quiz-jump{background:var(--p1);}
+  .r2 .quiz-jump{background:var(--p2);}
+  .r3 .quiz-jump{background:var(--p3);}
+  .quiz-restart{
+    display:block; margin-top:14px; font-size:13px; color:var(--muted);
+    background:none; border:none; cursor:pointer; text-decoration:underline; padding:0;
+    font-family:var(--sans);
+  }
+  .quiz-restart:hover{color:var(--ink);}
+
+  .quiz-result-steps{margin:14px 0 0; padding-left:20px; font-size:14px;}
+  .quiz-result-steps li{margin-bottom:6px;}
+  .quiz-actions{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:16px;}
+
+  /* Focus mode: once the quiz gives a verdict, hide everything except the
+     recommended option until the reader explicitly asks to compare all three. */
+  body[data-focus]:not([data-show-all]) .full-breakdown{ display:none; }
+  body[data-focus="1"]:not([data-show-all]) section[data-option="2"],
+  body[data-focus="1"]:not([data-show-all]) section[data-option="3"],
+  body[data-focus="2"]:not([data-show-all]) section[data-option="1"],
+  body[data-focus="2"]:not([data-show-all]) section[data-option="3"],
+  body[data-focus="3"]:not([data-show-all]) section[data-option="1"],
+  body[data-focus="3"]:not([data-show-all]) section[data-option="2"]{ display:none; }
+  body[data-focus]:not([data-show-all]) #expandPromptSection{ display:block !important; }
+
+  @media (max-width:600px){
+    .path-head{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Your money, your call</p>
+  <h1>Sell the house, stay and cut back, or borrow to fix it?</h1>
+  <p>You have $50,000 in credit card debt and want a $30,000 safety cushion. There are three real ways to get there. Change any number below to match your real numbers — everything on this page updates as you type.</p>
+</header>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="quiz-panel" id="quizPanel"></div>
+  </div>
+</section>
+
+<section class="full-breakdown">
+  <div class="wrap">
+    <div class="panel">
+      <h2>Or dig into the numbers yourself</h2>
+      <p class="sub">These feed every option below. Use your real figures — this whole page is just a calculator, nothing is saved or sent anywhere.</p>
+      <div class="inputs-grid">
+        <div class="field">
+          <label for="ccDebt">Credit card debt</label>
+          <div class="inputrow"><span class="prefix">$</span><input type="number" id="ccDebt" value="50000" step="500"></div>
+        </div>
+        <div class="field">
+          <label for="ccApr">Credit card interest rate</label>
+          <div class="inputrow"><input type="number" id="ccApr" value="26" step="0.5"><span class="suffix">% APR</span></div>
+        </div>
+        <div class="field">
+          <label for="ccMin">Current minimum card payment</label>
+          <div class="inputrow"><span class="prefix">$</span><input type="number" id="ccMin" value="1500" step="50"></div>
+        </div>
+        <div class="field">
+          <label for="savingsGoal">Savings cushion goal</label>
+          <div class="inputrow"><span class="prefix">$</span><input type="number" id="savingsGoal" value="30000" step="500"></div>
+        </div>
+        <div class="field">
+          <label for="curMortgage">Current mortgage payment</label>
+          <div class="inputrow"><span class="prefix">$</span><input type="number" id="curMortgage" value="3000" step="50"></div>
+          <div class="hint">Your normal monthly P&amp;I + tax + insurance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH 1 -->
+<section data-option="1">
+  <div class="wrap">
+    <div class="path-card p1" id="option1">
+      <div class="path-head">
+        <div class="path-badge">🏡</div>
+        <div>
+          <h3>Option 1 — Sell &amp; Reset</h3>
+          <p>Sell your current home, buy a cheaper one, and use the cash to wipe out the debt and fund your savings on closing day.</p>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="story" id="p1Story"></div>
+        <div class="results-row" id="p1Results"></div>
+        <div class="goal-summary" id="p1Goal"></div>
+
+        <details class="adjust">
+          <summary>✏️ Adjust these numbers</summary>
+          <div class="inputs-grid">
+            <div class="field">
+              <label for="p1HomeValue">Your home's value</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="p1HomeValue" value="620000" step="5000"></div>
+            </div>
+            <div class="field">
+              <label for="p1MortgageBal">What you still owe on it</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="p1MortgageBal" value="390000" step="5000"></div>
+            </div>
+            <div class="field">
+              <label for="p1SellCostPct">Cost to sell (agent fees etc.)</label>
+              <div class="inputrow"><input type="number" id="p1SellCostPct" value="6" step="0.5"><span class="suffix">%</span></div>
+            </div>
+            <div class="field">
+              <label for="p1NewPrice">New home's price</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="p1NewPrice" value="435000" step="5000"></div>
+            </div>
+            <div class="field">
+              <label for="p1DownPayment">Down payment on new home</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="p1DownPayment" value="120000" step="5000"></div>
+            </div>
+            <div class="field">
+              <label for="p1BuyCostPct">Cost to buy (closing costs)</label>
+              <div class="inputrow"><input type="number" id="p1BuyCostPct" value="2.25" step="0.25"><span class="suffix">%</span></div>
+            </div>
+            <div class="field">
+              <label for="p1Rate">New mortgage rate</label>
+              <div class="inputrow"><input type="number" id="p1Rate" value="6.5" step="0.125"><span class="suffix">% APR</span></div>
+            </div>
+            <div class="field">
+              <label for="p1OtherMonthly">New taxes + HOA + insurance</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="p1OtherMonthly" value="429" step="10"></div>
+              <div class="hint">Everything besides principal &amp; interest</div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARED LEVERS -->
+<section class="full-breakdown">
+  <div class="wrap">
+    <div class="lever-banner">
+      <div class="lever-chips">
+        <span class="chip p2">Option 2</span>
+        <span class="chip p3">Option 3</span>
+      </div>
+      <h2><span class="lever-emoji">💡</span> Two moves that free up cash, if you stay</h2>
+      <p class="sub">Both options that keep your house lean on these same two changes. Make them regardless of which one you pick — they cost nothing and help either way.</p>
+      <div class="inputs-grid">
+        <div class="field">
+          <label for="mortgageLever">Extra cash from fixing mortgage schedule</label>
+          <div class="inputrow"><span class="prefix">$</span><input type="number" id="mortgageLever" value="250" step="25">/mo</div>
+          <div class="hint">e.g. switching from bi-weekly back to monthly payments</div>
+        </div>
+        <div class="field">
+          <label for="rentPerPerson">Rent from each person at home</label>
+          <div class="inputrow"><span class="prefix">$</span><input type="number" id="rentPerPerson" value="800" step="25"></div>
+        </div>
+        <div class="field">
+          <label for="numRenters"># of people paying rent</label>
+          <div class="inputrow"><input type="number" id="numRenters" value="2" step="1" min="0"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH 2 -->
+<section data-option="2">
+  <div class="wrap">
+    <div class="path-card p2" id="option2">
+      <div class="path-head">
+        <div class="path-badge">🏠</div>
+        <div>
+          <h3>Option 2 — Stay &amp; Cut Back</h3>
+          <p>Keep the house exactly as-is. Use the freed-up cash to pay off the cards the slow way, at their full interest rate, then build savings after.</p>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="story" id="p2Story"></div>
+        <div class="results-row" id="p2Results"></div>
+        <div class="goal-summary" id="p2Goal"></div>
+
+        <details class="adjust">
+          <summary>✏️ Adjust these numbers</summary>
+          <div class="inputs-grid">
+            <div class="field">
+              <label for="starterFund">Starter safety fund before attacking debt</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="starterFund" value="7400" step="100"></div>
+              <div class="hint">A small buffer built first, before the big push</div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATH 3 -->
+<section data-option="3">
+  <div class="wrap">
+    <div class="path-card p3" id="option3">
+      <div class="path-head">
+        <div class="path-badge">🏦</div>
+        <div>
+          <h3>Option 3 — Stay &amp; Borrow Smarter</h3>
+          <p>Keep the house. Borrow against your equity at a much lower rate to pay off the cards immediately, then repay that cheaper loan over time.</p>
+        </div>
+      </div>
+      <div class="path-body">
+        <div class="story" id="p3Story"></div>
+        <div class="results-row" id="p3Results"></div>
+        <div class="goal-summary" id="p3Goal"></div>
+
+        <details class="adjust">
+          <summary>✏️ Adjust these numbers</summary>
+          <div class="inputs-grid">
+            <div class="field">
+              <label for="helocAmount">Amount to borrow</label>
+              <div class="inputrow"><span class="prefix">$</span><input type="number" id="helocAmount" value="50000" step="1000"></div>
+              <div class="hint">Match your card debt, or borrow a bit more to fund savings instantly too</div>
+            </div>
+            <div class="field">
+              <label for="helocRate">Rate on this loan</label>
+              <div class="inputrow"><input type="number" id="helocRate" value="9" step="0.25"><span class="suffix">% APR</span></div>
+              <div class="hint">Get a real quote — this is an estimate</div>
+            </div>
+            <div class="field">
+              <label for="helocTerm">Loan term</label>
+              <div class="inputrow"><input type="number" id="helocTerm" value="10" step="1"><span class="suffix">years</span></div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expandPromptSection" style="display:none;">
+  <div class="wrap" style="text-align:center;">
+    <button class="reset-btn js-show-all-btn" id="showAllBtn">Show me all 3 ways, side by side →</button>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="full-breakdown">
+  <div class="wrap">
+    <div class="panel">
+      <h2>Side by side</h2>
+      <p class="sub">Same two goals, three different roads. Here's what each one actually costs and how long it takes.</p>
+      <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Option</th><th>Months until safe*</th><th>What it costs you</th><th>Keeps your house?</th></tr>
+          </thead>
+          <tbody id="compareBody"></tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px;color:var(--faint);margin-top:10px;">*"Safe" means both goals met: no more high-interest debt, and your full savings cushion in the bank.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDATION -->
+<section class="full-breakdown">
+  <div class="wrap">
+    <div class="reco">
+      <h2>Our general take, in more detail</h2>
+      <p><strong>Don't sell the house to fix this.</strong> Selling costs tens of thousands of dollars in fees just to move — that's an expensive way to solve a debt problem you can solve for a fraction of the cost without leaving home. Keep Option 1 on the table only if you want to move for its own sake, not as a way to pay off cards.</p>
+      <p><strong>Borrowing against your home at a much lower rate (Option 3) is very likely your best move</strong> — start with an amount close to your actual card debt, not more. It clears the expensive 26% debt immediately, and the freed-up cash builds your safety cushion far faster than gritting it out at the card's full interest rate (Option 2). Do the two shared cash-flow moves either way — they cost nothing and help every option.</p>
+      <p>Two numbers on this page are estimates, not facts yet: the rate you'd actually get on a home equity loan, and whether the extra rent is something everyone living with you has actually agreed to. Confirm both before committing to a plan.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><span>Have the actual conversation about rent with everyone at home this week — a real agreement, not an announcement.</span></li>
+        <li><span class="n">2</span><span>Call your bank or a local credit union and ask what a fixed home equity loan would actually cost you — the rate and the fees.</span></li>
+        <li><span class="n">3</span><span>Switch your mortgage back to a standard monthly payment — it's free money either way.</span></li>
+        <li><span class="n">4</span><span>Once you have a real loan quote, come back to this page and plug in the real numbers to see your true timeline.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>This page is a planning calculator built from your own numbers — it isn't financial, legal, or tax advice. Get real quotes before making any decision. Edit any field above; nothing here is saved or sent anywhere, it all runs in your browser.</p>
+</footer>
+
+<script>
+function $(id){ return document.getElementById(id); }
+function num(id){ const v = parseFloat($(id).value); return isNaN(v) ? 0 : v; }
+function fmt$(v){
+  const r = Math.round(v);
+  return (r<0?'-$':'$') + Math.abs(r).toLocaleString();
+}
+function fmtMonths(m){
+  if (!isFinite(m)) return "never";
+  if (m <= 0) return "already there";
+  if (m < 1) return "under 1 mo";
+  return (Math.round(m*10)/10) + " mo";
+}
+
+function frow(label, val, cls){
+  return `<div class="flow-row ${cls||''}"><span class="flabel">${label}</span><span class="fval">${val}</span></div>`;
+}
+function fgroup(label){
+  return `<div class="flow-group-lbl">${label}</div>`;
+}
+
+function monthlyPI(principal, aprPct, years){
+  const r = aprPct/100/12;
+  const n = years*12;
+  if (principal <= 0) return 0;
+  if (r === 0) return principal/n;
+  const f = Math.pow(1+r, n);
+  return principal * r * f / (f - 1);
+}
+
+// Simulates N whole months of a loan at a fixed payment. Returns ending balance + interest paid.
+function amortizeMonths(balance, aprPct, payment, months){
+  const r = aprPct/100/12;
+  let bal = balance, interest = 0;
+  for (let i=0;i<months;i++){
+    if (bal <= 0) break;
+    const int = bal*r;
+    interest += int;
+    bal = bal + int - payment;
+    if (bal < 0) bal = 0;
+  }
+  return { balance: bal, interest: interest };
+}
+
+// Pays a balance down to zero at a fixed payment, returns fractional months + interest.
+function payoffSim(balance, aprPct, payment, cap){
+  cap = cap || 600;
+  const r = aprPct/100/12;
+  let bal = balance, interest = 0, month = 0;
+  if (payment <= bal*r) return { months: Infinity, interest: Infinity };
+  while (bal > 0.01 && month < cap){
+    const int = bal*r;
+    const newBal = bal + int - payment;
+    if (newBal <= 0){
+      const needed = bal + int;
+      const frac = payment > 0 ? needed/payment : 1;
+      interest += int*frac;
+      month += frac;
+      bal = 0;
+      break;
+    } else {
+      interest += int;
+      bal = newBal;
+      month += 1;
+    }
+  }
+  return { months: month, interest: interest };
+}
+
+function render(){
+  const ccDebt = num('ccDebt');
+  const ccApr = num('ccApr');
+  const ccMin = num('ccMin');
+  const savingsGoal = num('savingsGoal');
+  const curMortgage = num('curMortgage');
+  const curTotalObligation = curMortgage + ccMin;
+
+  // ---------- PATH 1 ----------
+  const homeValue = num('p1HomeValue');
+  const mortgageBal = num('p1MortgageBal');
+  const sellCostPct = num('p1SellCostPct');
+  const newPrice = num('p1NewPrice');
+  const downPayment = num('p1DownPayment');
+  const buyCostPct = num('p1BuyCostPct');
+  const p1Rate = num('p1Rate');
+  const p1Other = num('p1OtherMonthly');
+
+  const sellCost = homeValue * sellCostPct/100;
+  const netProceeds = homeValue - sellCost - mortgageBal;
+  const buyCost = newPrice * buyCostPct/100;
+  const cashAfterCosts = netProceeds - downPayment - buyCost;
+  const toSavingsAtClosing = Math.max(0, cashAfterCosts - ccDebt);
+  const loanAmount = Math.max(0, newPrice - downPayment);
+  const p1PI = monthlyPI(loanAmount, p1Rate, 30);
+  const p1Total = p1PI + p1Other;
+  const p1MonthlySavingsCapacity = curTotalObligation - p1Total;
+  const p1DebtCleared = cashAfterCosts >= ccDebt;
+  let p1MonthsToGoal;
+  if (!p1DebtCleared) {
+    p1MonthsToGoal = Infinity; // proceeds don't even cover the debt
+  } else if (toSavingsAtClosing >= savingsGoal) {
+    p1MonthsToGoal = 0;
+  } else if (p1MonthlySavingsCapacity <= 0) {
+    p1MonthsToGoal = Infinity;
+  } else {
+    p1MonthsToGoal = (savingsGoal - toSavingsAtClosing) / p1MonthlySavingsCapacity;
+  }
+  const p1TotalFriction = sellCost + buyCost;
+
+  $('p1Results').innerHTML = `
+    <div class="result-tile"><div class="big">${fmtMonths(p1MonthsToGoal)}</div><div class="lbl">Until both goals are met</div></div>
+    <div class="result-tile"><div class="big">${fmt$(p1Total)}</div><div class="lbl">New monthly payment</div></div>
+    <div class="result-tile"><div class="big">${fmt$(p1TotalFriction)}</div><div class="lbl">Cost just to make this move</div></div>
+  `;
+  $('p1Goal').innerHTML = p1DebtCleared
+    ? `<span class="check">✓</span><span>Clears all <b>${fmt$(ccDebt)}</b> in debt the moment you close, and finishes your full <b>${fmt$(savingsGoal)}</b> cushion about <b>${fmtMonths(p1MonthsToGoal)}</b> after that.</span>`
+    : `<span class="check">⚠</span><span>Doesn't fully clear your <b>${fmt$(ccDebt)}</b> in debt with these numbers — adjust them below.</span>`;
+  $('p1Goal').className = p1DebtCleared ? 'goal-summary' : 'goal-summary warn';
+  $('p1Story').innerHTML = p1DebtCleared
+    ? `
+      <p class="flow-intro">Here's what happens on closing day, step by step:</p>
+      ${fgroup('Selling your home')}
+      ${frow('Sell price', fmt$(homeValue))}
+      ${frow('Selling costs ('+sellCostPct+'%)', '–'+fmt$(sellCost), 'cost')}
+      ${frow('Pay off your mortgage', '–'+fmt$(mortgageBal), 'cost')}
+      ${frow('Cash in your pocket', fmt$(netProceeds), 'total')}
+      ${fgroup('Where that cash goes')}
+      ${frow('Down payment on the new home', '–'+fmt$(downPayment))}
+      ${frow('Pay off the credit cards', '–'+fmt$(ccDebt))}
+      ${frow('Left over for savings, day one', fmt$(toSavingsAtClosing), 'total')}
+      ${fgroup('Your new monthly bill')}
+      ${frow('Today: mortgage', fmt$(curMortgage))}
+      ${frow('Today: card minimum', fmt$(ccMin))}
+      ${frow('Today: total', fmt$(curTotalObligation), 'total')}
+      ${frow('New payment (no more cards)', fmt$(p1Total), 'total')}
+      <p class="flow-note">The catch: it costs about <b>${fmt$(p1TotalFriction)}</b> just in selling and buying fees, and you have to actually move.</p>
+    `
+    : `
+      <p class="flow-intro">With these numbers, selling doesn't quite work:</p>
+      ${frow('Down payment', '–'+fmt$(downPayment))}
+      ${frow('Fees', '–'+fmt$(sellCost+buyCost), 'cost')}
+      ${frow('Left for the cards', fmt$(Math.max(0,cashAfterCosts)))}
+      ${frow('Cards owed', fmt$(ccDebt), 'total')}
+      <p class="flow-note">You'd need a smaller down payment, a higher sale price, or a cheaper new home for this option to fully cover the cards.</p>
+    `;
+
+  // ---------- SHARED LEVERS ----------
+  const mortgageLever = num('mortgageLever');
+  const rentPerPerson = num('rentPerPerson');
+  const numRenters = num('numRenters');
+  const newCashFlow = mortgageLever + (rentPerPerson*numRenters);
+
+  // ---------- PATH 2 ----------
+  const starterFund = num('starterFund');
+  const stageAmonths = newCashFlow > 0 ? Math.max(1, Math.ceil(starterFund/newCashFlow)) : Infinity;
+  let p2TotalMonths, p2TotalInterest;
+  let attackPayment = 0, stageBmonths = 0, stageCmonths = 0;
+  if (!isFinite(stageAmonths)){
+    p2TotalMonths = Infinity; p2TotalInterest = Infinity;
+  } else {
+    const stageA = amortizeMonths(ccDebt, ccApr, ccMin, stageAmonths);
+    attackPayment = ccMin + newCashFlow;
+    const stageB = payoffSim(stageA.balance, ccApr, attackPayment);
+    const remainingSavingsNeeded = Math.max(0, savingsGoal - starterFund);
+    stageCmonths = attackPayment > 0 ? remainingSavingsNeeded/attackPayment : Infinity;
+    stageBmonths = stageB.months;
+    p2TotalMonths = stageAmonths + stageB.months + stageCmonths;
+    p2TotalInterest = stageA.interest + stageB.interest;
+  }
+
+  $('p2Results').innerHTML = `
+    <div class="result-tile"><div class="big">${fmtMonths(p2TotalMonths)}</div><div class="lbl">Until both goals are met</div></div>
+    <div class="result-tile"><div class="big">${fmt$(newCashFlow)}/mo</div><div class="lbl">New cash flow freed up</div></div>
+    <div class="result-tile"><div class="big">${isFinite(p2TotalInterest)?fmt$(p2TotalInterest):'—'}</div><div class="lbl">Interest lost to the card company</div></div>
+  `;
+  $('p2Goal').innerHTML = isFinite(p2TotalMonths)
+    ? `<span class="check">✓</span><span>Clears all <b>${fmt$(ccDebt)}</b> in debt about <b>${fmtMonths(stageAmonths+stageBmonths)}</b> from now, then finishes your full <b>${fmt$(savingsGoal)}</b> cushion about <b>${fmtMonths(p2TotalMonths)}</b> from now — no new debt.</span>`
+    : `<span class="check">⚠</span><span>Doesn't move forward with no extra cash flow — add your numbers below.</span>`;
+  $('p2Goal').className = isFinite(p2TotalMonths) ? 'goal-summary' : 'goal-summary warn';
+  const rentTotal = rentPerPerson*numRenters;
+  $('p2Story').innerHTML = isFinite(p2TotalMonths)
+    ? `
+      <p class="flow-intro">No new debt, no moving — just three stages:</p>
+      ${fgroup('Free up cash, starting now')}
+      ${frow('Switch mortgage to monthly', '+'+fmt$(mortgageLever)+'/mo')}
+      ${frow(numRenters+' '+(numRenters===1?'person pays':'people pay')+' rent ('+fmt$(rentPerPerson)+' each)', '+'+fmt$(rentTotal)+'/mo')}
+      ${frow('New breathing room', fmt$(newCashFlow)+'/mo', 'total')}
+      ${fgroup('Stage 1 — Build a starter cushion ('+fmtMonths(stageAmonths)+')')}
+      ${frow('Save the new '+fmt$(newCashFlow)+'/mo', 'reach '+fmt$(starterFund))}
+      ${fgroup('Stage 2 — Pay off the cards ('+fmtMonths(stageBmonths)+' more)')}
+      ${frow('Card minimum', fmt$(ccMin)+'/mo')}
+      ${frow('Plus the cash freed up', '+'+fmt$(newCashFlow)+'/mo')}
+      ${frow('Total attack', fmt$(attackPayment)+'/mo', 'total')}
+      ${frow('Interest paid along the way (gone forever)', fmt$(p2TotalInterest), 'cost')}
+      ${fgroup('Stage 3 — Finish the cushion ('+fmtMonths(stageCmonths)+' more)')}
+      ${frow('Same '+fmt$(attackPayment)+'/mo now goes to savings', 'reach '+fmt$(savingsGoal))}
+    `
+    : `<p class="flow-intro">With no extra cash flow from the mortgage switch or rent, this path can't move forward on its own — add those numbers below to see a real timeline.</p>`;
+
+  // ---------- PATH 3 ----------
+  const helocAmount = num('helocAmount');
+  const helocRate = num('helocRate');
+  const helocTerm = num('helocTerm');
+  const helocPayment = monthlyPI(helocAmount, helocRate, helocTerm);
+  const extraFundedInstantly = Math.max(0, helocAmount - ccDebt);
+  const freedFromCC = ccMin - helocPayment; // could be negative
+  const totalMonthlyForSavings = newCashFlow + freedFromCC;
+  const remainingSavingsNeeded3 = Math.max(0, savingsGoal - extraFundedInstantly);
+  let monthsToSavings3;
+  if (remainingSavingsNeeded3 <= 0) monthsToSavings3 = 0;
+  else if (totalMonthlyForSavings <= 0) monthsToSavings3 = Infinity;
+  else monthsToSavings3 = remainingSavingsNeeded3/totalMonthlyForSavings;
+
+  let p3TotalInterest, p3TotalMonths;
+  if (!isFinite(monthsToSavings3)){
+    p3TotalInterest = Infinity; p3TotalMonths = Infinity;
+  } else {
+    const wholeMonths = Math.round(monthsToSavings3);
+    const stage1 = amortizeMonths(helocAmount, helocRate, helocPayment, wholeMonths);
+    const attackPayment3 = helocPayment + Math.max(0, totalMonthlyForSavings);
+    const stage2 = payoffSim(stage1.balance, helocRate, attackPayment3);
+    p3TotalInterest = stage1.interest + stage2.interest;
+    p3TotalMonths = wholeMonths + stage2.months;
+  }
+  const debtClearedInstantly = helocAmount >= ccDebt;
+
+  $('p3Results').innerHTML = `
+    <div class="result-tile"><div class="big">${fmtMonths(monthsToSavings3)}</div><div class="lbl">Until your cushion is full</div></div>
+    <div class="result-tile"><div class="big">${fmt$(helocPayment)}</div><div class="lbl">New required loan payment</div></div>
+    <div class="result-tile"><div class="big">${isFinite(p3TotalInterest)?fmt$(p3TotalInterest):'—'}</div><div class="lbl">Total interest, whole payoff</div></div>
+  `;
+  $('p3Goal').innerHTML = debtClearedInstantly
+    ? `<span class="check">✓</span><span>Clears all <b>${fmt$(ccDebt)}</b> in card debt the same day the loan funds, and finishes your full <b>${fmt$(savingsGoal)}</b> cushion in about <b>${fmtMonths(monthsToSavings3)}</b>. The <b>${fmt$(helocAmount)}</b> loan itself takes about <b>${fmtMonths(p3TotalMonths)}</b> to pay off completely.</span>`
+    : `<span class="check">⚠</span><span>Doesn't fully clear your <b>${fmt$(ccDebt)}</b> in debt — increase the amount you borrow below.</span>`;
+  $('p3Goal').className = debtClearedInstantly ? 'goal-summary' : 'goal-summary warn';
+  $('p3Story').innerHTML = debtClearedInstantly
+    ? `
+      <p class="flow-intro">Here's the swap, step by step:</p>
+      ${fgroup('Borrow, and clear the cards same-day')}
+      ${frow('Amount you borrow', fmt$(helocAmount))}
+      ${frow('Rate on this loan', helocRate+'%')}
+      ${frow('Your card rate, for comparison', $('ccApr').value+'%', 'cost')}
+      ${extraFundedInstantly>0 ? frow('Extra dropped into savings, day one', fmt$(extraFundedInstantly), 'total') : frow('Pays off your cards', fmt$(ccDebt), 'total')}
+      ${fgroup('Your new monthly numbers')}
+      ${frow('New loan payment', fmt$(helocPayment)+'/mo')}
+      ${frow('Old card minimum it replaces', fmt$(ccMin)+'/mo')}
+      ${frow('Freed up right there', '+'+fmt$(freedFromCC)+'/mo')}
+      ${frow('Plus mortgage switch + rent', '+'+fmt$(newCashFlow)+'/mo')}
+      ${frow('Total freed up for savings', fmt$(Math.max(0,totalMonthlyForSavings))+'/mo', 'total')}
+      ${fgroup('Where that lands')}
+      ${frow('Full '+fmt$(savingsGoal)+' cushion reached', fmtMonths(monthsToSavings3))}
+      ${frow('Loan fully paid off', fmtMonths(p3TotalMonths))}
+      ${frow('Total interest, whole payoff', isFinite(p3TotalInterest)?fmt$(p3TotalInterest):'—', 'cost')}
+      <p class="flow-note">One thing to remember: this money is borrowed against your house, so the new payment isn't optional the way a credit card minimum can flex in a pinch.</p>
+    `
+    : `
+      <p class="flow-intro">This amount won't clear everything:</p>
+      ${frow('Amount you entered to borrow', fmt$(helocAmount))}
+      ${frow('Your card debt', fmt$(ccDebt), 'total')}
+      <p class="flow-note">Increase the amount to at least ${fmt$(ccDebt)} to pay the cards off in full.</p>
+    `;
+
+  // ---------- COMPARISON ----------
+  $('compareBody').innerHTML = `
+    <tr>
+      <td><span class="dot p1"></span>Option 1 — Sell &amp; Reset</td>
+      <td class="num">${fmtMonths(p1MonthsToGoal)}</td>
+      <td class="num">${fmt$(p1TotalFriction)} in fees</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><span class="dot p2"></span>Option 2 — Stay &amp; Cut Back</td>
+      <td class="num">${fmtMonths(p2TotalMonths)}</td>
+      <td class="num">${isFinite(p2TotalInterest)?fmt$(p2TotalInterest)+' in interest':'—'}</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><span class="dot p3"></span>Option 3 — Stay &amp; Borrow Smarter</td>
+      <td class="num">${fmtMonths(monthsToSavings3)}</td>
+      <td class="num">${isFinite(p3TotalInterest)?fmt$(p3TotalInterest)+' in interest':'—'}</td>
+      <td>Yes</td>
+    </tr>
+  `;
+}
+
+document.querySelectorAll('input').forEach(function(el){
+  el.addEventListener('input', render);
+});
+render();
+
+// ---------- GUIDED QUIZ ----------
+const quizSteps = {
+  move: {
+    q: "Setting the debt aside for a second — do you actually want to move to a different home?",
+    opts: [
+      { label: "Yes, I'd like a change", next: "res_move" },
+      { label: "No, I'd rather stay put", next: "collateral" }
+    ]
+  },
+  collateral: {
+    q: "Are you comfortable using your home as collateral for a loan — meaning if things went wrong, the house (not just your credit score) would be on the line?",
+    opts: [
+      { label: "No, that feels too risky", next: "res_cutback" },
+      { label: "Yes, if the rate is good", next: "rate" }
+    ]
+  },
+  rate: {
+    q: "Can you get a fixed home equity loan quote from a bank or credit union around 8–10% APR?",
+    opts: [
+      { label: "Yes, that's realistic", next: "res_borrow" },
+      { label: "Not sure yet", next: "res_getquote" }
+    ]
+  }
+};
+
+const quizResults = {
+  res_move: {
+    cls: "r1",
+    recommendedOption: 1,
+    title: "Take a close look at Option 1",
+    body: "If you genuinely want a different home, selling can work — just go in knowing it's the most expensive of the three ways to clear this debt, mainly because of moving and transaction costs.",
+    steps: [
+      "Get your home appraised and talk to an agent about a realistic sale price and timeline.",
+      "Get a real mortgage quote for the new home, including actual closing costs — this page uses an estimate.",
+      "Come back and adjust the numbers below once you have real quotes."
+    ],
+    jumpTo: "option1", jumpLabel: "See Option 1 ↓"
+  },
+  res_cutback: {
+    cls: "r2",
+    recommendedOption: 2,
+    title: "Option 2 is your path",
+    body: "Staying and cutting back keeps your house completely out of it — nothing is used as collateral. It takes longer and costs more in interest along the way, but it's the lowest-risk route.",
+    steps: [
+      "Call your mortgage servicer and switch back to standard monthly payments — this is free money either way.",
+      "Have the actual conversation with everyone at home about paying rent — a real agreement, not an announcement.",
+      "Once both are in place, throw everything extra at the credit cards first, before saving."
+    ],
+    jumpTo: "option2", jumpLabel: "See Option 2 ↓"
+  },
+  res_borrow: {
+    cls: "r3",
+    recommendedOption: 3,
+    title: "Option 3 is very likely your best move",
+    body: "Keeping the house and borrowing against it at a much lower rate clears the expensive debt fastest, for the least total cost.",
+    steps: [
+      "Call a bank or credit union and get a real fixed-rate home equity loan quote in writing — the rate below is only an estimate.",
+      "Have the actual conversation with everyone at home about paying rent — a real agreement, not an announcement.",
+      "Switch your mortgage back to standard monthly payments — free money either way.",
+      "Once you have a real loan quote, come back and adjust the numbers below to see your true timeline."
+    ],
+    jumpTo: "option3", jumpLabel: "See Option 3 ↓"
+  },
+  res_getquote: {
+    cls: "r2",
+    recommendedOption: 2,
+    title: "Get that loan quote first — here's your fallback in the meantime",
+    body: "The rate you can actually get is the one number that decides between Option 2 and Option 3. You haven't confirmed it yet, so this isn't a final answer — it's what to plan around until you do.",
+    steps: [
+      "Call a bank or credit union this week and ask for a fixed-rate home equity loan quote.",
+      "In the meantime, switch to standard monthly mortgage payments and start the rent conversation at home — both are free moves either way.",
+      "Once you have a real rate, check Option 3 below — if it lands under about 10%, it likely beats this fallback plan."
+    ],
+    jumpTo: "option2", jumpLabel: "See Option 2 (the fallback) ↓"
+  }
+};
+
+let quizState = "move";
+let quizHistory = [];
+
+function toggleShowAll(){
+  const body = document.body;
+  if (body.hasAttribute('data-show-all')) body.removeAttribute('data-show-all');
+  else body.setAttribute('data-show-all', 'true');
+  updateShowAllLabel();
+}
+
+function updateShowAllLabel(){
+  const showingAll = document.body.hasAttribute('data-show-all');
+  document.querySelectorAll('.js-show-all-btn').forEach(function(btn){
+    btn.textContent = showingAll
+      ? "← Focus back on just my recommended option"
+      : "Show me all 3 ways, side by side →";
+  });
+}
+
+function renderQuiz(){
+  const panel = document.getElementById('quizPanel');
+  if (quizSteps[quizState]){
+    const step = quizSteps[quizState];
+    const stepNum = quizHistory.length + 1;
+    panel.innerHTML = `
+      <p class="quiz-step-lbl">Not sure where to start? — Question ${stepNum} of 3</p>
+      <p class="quiz-question">${step.q}</p>
+      <div class="quiz-options">
+        ${step.opts.map((o,i) => `<button class="quiz-opt" data-next="${o.next}">${o.label}</button>`).join('')}
+      </div>
+      ${quizHistory.length > 0 ? `<button class="quiz-restart" id="quizBack">← Back</button>` : ''}
+    `;
+    panel.querySelectorAll('.quiz-opt').forEach(btn=>{
+      btn.addEventListener('click', function(){
+        quizHistory.push(quizState);
+        quizState = btn.getAttribute('data-next');
+        renderQuiz();
+      });
+    });
+    const backBtn = document.getElementById('quizBack');
+    if (backBtn) backBtn.addEventListener('click', function(){
+      quizState = quizHistory.pop();
+      renderQuiz();
+    });
+  } else {
+    const res = quizResults[quizState];
+    document.body.removeAttribute('data-show-all');
+    document.body.setAttribute('data-focus', res.recommendedOption);
+    panel.innerHTML = `
+      <p class="quiz-step-lbl">Our take, based on your answers</p>
+      <div class="quiz-result ${res.cls}">
+        <h3>${res.title}</h3>
+        <p>${res.body}</p>
+        <ol class="quiz-result-steps">
+          ${res.steps.map(s => `<li>${s}</li>`).join('')}
+        </ol>
+        <div class="quiz-actions">
+          <a class="quiz-jump" href="#${res.jumpTo}">${res.jumpLabel}</a>
+          <button class="quiz-restart js-show-all-btn" style="text-decoration:none;border:1px solid var(--line-strong);border-radius:8px;padding:8px 14px;">Show me all 3 ways, side by side →</button>
+        </div>
+      </div>
+      <button class="quiz-restart" id="quizRestart">Start over</button>
+    `;
+    panel.querySelectorAll('.js-show-all-btn').forEach(function(btn){
+      btn.addEventListener('click', toggleShowAll);
+    });
+    document.getElementById('quizRestart').addEventListener('click', function(){
+      quizState = "move";
+      quizHistory = [];
+      document.body.removeAttribute('data-focus');
+      document.body.removeAttribute('data-show-all');
+      renderQuiz();
+    });
+  }
+}
+renderQuiz();
+
+document.getElementById('showAllBtn').addEventListener('click', toggleShowAll);
+</script>
+
+</body>
+</html>
