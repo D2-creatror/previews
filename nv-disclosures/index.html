@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>When to Give Which Disclosure — Kerry Denniss</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --charcoal: #2D2D2D;
+    --muted: #6B7280;
+    --muted-light: #9CA3AF;
+    --cream: #F5F0E8;
+    --cream-light: #FAF7F2;
+    --white: #FFFFFF;
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --gold-dark: #A07840;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--cream-light);
+    color: var(--charcoal);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--black);
+    margin: 0;
+  }
+  .container { max-width: 780px; margin: 0 auto; padding: 0 1.5rem; }
+  .section { padding: 4rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.75rem;
+  }
+  .gold-rule { display: block; width: 64px; height: 1px; background: var(--gold); margin: 1.25rem 0; }
+
+  header.hero {
+    background: var(--black);
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+  header.hero .container { max-width: 680px; }
+  header.hero .eyebrow { color: var(--gold); }
+  header.hero h1 {
+    color: var(--cream);
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  header.hero .gold-rule { margin-left: auto; margin-right: auto; }
+  header.hero p {
+    color: var(--muted-light);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 1.5rem auto 0;
+  }
+
+  .disclaimer {
+    border: 1px solid rgba(201,169,110,0.3);
+    background: rgba(201,169,110,0.06);
+    padding: 1.25rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  .disclaimer b { color: var(--black); }
+
+  /* Flow chart */
+  .flow { display: flex; flex-direction: column; }
+  .flow-step {
+    flex: 1;
+    border: 1px solid var(--cream);
+    background: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .flow-step .n { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); }
+  .flow-step h3 { font-size: 1.15rem; }
+  .flow-step p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .flow-arrow {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.5rem;
+    padding: 0.5rem 0;
+    transform: rotate(90deg);
+  }
+  @media (min-width: 768px) {
+    .flow { flex-direction: row; align-items: stretch; }
+    .flow-arrow { transform: none; padding: 0 0.5rem; }
+  }
+
+  /* Stage headers */
+  .stage-block { margin-bottom: 3.5rem; }
+  .stage-head { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .stage-head .n { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); }
+  .stage-head h2 { font-size: 1.4rem; }
+  .stage-badge {
+    margin-left: auto;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    background: var(--black); color: var(--cream);
+  }
+  .stage-badge.light { background: var(--cream); color: var(--charcoal); }
+  .stage-note { color: var(--muted); font-size: 0.92rem; margin: 0 0 1.5rem; }
+
+  .situational-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
+  .situational-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); }
+
+  /* Form cards */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--cream);
+    box-shadow: 0 4px 32px -4px rgba(10,10,10,0.10);
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .card.dashed { border-style: dashed; border-color: rgba(201,169,110,0.4); }
+  .card-top { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .tag {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+    padding: 0.2rem 0.6rem;
+    background: var(--black); color: var(--cream);
+  }
+  .tag.optional { background: var(--cream); color: var(--charcoal); }
+  .card-top h3 { font-size: 1.05rem; }
+  .badge {
+    margin-left: auto;
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    background: rgba(201,169,110,0.12); color: var(--gold-dark);
+  }
+  .why { font-style: italic; margin: 0 0 0.4rem; }
+  .why b {
+    font-style: normal; font-family: 'DM Sans', sans-serif; text-transform: uppercase;
+    font-size: 0.68rem; letter-spacing: 0.08em; color: var(--gold); margin-right: 0.4rem;
+  }
+  .who { color: var(--muted); font-size: 0.88rem; margin: 0 0 0.25rem; }
+  .when { font-weight: 700; margin: 0 0 0.4rem; }
+  .note { color: var(--charcoal); font-size: 0.9rem; margin: 0 0 0.4rem; }
+  .links {
+    margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--cream);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem;
+  }
+  .cite { color: var(--muted); font-size: 0.85rem; }
+  .links a {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold); text-decoration: underline; text-underline-offset: 4px;
+  }
+  .links a:hover { color: var(--gold-dark); }
+  .no-form { color: var(--muted-light); font-size: 0.85rem; font-style: italic; }
+
+  /* Additional forms callout */
+  .callout {
+    border: 1px solid rgba(201,169,110,0.3);
+    background: rgba(201,169,110,0.06);
+    padding: 1.75rem;
+  }
+  .callout p { font-size: 0.92rem; }
+  .callout a {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold); text-decoration: underline; text-underline-offset: 4px;
+  }
+
+  footer { border-top: 1px solid var(--cream); padding: 2.5rem 0; }
+  footer p { font-size: 0.88rem; }
+  footer a { color: var(--gold); text-decoration: underline; text-underline-offset: 4px; }
+  footer .muted { color: var(--muted-light); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <p class="eyebrow">Working Reference — Not Public</p>
+    <h1>When to Give Which Disclosure</h1>
+    <span class="gold-rule"></span>
+    <p>Nevada's required buyer/seller disclosures, ordered by where you actually are in the transaction — not by form number.</p>
+  </div>
+</header>
+
+<section class="section-sm">
+  <div class="container">
+    <div class="disclaimer">
+      <b>Not legal advice.</b> Built from current NRS text and NRED forms — cross-check anything deadline-critical with your broker or Form 622 (linked below) before relying on it in a live transaction. Verified <b>Jul 21, 2026</b>.
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" style="padding-top:0;">
+  <div class="container">
+    <p class="eyebrow">At a Glance</p>
+    <div class="flow">
+      <div class="flow-step">
+        <span class="n">01</span>
+        <h3>First Contact</h3>
+        <p>Form 525 — Duties Owed</p>
+      </div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">
+        <span class="n">02</span>
+        <h3>Brokerage Agreement</h3>
+        <p>Buyer Brokerage Agreement &middot; 524 &middot; 525A</p>
+      </div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">
+        <span class="n">03</span>
+        <h3>Under Contract</h3>
+        <p>Form 547 &middot; check situational triggers</p>
+      </div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step">
+        <span class="n">04</span>
+        <h3>Closing</h3>
+        <p>654 &middot; 657</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Stage 1 -->
+    <div class="stage-block">
+      <div class="stage-head">
+        <span class="n">01</span>
+        <h2>First contact</h2>
+        <span class="stage-badge">Before any agreement is signed</span>
+      </div>
+      <p class="stage-note">The moment a prospect becomes specific — you're discussing a property or writing terms with them — this form is due, client or not.</p>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag">525</span>
+          <h3>Duties Owed by a Nevada Real Estate Licensee</h3>
+          <span class="badge">Hard deadline</span>
+        </div>
+        <p class="why"><b>Why</b>It puts in writing, before anyone says something they'd only want their own agent to hear, whether you're their advocate or just facilitating the deal.</p>
+        <p class="who">Give to: every party — clients and unrepresented customers.</p>
+        <p class="when">When: NRED's own regulation is explicit — "as soon as practicable but no later than the date and time on which any written document is signed," which includes a listing agreement, purchase agreement, lease, property management agreement, letter of intent, or buyer brokerage agreement.</p>
+        <p class="note">One signed copy per transaction file is enough — the listing side keeps the seller's, the buyer side keeps the buyer's. Get a signature acknowledging receipt; if they refuse to sign, note the refusal and date rather than skipping the form.</p>
+        <div class="links">
+          <span class="cite">NRS 645.252 &middot; NAC 645.637</span>
+          <a href="525_Duties_Owed.pdf" target="_blank" rel="noopener">Open Form 525 &#8599;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage-block">
+      <div class="stage-head">
+        <span class="n">02</span>
+        <h2>Entering the brokerage agreement</h2>
+        <span class="stage-badge">Listing or buyer-rep signing</span>
+      </div>
+      <p class="stage-note">The agreement itself is the main event here — Consent to Act only triggers if you or your brokerage will represent both sides of the same deal.</p>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag optional">GLVAR</span>
+          <h3>Buyer Brokerage Representation Agreement</h3>
+          <span class="badge">Sign before showing property</span>
+        </div>
+        <p class="why"><b>Why</b>Without it you're working unpaid and unprotected — it locks in that the buyer owes you a fee for the work you're about to do, so you don't tour houses for months and lose the commission to a procuring-cause dispute.</p>
+        <p class="who">Give to: buyer clients — this is the actual engagement contract (exclusive or non-exclusive), not a NRED disclosure.</p>
+        <p class="when">When: before you're acting on the buyer's behalf under a fee agreement — i.e. at or before the first showing.</p>
+        <p class="note">Confirmed current as of a fresh Transaction Desk pull: still Revised 10.24 — no newer version was issued for AB 258 (written brokerage agreements mandatory as of Oct 2025). Not hosted here, since it's a copyrighted GLVAR member form — pull it fresh from Transaction Desk rather than an old saved copy.</p>
+        <div class="links">
+          <a href="https://pr.transactiondesk.com" target="_blank" rel="noopener">Open Transaction Desk &#8599;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag">524</span>
+          <h3>Consent to Act (dual / multiple representation)</h3>
+          <span class="badge">Before you act for both sides</span>
+        </div>
+        <p class="why"><b>Why</b>Representing both sides is an inherent conflict of interest — this is the written permission to let you continue anyway, obtained before it can taint the negotiation.</p>
+        <p class="who">Give to: both parties, only when one brokerage represents buyer and seller (or two clients on the same deal).</p>
+        <p class="when">When: signed by everyone before you write or present an offer in that dual capacity.</p>
+        <div class="links">
+          <span class="cite">NRS 645.252</span>
+          <a href="524_Consent_to_Act.pdf" target="_blank" rel="noopener">Open Form 524 &#8599;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag">525A</span>
+          <h3>Supplemental List of Licensees</h3>
+          <span class="badge">Attachment</span>
+        </div>
+        <p class="why"><b>Why</b>Same protection as Form 525, just scaled — every extra licensee touching the file needs to be on the record as covered by that same duties disclosure.</p>
+        <p class="who">Use when: more than two licensees at your brokerage are party to the same Duties Owed disclosure — e.g. a team transaction.</p>
+        <p class="when">When: filed alongside Form 525, same timing.</p>
+        <div class="links">
+          <a href="525A_Duties_Owed_Supplemental_List.pdf" target="_blank" rel="noopener">Open Form 525A &#8599;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="stage-block">
+      <div class="stage-head">
+        <span class="n">03</span>
+        <h2>Under contract</h2>
+        <span class="stage-badge">10 days before closing</span>
+      </div>
+      <p class="stage-note">The seller-side disclosure clock starts running the moment you're in escrow.</p>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag">547</span>
+          <h3>Seller's Real Property Disclosure</h3>
+          <span class="badge">10-day deadline</span>
+        </div>
+        <p class="why"><b>Why</b>It shifts liability. A seller who discloses a known defect in writing generally can't be sued over it later; one who stays quiet — or lets you stay quiet for them — can be.</p>
+        <p class="who">Seller completes &rarr; serves on buyer or buyer's agent.</p>
+        <p class="when">When: at least 10 days before conveyance (close of escrow).</p>
+        <p class="note">If a defect turns up — or worsens — after the form is served but before closing, disclose it in writing as soon as practicable, no later than conveyance. Deliver it late or not at all, and the buyer generally gets a right to rescind.</p>
+        <div class="links">
+          <span class="cite">NRS 113.130 &middot; NRS 113.150</span>
+          <a href="547_Sellers_Real_Property_Disclosure.pdf" target="_blank" rel="noopener">Open Form 547 &#8599;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Situational -->
+    <div class="stage-block">
+      <div class="situational-head">
+        <span class="situational-dot"></span>
+        <h2>Situational — only if the property triggers it</h2>
+      </div>
+      <p class="stage-note">These aren't universal, but each one is easy to forget precisely because it's conditional. Check every listing against this list at intake.</p>
+
+      <div class="card dashed">
+        <div class="card-top">
+          <span class="tag optional">551</span>
+          <h3>Open Range Disclosure</h3>
+          <span class="badge">If adjacent to open range</span>
+        </div>
+        <p class="why"><b>Why</b>Buyers unfamiliar with rural Nevada can be blindsided by roaming livestock wandering onto their new property — this forces the conversation before they own the problem.</p>
+        <p class="who">Trigger: property borders or is near unfenced open range land (common in rural NV).</p>
+        <p class="when">When: at or before the purchase agreement is signed.</p>
+        <div class="links">
+          <a href="551_Open_Range_Disclosure.pdf" target="_blank" rel="noopener">Open Form 551 &#8599;</a>
+        </div>
+      </div>
+
+      <div class="card dashed">
+        <div class="card-top">
+          <span class="tag optional">610</span>
+          <h3>Manufactured Home Disclosure</h3>
+          <span class="badge">If selling a manufactured home</span>
+        </div>
+        <p class="why"><b>Why</b>Manufactured homes carry different title, financing, and inspection rules than site-built homes — this flags that distinction before the buyer assumes it's a conventional purchase.</p>
+        <p class="who">Trigger: the property is a manufactured or mobile home.</p>
+        <p class="when">When: at or before the offer is written.</p>
+        <div class="links">
+          <a href="610_Manufactured_Home_Disclosure.pdf" target="_blank" rel="noopener">Open Form 610 &#8599;</a>
+        </div>
+      </div>
+
+      <div class="card dashed">
+        <div class="card-top">
+          <span class="tag optional">Federal</span>
+          <h3>Lead-Based Paint Disclosure + EPA pamphlet</h3>
+          <span class="badge">If built before 1978</span>
+        </div>
+        <p class="why"><b>Why</b>Federal law, not optional — skip it and both you and the seller can be held personally liable, including treble damages, whether or not lead paint actually turns out to be present.</p>
+        <p class="who">Trigger: any residential property built before 1978 — this is federal law, not a NRED form, so it's easy to miss on this state list.</p>
+        <p class="when">When: before the buyer becomes contractually obligated. Buyer gets a 10-day window to test for lead paint unless waived in writing.</p>
+        <div class="links">
+          <span class="cite">42 U.S.C. &sect; 4852d</span>
+          <a href="Federal_Lead_Based_Paint_Disclosure.pdf" target="_blank" rel="noopener">Open disclosure form &#8599;</a>
+          <a href="EPA_Protect_Your_Family_From_Lead.pdf" target="_blank" rel="noopener">Open EPA pamphlet &#8599;</a>
+        </div>
+      </div>
+
+      <div class="card dashed">
+        <div class="card-top">
+          <span class="tag optional">HOA</span>
+          <h3>Common-Interest Community Resale Package</h3>
+          <span class="badge">If in an HOA / CIC</span>
+        </div>
+        <p class="why"><b>Why</b>The buyer is inheriting the HOA's rules, debts, and pending lawsuits sight-unseen without it — and receiving it starts their statutory window to walk away if what's inside changes their mind.</p>
+        <p class="who">Trigger: property sits in an HOA or common-interest community. Order it the day you go under contract — it's usually the longest pole in the tent.</p>
+        <p class="when">When: association must furnish it within 10 days of a written request; the package stays valid 90 days. Buyer typically has 5 days to cancel after receiving it.</p>
+        <div class="links">
+          <span class="cite">NRS 116.4109 &middot; NRS 116.41095</span>
+          <span class="no-form">Not a static form — ordered directly from the HOA or its management company.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closing -->
+    <div class="stage-block">
+      <div class="stage-head">
+        <span class="n">04</span>
+        <h2>At or after closing</h2>
+        <span class="stage-badge light">Owner-initiated, not deal-blocking</span>
+      </div>
+      <p class="stage-note">Not disclosures to the other party — good post-closing value-adds for your client.</p>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag optional">654</span>
+          <h3>Declaration of Homestead</h3>
+          <span class="badge">Optional, buyer's own protection</span>
+        </div>
+        <p class="why"><b>Why</b>Shields a chunk of home equity from most creditors — a five-minute filing that's easy to forget once the closing excitement is over.</p>
+        <p class="who">Filed by: the new owner, with the County Recorder, after taking title.</p>
+        <p class="when">When: anytime after closing — worth mentioning to every buyer as a follow-up.</p>
+        <div class="links">
+          <a href="654_Declaration_of_Homestead.pdf" target="_blank" rel="noopener">Open Form 654 &#8599;</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <span class="tag optional">657</span>
+          <h3>Restrictive Covenant Modification</h3>
+          <span class="badge">If old deed has unlawful language</span>
+        </div>
+        <p class="why"><b>Why</b>Strikes now-illegal discriminatory language out of the chain of title — matters for client comfort and, at some lenders/title companies, is required before a future resale will clear.</p>
+        <p class="who">Trigger: title work surfaces discriminatory covenant language in an older deed or CC&amp;Rs.</p>
+        <p class="when">When: filed with the County Recorder as needed — not on a transaction clock.</p>
+        <div class="links">
+          <a href="657_Restrictive_Covenant_Modification.pdf" target="_blank" rel="noopener">Open Form 657 &#8599;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional forms -->
+    <div class="callout">
+      <p class="eyebrow">Everything Else</p>
+      <h2 style="font-size:1.4rem; margin-bottom:0.75rem;">Additional GLVAR Forms</h2>
+      <p>Purchase agreements, listing agreements, addenda, and the rest of the association's form library aren't reproduced here — they're copyrighted GLVAR member forms, and the copy on file is only ever as current as the day it was pulled. Go straight to the source for whatever isn't on this page.</p>
+      <a href="https://pr.transactiondesk.com" target="_blank" rel="noopener">Open Transaction Desk &#8599;</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><a href="622_Residential_Disclosure_Guide.pdf" target="_blank" rel="noopener">Open Form 622 — Residential Disclosure Guide &#8599;</a> — NRED's own full explainer behind everything on this page.</p>
+    <p class="muted">Sources: <a href="https://red.nv.gov/Content/Forms/Disclosures/" target="_blank" rel="noopener">red.nv.gov</a> &middot; NRS 645, 113, 116</p>
+  </div>
+</footer>
+
+</body>
+</html>
